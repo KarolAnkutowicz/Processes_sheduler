@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2020-11-06T23:18:18
+# Project created by QtCreator 2020-11-16T10:45:02
 #
 #-------------------------------------------------
 
@@ -16,10 +16,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    cshedulingalghorithms.cpp \
-    cprocess.cpp
+    cprocess.cpp \
+    cshedulingalgorithms.cpp
 
 HEADERS += \
-    cshedulingalghorithms.h \
     cprocess.h \
+    cshedulingalgorithms.h \
     constantsandtypes.h
