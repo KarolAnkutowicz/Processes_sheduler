@@ -10,6 +10,9 @@ using namespace std;
  */
 cProcess::cProcess()
 {
+    vTime = 0; // nadanie wartosci poczatkowych
+    vTimeDone = 0;
+    vTimeWillDo = 0;
 }
 
 /*
@@ -17,7 +20,9 @@ cProcess::cProcess()
  */
 cProcess::cProcess(typeTime parTime)
 {
-
+    vTime = parTime; // nadanie wartosci poczatkowych
+    vTimeDone = 0;
+    vTimeWillDo = parTime;
 }
 
 /*
@@ -25,6 +30,7 @@ cProcess::cProcess(typeTime parTime)
  */
 ostream &operator << (ostream &streamOut, cProcess &P)
 {
+    streamOut << P.getVTime();
     return streamOut;
 }
 
@@ -33,36 +39,54 @@ ostream &operator << (ostream &streamOut, cProcess &P)
  */
 void cProcess::setVTime(typeTime parTime)
 {
-
-}
-/*
- * void setVTimeStartOfProcessing(typeTime parTime)
- */
-void cProcess::setVTimeStartOfProcessing(typeTime parTime)
-{
-
+    vTime = parTime; // zmiana wartosci czasu trwania procesu
+    vTimeDone = 0;
+    vTimeWillDo = parTime;
 }
 /*
  * void mDoProcess()
  */
 void cProcess::mDoProcess()
 {
-
+    vTimeDone = vTime; // mija caly czas wykonania procesu
+    vTimeWillDo = 0;
 }
+/*
+ * mIncrementProcessingTime()
+ */
+void cProcess::mIncrementProcessingTime()
+{
+    if (vTimeWillDo > 0) // sprawdzamy czy proces nie jest juz w calosci
+    {                    // wykonany
+        vTimeDone++;
+        vTimeWillDo--;
+    }
+}
+/*
+ * mDoQuantumOfTime(typeTime parTime)
+ */
+void cProcess::mDoQuantumOfTime(typeTime parTime)
+{
+    if (parTime >= vTimeWillDo) // sprawdzamy czy staly kwant czasu nie przekracza
+        mDoProcess();           // wartosci czasu jaka zostala do konca
+    else
+    {
+        vTimeDone += parTime;
+        vTimeWillDo -= parTime;
+    }
+}
+
 /*
  * void mClearProcess()
  */
 void cProcess::mClearProcess()
 {
-
-}
-
-/*
- * typeProcess mCalculateProcessing()
- */
-typeProcess cProcess::mCalculateProcessing()
-{
-    return 0;
+    vTime = 0; // zerowanie wszystkich wartosci
+    vTimeStartOfProcessing = 0;
+    vTimeEndOfProcessing = 0;
+    vTimeProcessing = 0;
+    vTimeDone = 0;
+    vTimeWillDo = 0;
 }
 
 /* cprocess.cpp */
