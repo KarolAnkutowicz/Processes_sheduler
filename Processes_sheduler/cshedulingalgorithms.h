@@ -6,11 +6,14 @@
 
 #include "constantsandtypes.h"
 #include "cprocess.h"
+#include <cstdlib>
+#include <fstream>
+#include <iomanip>
 
 using namespace std;
 
 /*
- *
+ * cShedulingAlgorithms -
  */
 class cShedulingAlgorithms
 {
