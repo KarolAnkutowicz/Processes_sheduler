@@ -125,6 +125,18 @@ public:
         return vTimeEndOfProcessing;
     }
     /*
+     * void setVTimeEndOfProcessing(typeTime parTime) - metoda ustawiajaca
+     * wartosc pola vTimeEndOfProcessing.
+     * PRE:
+     * - podanie nowej wartosci pola vTimeEndOfProcessing.
+     * POST:
+     * - brak.
+     */
+    inline void setVTimeEndOfProcessing(typeTime parTime)
+    {
+        vTimeEndOfProcessing = parTime;
+    }
+    /*
      * getVTimeProcessing() - metoda zwracajaca wartosc pola
      * vTimeProcessing
      * PRE:
