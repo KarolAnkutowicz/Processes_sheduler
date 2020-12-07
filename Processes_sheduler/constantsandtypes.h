@@ -9,11 +9,11 @@ using namespace std;
 /*
  * unsigned short typeTime - zdefiniowanie synonimu typu dla czasu
  */
-typedef unsigned short typeTime;
+typedef unsigned int typeTime;
 /*
  * unsigned int typeProcess - zdefiniowanie synonimu typu dla numeracji procesow
  */
-typedef unsigned int typeProcess;
+typedef unsigned short typeProcess;
 
 /*
  * typeTime constMaxTime - podanie zakresu do losowanie czasu trwania procesu
@@ -22,7 +22,7 @@ const typeTime constMaxTime = 20;
 /*
  * typeTime constQuantumOfTime - staly kwant czasu
  */
-const typeTime constQuantumOfTime = 2;
+//const typeTime constQuantumOfTime = 2;
 /*
  * typeProcess constProcesses - liczba procesow w jednym ciagu
  */

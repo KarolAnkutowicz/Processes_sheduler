@@ -56,7 +56,7 @@ void cProcess::mDoProcess()
  */
 void cProcess::mIncrementProcessingTime()
 {
-    if (vTimeWillDo > 0) // sprawdzamy czy proces nie jest juz w calosci
+    if (vTimeWillDo > 1) // sprawdzamy czy proces nie jest juz w calosci
     {                    // wykonany
         vTimeDone++;
         vTimeWillDo--;
@@ -65,7 +65,7 @@ void cProcess::mIncrementProcessingTime()
 /*
  * mDoQuantumOfTime(typeTime parTime)
  */
-void cProcess::mDoQuantumOfTime(typeTime parTime)
+/*void cProcess::mDoQuantumOfTime(typeTime parTime)
 {
     if (parTime >= vTimeWillDo) // sprawdzamy czy staly kwant czasu nie przekracza
         mDoProcess();           // wartosci czasu jaka zostala do konca
@@ -74,7 +74,7 @@ void cProcess::mDoQuantumOfTime(typeTime parTime)
         vTimeDone += parTime;
         vTimeWillDo -= parTime;
     }
-}
+}*/
 
 /*
  * void mClearProcess()
@@ -84,9 +84,9 @@ void cProcess::mClearProcess()
     vTime = 0; // zerowanie wszystkich wartosci
     vTimeStartOfProcessing = 0;
     vTimeEndOfProcessing = 0;
-    vTimeProcessing = 0;
     vTimeDone = 0;
     vTimeWillDo = 0;
+    mCalculateProcessing();
 }
 
 /* cprocess.cpp */

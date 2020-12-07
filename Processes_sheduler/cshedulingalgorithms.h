@@ -51,7 +51,7 @@ public:
     /*
      * void mRoundRobin() -
      */
-    void mRoundRobin();
+    //void mRoundRobin();
 
     /*
      * getProcess(typeProcess parSeries, typeProcess parProcesses) -
@@ -70,7 +70,7 @@ public:
     /*
      * getAverageTotalTimesDoing(typeProcess parSeries) -
      */
-    inline typeTime getAverageTotalTimesDoing(typeProcess parSeries)
+    inline double getAverageTotalTimesDoing(typeProcess parSeries)
     {
         return tableAverageTimesDoing[parSeries];
     }
@@ -84,7 +84,7 @@ public:
     /*
      * getAverageTimesProcessing(typeProcess parSeries) -
      */
-    inline typeTime getAverageTimesProcessing(typeProcess parSeries)
+    inline double getAverageTimesProcessing(typeProcess parSeries)
     {
         return tableAverageTimesProcessing[parSeries];
     }

@@ -198,7 +198,7 @@ public:
      * POST:
      * - brak.
      */
-    void mDoQuantumOfTime(typeTime parTime);
+    //void mDoQuantumOfTime(typeTime parTime);
     /*
      * mClearProcess() - metoda "czyszczaca" proces.
      * PRE:

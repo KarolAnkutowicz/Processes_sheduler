@@ -60,10 +60,10 @@ void cShedulingAlgorithms::mSheduling()
 /*
  * void mRoundRobin()
  */
-void cShedulingAlgorithms::mRoundRobin()
+/*void cShedulingAlgorithms::mRoundRobin()
 {
     //
-}
+}*/
 
 /*
  * void mClearAllTotalTimesDoing()
@@ -188,7 +188,7 @@ void cShedulingAlgorithms::mDrawProcesses()
 {
     typeTime vT;
     mClearAllSeries(); // czyszczeni tablicy
-    srand(time_t(NULL) + (typeProcess)&constProcesses); // generowanie liczb losowych
+    srand(time_t(NULL) + (typeTime)&constProcesses); // generowanie liczb losowych
     for (typeProcess i = 0; i < constSeries; i++) // przejscie po wszystkich ciagach
     {
         for (typeProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach
@@ -246,7 +246,7 @@ void cShedulingAlgorithms::mPrintResultsToFile(typeProcess parAlgorithmNumber)
     for (typeProcess i = 0; i < constSeries; i++) // przejscie po wszystkich ciagach
     {
         streamOut << tableAverageTimesDoing[i] << "   " // wypisanie sredniego czasu wykonywania procesu
-                  << tableAverageTimesProcessing << endl; // wykonywanie sredniego czasu calego przetwarzania
+                  << tableAverageTimesProcessing[i] << endl; // wykonywanie sredniego czasu calego przetwarzania
     }
 }
 
