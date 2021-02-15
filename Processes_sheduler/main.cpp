@@ -7,8 +7,6 @@ using namespace std;
 
 int main()
 {
-    cShedulingAlgorithms S;
-
     return 0;
 }
 
