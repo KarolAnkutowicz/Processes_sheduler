@@ -12,5 +12,43 @@ cShedulingAlgorithms::cShedulingAlgorithms()
 {
 }
 
+
+
+/*
+ * mMakeFCFS()
+ */
+void cShedulingAlgorithms::mMakeFCFS()
+{
+}
+
+/*
+ * mMakeLCFS()
+ */
+void cShedulingAlgorithms::mMakeLCFS()
+{
+}
+
+/*
+ * mMakeSJF()
+ */
+void cShedulingAlgorithms::mMakeSJF()
+{
+}
+
+/*
+ * mMakeRR()
+ */
+void cShedulingAlgorithms::mMakeRR()
+{
+}
+
+/*
+ * mMakeSRT()
+ */
+void cShedulingAlgorithms::mMakeSRT()
+{
+}
+
+
 /* cshedulingalgorithms.cpp */
 /********** END_OF_FILE **********/

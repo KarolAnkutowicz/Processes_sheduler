@@ -16,13 +16,14 @@ class cProcess
 {
 public:
     /*
-     * cProcess() - konstruktor wywolywany bez argumentow
+     * cProcess() - konstruktor wywolywany bez argumentow.
      * PRE:
-     * - brak.
+     * - brak;
      * POST:
      * - tworzenie obiektu.
      */
     cProcess();
+
 };
 
 #endif // CPROCESS_H

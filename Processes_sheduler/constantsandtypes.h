@@ -6,6 +6,11 @@
 
 using namespace std;
 
+/*
+ * unsigned int typeTime - zdefiniowany synonim typu
+ */
+typedef unsigned int typeTime;
+
 #endif // CONSTANTSANDTYPES_H
 
 /* constantsandtypes.h */
