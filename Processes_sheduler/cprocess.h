@@ -47,6 +47,7 @@ class cProcess
      * (oczekiwanie + wykonywanie).
      */
     typeTime vTimeProcessing;
+
 public:
     /*
      * cProcess() - konstruktor wywolywany bez argumentow.
@@ -56,6 +57,28 @@ public:
      * - tworzenie obiektu.
      */
     cProcess();
+
+    /*
+     * cProcess(typeTime aTimeDoing) - konstruktor wywolywany
+     * z jednym argumentem - czasem trwania procesu.
+     * PRE:
+     * - czas trwania prcesu (argument: aTimeDoing;
+     * POST:
+     * - tworzenie obiektu.
+     */
+    cProcess(typeTime aTimeDoing);
+
+    /*
+     * cProcess(typeTime aTimeDoing, typeTime aTimeReadiness) -
+     * konstruktor wywolywany z dwoma argumentami - czas trwania
+     * procesu oraz czas potrzebny do gotowosci procesu.
+     * PRE:
+     * - czas trwania procesu (argument: aTimeDoing), czas
+     * oczekiwania na gotowosc procesu (argument: aTimeReadiness);
+     * POST:
+     * - tworzenie obiektu.
+     */
+    cProcess(typeTime aTimeDoing, typeTime aTimeReadiness);
 
 
 

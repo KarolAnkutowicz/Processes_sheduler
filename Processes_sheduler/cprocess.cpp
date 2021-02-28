@@ -12,6 +12,20 @@ cProcess::cProcess()
 {
 }
 
+/*
+ * cProcess(typeTime aTimeDoing)
+ */
+cProcess::cProcess(typeTime aTimeDoing)
+{
+}
+
+/*
+ * cProcess(typeTime aTimeDoing, typeTime aTimeReadiness)
+ */
+cProcess::cProcess(typeTime aTimeDoing, typeTime aTimeReadiness)
+{
+}
+
 
 
 /*
