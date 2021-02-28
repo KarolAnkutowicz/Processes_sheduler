@@ -158,6 +158,54 @@ public:
      * - brak.
      */
     void setTimeDoing(typeTime aTimeDoing);
+
+
+
+    /*
+     * mIncrementTimeWaiting() - metoda inkrementujaca czas
+     * oczekiwania procesu na wykonannie.
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
+     */
+    inline void mIncrementTimeWaiting()
+    {
+        vTimeWaiting++;
+    }
+
+    /*
+     * mIncrementTimeDone() - metoda inkrementujaca czas procesu
+     * jaki zostal juz wykonany.
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
+     */
+    void mIncrementTimeDone();
+
+    /*
+     * mDecrementTimeToDo() - metoda dekrememntujaca czas procesu
+     * jaki zostal do wykonania.
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
+     */
+    void mDecrementTimeToDo();
+
+    /*
+     * mIncrementTimeProcessing() - metoda inkrementujaca czas
+     * calkowitego przetwarzania procesu.
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
+     */
+    inline void mIncrementTimeProcessing()
+    {
+        vTimeProcessing++;
+    }
 };
 
 #endif // CPROCESS_H

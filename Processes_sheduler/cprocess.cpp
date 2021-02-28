@@ -36,5 +36,25 @@ void cProcess::setTimeDoing(typeTime aTimeDoing)
         vTimeDoing = aTimeDoing;
 }
 
+
+
+/*
+ * mIncrementTimeDone()
+ */
+void cProcess::mIncrementTimeDone()
+{
+    if (vTimeDone < vTimeDoing)
+        vTimeDone++;
+}
+
+/*
+ * mDecrementTimeToDo()
+ */
+void cProcess::mDecrementTimeToDo()
+{
+    if (vTimeToDo > 0)
+        vTimeToDo--;
+}
+
 /* cprocess.cpp */
 /********** END_OF_FILE **********/
