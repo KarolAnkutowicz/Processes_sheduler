@@ -6,10 +6,22 @@
 using namespace std;
 
 /*
+typeTime vTimeReadiness;
+typeTime vTimeWaiting;
+typeTime vTimeDoing;
+typeTime vTimeDone;
+typeTime vTimeToDo;
+typeTime vTimeProcessing;
+*/
+
+
+/*
  * cProcess()
  */
 cProcess::cProcess()
 {
+    vTimeReadiness = vTimeWaiting = vTimeDoing = vTimeDone
+            = vTimeToDo = vTimeProcessing = 0;
 }
 
 /*
@@ -17,6 +29,8 @@ cProcess::cProcess()
  */
 cProcess::cProcess(typeTime aTimeDoing)
 {
+    vTimeDoing = vTimeToDo = aTimeDoing;
+    vTimeReadiness = vTimeWaiting = vTimeDone = vTimeProcessing = 0;
 }
 
 /*
@@ -24,6 +38,9 @@ cProcess::cProcess(typeTime aTimeDoing)
  */
 cProcess::cProcess(typeTime aTimeDoing, typeTime aTimeReadiness)
 {
+    vTimeDoing = vTimeToDo = aTimeDoing;
+    vTimeReadiness = aTimeReadiness;
+    vTimeWaiting = vTimeDone = vTimeProcessing = 0;
 }
 
 
