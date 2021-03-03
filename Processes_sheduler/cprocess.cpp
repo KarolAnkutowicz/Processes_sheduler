@@ -46,6 +46,29 @@ cProcess::cProcess(typeTime aTimeDoing, typeTime aTimeReadiness)
 
 
 /*
+ * ostream & operator << (ostream & StreamOut, cProcess P)
+ */
+ostream & operator << (ostream & StreamOut, cProcess P)
+{
+    StreamOut << P.getTimeReadiness() << " " << P.getTimeDoing();
+    return StreamOut;
+}
+
+/*
+ * istream & operator >> (istream & StreamIn, cProcess P)
+ */
+istream & operator >> (istream & StreamIn, cProcess P)
+{
+    typeTime aTimeReadiness, aTimeDoing;
+    StreamIn >> skipws >> aTimeReadiness >> aTimeDoing;
+    P.setTimeReadiness(aTimeReadiness);
+    P.setTimeDoing(aTimeDoing);
+    return StreamIn;
+}
+
+
+
+/*
  * setTimeReadiness(typeTime argTimeReadiness)
  */
 void cProcess::setTimeReadiness(typeTime aTimeReadiness)

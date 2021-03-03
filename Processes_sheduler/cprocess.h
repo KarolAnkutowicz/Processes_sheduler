@@ -5,6 +5,7 @@
 #define CPROCESS_H
 
 #include "constantsandtypes.h"
+#include <iomanip>
 #include <iostream>
 
 using namespace std;
@@ -79,6 +80,26 @@ public:
      * - tworzenie obiektu.
      */
     cProcess(typeTime aTimeDoing, typeTime aTimeReadiness);
+
+
+
+    /*
+     * ostream & operator << (ostream & StreamOut, cProcess P) -
+     * PRE:
+     * - referencja obiektu klasy ostream, obiekt klasy cProcess;
+     * POST:
+     * - referencja do obiektu klasy ostream.
+     */
+    friend ostream & operator << (ostream & StreamOut, cProcess P);
+
+    /*
+     * istream & operator >> (istream & StreamIn, cProcess P) -
+     * PRE:
+     * - referencja obiektu klasy istream, obiekt klasy cProcess;
+     * POST:
+     * - referencja do obiektu klasy istream.
+     */
+    friend istream & operator >> (istream & StreamIn, cProcess P);
 
 
 
