@@ -81,6 +81,15 @@ public:
      */
     cProcess(typeTime aTimeDoing, typeTime aTimeReadiness);
 
+    /*
+     * cProcess(cProcess &P) -
+     * PRE:
+     * - ;
+     * POST:
+     * - .
+     */
+    //cProcess(cProcess &P);
+
 
 
     /*
@@ -100,6 +109,15 @@ public:
      * - referencja do obiektu klasy istream.
      */
     friend istream & operator >> (istream & StreamIn, cProcess P);
+
+    /*
+     * cProcess & operator = (cProcess &P) -
+     * PRE:
+     * - ;
+     * POST:
+     * - .
+     */
+    //cProcess & operator = (cProcess &P);
 
 
 
@@ -250,6 +268,15 @@ public:
     {
         vTimeProcessing++;
     }
+
+    /*
+     * mClearProcess() - metoda zerujaca wszystkie czasy procesu.
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
+     */
+    void mClearProcess();
 };
 
 #endif // CPROCESS_H

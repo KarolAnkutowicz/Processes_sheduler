@@ -43,6 +43,14 @@ cProcess::cProcess(typeTime aTimeDoing, typeTime aTimeReadiness)
     vTimeWaiting = vTimeDone = vTimeProcessing = 0;
 }
 
+/*
+ * cProcess(cProcess &P)
+ */
+/*cProcess::cProcess(cProcess &P)
+{
+
+}*/
+
 
 
 /*
@@ -65,6 +73,14 @@ istream & operator >> (istream & StreamIn, cProcess P)
     P.setTimeDoing(aTimeDoing);
     return StreamIn;
 }
+
+/*
+ * cProcess & operator = (cProcess &P)
+ */
+/*cProcess &  cProcess::operator = (cProcess &P)
+{
+
+}*/
 
 
 
@@ -109,6 +125,16 @@ void cProcess::mDecrementTimeToDo()
     if (vTimeToDo > 0)
         vTimeToDo--;
 }
+
+/*
+ * mClearProcess()
+ */
+void cProcess::mClearProcess()
+{
+    vTimeReadiness = vTimeWaiting = vTimeDoing = vTimeDone
+    = vTimeToDo = vTimeProcessing = 0;
+}
+
 
 /* cprocess.cpp */
 /********** END_OF_FILE **********/
