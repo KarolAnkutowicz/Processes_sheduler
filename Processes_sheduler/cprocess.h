@@ -70,7 +70,7 @@ public:
     cProcess(typeTime aTimeDoing);
 
     /*
-     * cProcess(typeTime aTimeDoing, typeTime aTimeReadiness) -
+     * cProcess(typeTime aTimeReadiness, typeTime aTimeDoing) -
      * konstruktor wywolywany z dwoma argumentami - czas trwania
      * procesu oraz czas potrzebny do gotowosci procesu.
      * PRE:
@@ -79,16 +79,16 @@ public:
      * POST:
      * - tworzenie obiektu.
      */
-    cProcess(typeTime aTimeDoing, typeTime aTimeReadiness);
+    cProcess(typeTime aTimeReadiness, typeTime aTimeDoing);
 
     /*
-     * cProcess(cProcess &P) -
+     * cProcess(cProcess &P) - konstruktor kopiujacy klasy cProcess.
      * PRE:
-     * - ;
+     * - podanie referencji do obiektu (typ: cProcess);
      * POST:
-     * - .
+     * - tworzenie obiektu - kopii obiektu podanego jako argument.
      */
-    //cProcess(cProcess &P);
+    cProcess(cProcess &P);
 
 
 
@@ -109,15 +109,6 @@ public:
      * - referencja do obiektu klasy istream.
      */
     friend istream & operator >> (istream & StreamIn, cProcess P);
-
-    /*
-     * cProcess & operator = (cProcess &P) -
-     * PRE:
-     * - ;
-     * POST:
-     * - .
-     */
-    //cProcess & operator = (cProcess &P);
 
 
 

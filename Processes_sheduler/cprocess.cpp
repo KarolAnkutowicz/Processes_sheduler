@@ -34,22 +34,27 @@ cProcess::cProcess(typeTime aTimeDoing)
 }
 
 /*
- * cProcess(typeTime aTimeDoing, typeTime aTimeReadiness)
+ * cProcess(typeTime aTimeReadiness, typeTime aTimeDoing)
  */
-cProcess::cProcess(typeTime aTimeDoing, typeTime aTimeReadiness)
+cProcess::cProcess(typeTime aTimeReadiness, typeTime aTimeDoing)
 {
-    vTimeDoing = vTimeToDo = aTimeDoing;
     vTimeReadiness = aTimeReadiness;
+    vTimeDoing = vTimeToDo = aTimeDoing;
     vTimeWaiting = vTimeDone = vTimeProcessing = 0;
 }
 
 /*
  * cProcess(cProcess &P)
  */
-/*cProcess::cProcess(cProcess &P)
+cProcess::cProcess(cProcess &P)
 {
-
-}*/
+    vTimeReadiness = P.vTimeReadiness;
+    vTimeWaiting = P.vTimeWaiting;
+    vTimeDoing = P.vTimeDoing;
+    vTimeDone = P.vTimeDone;
+    vTimeToDo = P.vTimeToDo;
+    vTimeProcessing = P.vTimeProcessing;
+}
 
 
 
@@ -73,14 +78,6 @@ istream & operator >> (istream & StreamIn, cProcess P)
     P.setTimeDoing(aTimeDoing);
     return StreamIn;
 }
-
-/*
- * cProcess & operator = (cProcess &P)
- */
-/*cProcess &  cProcess::operator = (cProcess &P)
-{
-
-}*/
 
 
 
