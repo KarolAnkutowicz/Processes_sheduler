@@ -14,11 +14,41 @@ using namespace std;
 
 /*
  * cShedulingAlgorithms - klasa modelujaca algorytmy szeregowania
- * procesow. Zawiera pola i metody realizujace docelowo 4 rozne
- * algorytmy: FCFS, LCFS, SJF i Round-Robin.
+ * procesow. Zawiera pola i metody realizujace docelowo 5 roznych
+ * algorytmow: FCFS, LCFS, SJF, Round-Robin i SRT
  */
 class cShedulingAlgorithms
 {
+    /*
+     * tabProcesses[constSeries][constProcesses] - tablica procesow,
+     * ktore sa przetwarzane przez kolejne algorytmy. Zebrane
+     * w okreslonej liczbie ciagow.
+     */
+    cProcess tabProcesses[constSeries][constProcesses];
+
+    /*
+     * tabTotalTimeDoing[constSeries] - tablica sumarycznych czasow
+     * dzialanie procesow.
+     */
+    typeTime tabTotalTimeDoing[constSeries];
+
+    /*
+     * tabAverageTimeDoing[constSeries] - tablica srednich czasow
+     * dzialanie procesow.
+     */
+    double tabAverageTimeDoing[constSeries];
+
+    /*
+     * tabTotalTimeProcessing[constSeries] - tablica sumarycznych
+     * czasow przetwarzania procesow.
+     */
+    typeTime tabTotalTimeProcessing[constSeries];
+
+    /*
+     * tabAverageTimeProcessing[constSeries] - tablica srednich
+     * czasow przetwarzania procesow.
+     */
+    double tabAverageTimeProcessing[constSeries];
 
 public:
     /*
