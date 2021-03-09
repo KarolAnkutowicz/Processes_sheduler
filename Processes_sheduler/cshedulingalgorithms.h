@@ -117,6 +117,131 @@ public:
      * - brak.
      */
     void mMakeSRT();
+
+
+
+    /*
+     *
+     */
+    void mDrawProcesses();
+    /*
+     *
+     */
+    void mResetProcesses(typeNumberProcess aSeries, typeNumberProcess aProcesses);
+    /*
+     *
+     */
+    void mResetAllProcesses();
+    /*
+     *
+     */
+    void mReadProcessesFromFile();
+    /*
+     *
+     */
+    void mWriteProcessesToFile();
+
+
+
+    /*
+     *
+     */
+    void mSortingAscendingProcesses(typeNumberProcess aSeries);
+    /*
+     *
+     */
+    void mSortingAscendingAllProcesses();
+    /*
+     *
+     */
+    void mSortingDescendingProcesses(typeNumberProcess aSeries);
+    /*
+     *
+     */
+    void mSortingDescendingAllProcesses();
+
+
+
+    /*
+     *
+     */
+    void mResetTotalTimeDoing(typeNumberProcess aSeries);
+    /*
+     *
+     */
+    void mResetAllTotalTimeDoing();
+    /*
+     *
+     */
+    void mCalculateTotalTimeDoing(typeNumberProcess aSeries);
+    /*
+     *
+     */
+    typeTime getTotalTimeDoing(typeNumberProcess aSeries);
+
+
+
+    /*
+     *
+     */
+    void mResetAverageTimeDoing(typeNumberProcess aSeries);
+    /*
+     *
+     */
+    void mResetAllAverageTimeDoing();
+    /*
+     *
+     */
+    void mCalculateAverageTimeDoing(typeNumberProcess aSeries);
+    /*
+     *
+     */
+    typeTime getAverageTimeDoing(typeNumberProcess aSeries);
+
+
+
+    /*
+     *
+     */
+    void mResetTotalTimeProcessing(typeNumberProcess aSeries);
+    /*
+     *
+     */
+    void mResetAllTotalTimeProcessing();
+    /*
+     *
+     */
+    void mCalculateTotalTimeProcessing(typeNumberProcess aSeries);
+    /*
+     *
+     */
+    typeTime getTotalTimeProcessing(typeNumberProcess aSeries);
+
+
+
+    /*
+     *
+     */
+    void mResetAverageTimeProcessing(typeNumberProcess aSeries);
+    /*
+     *
+     */
+    void mResetAllAverageTimeProcessing();
+    /*
+     *
+     */
+    void mCalculateAverageTimeProcessing(typeNumberProcess aSeries);
+    /*
+     *
+     */
+    typeTime getAverageTimeProcessing(typeNumberProcess aSeries);
+
+
+
+    /*
+     *
+     */
+    void mWriteResultsToFile();
 };
 
 #endif // CSHEDULINGALGORITHMS_H
