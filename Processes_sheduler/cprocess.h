@@ -261,13 +261,13 @@ public:
     }
 
     /*
-     * mClearProcess() - metoda zerujaca wszystkie czasy procesu.
+     * mResetProcess() - metoda zerujaca wszystkie czasy procesu.
      * PRE:
      * - brak;
      * POST:
      * - brak.
      */
-    void mClearProcess();
+    void mResetProcess();
 };
 
 #endif // CPROCESS_H

@@ -124,9 +124,9 @@ void cProcess::mDecrementTimeToDo()
 }
 
 /*
- * mClearProcess()
+ * mResetProcess()
  */
-void cProcess::mClearProcess()
+void cProcess::mResetProcess()
 {
     vTimeReadiness = vTimeWaiting = vTimeDoing = vTimeDone
     = vTimeToDo = vTimeProcessing = 0;

@@ -121,125 +121,274 @@ public:
 
 
     /*
-     *
+     * mDrawProcesses() -
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
      */
     void mDrawProcesses();
     /*
-     *
+     * mResetProcesses(typeNumberProcess aSeries, typeNumberProcess aProcesses) -
+     * PRE:
+     * - ;
+     * POST:
+     * - brak.
      */
-    void mResetProcesses(typeNumberProcess aSeries, typeNumberProcess aProcesses);
+    inline void mResetProcesses(typeNumberProcess aSeries, typeNumberProcess aProcesses)
+    {
+        tabProcesses[aSeries][aProcesses].mResetProcess();
+    }
+
     /*
-     *
+     * mResetAllProcesses() -
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
      */
     void mResetAllProcesses();
+
     /*
-     *
+     * mReadProcessesFromFile() -
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
      */
     void mReadProcessesFromFile();
+
     /*
-     *
+     * mWriteProcessesToFile() -
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
      */
     void mWriteProcessesToFile();
 
 
 
     /*
-     *
+     * mSortingAscendingProcesses(typeNumberProcess aSeries) -
+     * PRE:
+     * - ;
+     * POST:
+     * - brak.
      */
     void mSortingAscendingProcesses(typeNumberProcess aSeries);
+
     /*
-     *
+     * mSortingAscendingAllProcesses() -
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
      */
     void mSortingAscendingAllProcesses();
+
     /*
-     *
+     * mSortingDescendingProcesses(typeNumberProcess aSeries) -
+     * PRE:
+     * - ;
+     * POST:
+     * - brak.
      */
     void mSortingDescendingProcesses(typeNumberProcess aSeries);
+
     /*
-     *
+     * mSortingDescendingAllProcesses() -
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
      */
     void mSortingDescendingAllProcesses();
 
 
 
     /*
-     *
+     * mResetTotalTimeDoing(typeNumberProcess aSeries) -
+     * PRE:
+     * - ;
+     * POST:
+     * - brak.
      */
-    void mResetTotalTimeDoing(typeNumberProcess aSeries);
+    inline void mResetTotalTimeDoing(typeNumberProcess aSeries)
+    {
+        tabTotalTimeDoing[aSeries] = 0;
+    }
+
     /*
-     *
+     * mResetAllTotalTimeDoing() -
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
      */
     void mResetAllTotalTimeDoing();
+
     /*
-     *
+     * mCalculateTotalTimeDoing(typeNumberProcess aSeries) -
+     * PRE:
+     * - ;
+     * POST:
+     * - brak.
      */
     void mCalculateTotalTimeDoing(typeNumberProcess aSeries);
+
     /*
-     *
+     * getTotalTimeDoing(typeNumberProcess aSeries) -
+     * PRE:
+     * - ;
+     * POST:
+     * - .
      */
-    typeTime getTotalTimeDoing(typeNumberProcess aSeries);
+    inline typeTime getTotalTimeDoing(typeNumberProcess aSeries)
+    {
+        return tabTotalTimeDoing[aSeries];
+    }
 
 
 
     /*
-     *
+     * mResetAverageTimeDoing(typeNumberProcess aSeries) -
+     * PRE:
+     * - ;
+     * POST:
+     * - brak.
      */
-    void mResetAverageTimeDoing(typeNumberProcess aSeries);
+    inline void mResetAverageTimeDoing(typeNumberProcess aSeries)
+    {
+        tabAverageTimeDoing[aSeries] = 0;
+    }
+
     /*
-     *
+     * mResetAllAverageTimeDoing() -
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
      */
     void mResetAllAverageTimeDoing();
+
     /*
-     *
+     * mCalculateAverageTimeDoing(typeNumberProcess aSeries) -
+     * PRE:
+     * - ;
+     * POST:
+     * - brak.
      */
     void mCalculateAverageTimeDoing(typeNumberProcess aSeries);
+
     /*
-     *
+     * getAverageTimeDoing(typeNumberProcess aSeries) -
+     * PRE:
+     * - ;
+     * POST:
+     * - .
      */
-    typeTime getAverageTimeDoing(typeNumberProcess aSeries);
+    inline typeTime getAverageTimeDoing(typeNumberProcess aSeries)
+    {
+        return tabAverageTimeDoing[aSeries] = 0;
+    }
 
 
 
     /*
-     *
+     * mResetTotalTimeProcessing(typeNumberProcess aSeries) -
+     * PRE:
+     * - ;
+     * POST:
+     * - brak.
      */
-    void mResetTotalTimeProcessing(typeNumberProcess aSeries);
+    inline void mResetTotalTimeProcessing(typeNumberProcess aSeries)
+    {
+        tabTotalTimeProcessing[aSeries] = 0;
+    }
+
     /*
-     *
+     * mResetAllTotalTimeProcessing() -
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
      */
     void mResetAllTotalTimeProcessing();
+
     /*
-     *
+     * mCalculateTotalTimeProcessing(typeNumberProcess aSeries) -
+     * PRE:
+     * - ;
+     * POST:
+     * - brak.
      */
     void mCalculateTotalTimeProcessing(typeNumberProcess aSeries);
+
     /*
-     *
+     * getTotalTimeProcessing(typeNumberProcess aSeries) -
+     * PRE:
+     * - ;
+     * POST:
+     * - .
      */
-    typeTime getTotalTimeProcessing(typeNumberProcess aSeries);
+    inline typeTime getTotalTimeProcessing(typeNumberProcess aSeries)
+    {
+        return tabTotalTimeProcessing[aSeries] = 0;
+    }
 
 
 
     /*
-     *
+     * mResetAverageTimeProcessing(typeNumberProcess aSeries) -
+     * PRE:
+     * - ;
+     * POST:
+     * - brak.
      */
-    void mResetAverageTimeProcessing(typeNumberProcess aSeries);
+    inline void mResetAverageTimeProcessing(typeNumberProcess aSeries)
+    {
+        tabAverageTimeProcessing[aSeries] = 0;
+    }
+
     /*
-     *
+     * mResetAllAverageTimeProcessing() -
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
      */
     void mResetAllAverageTimeProcessing();
+
     /*
-     *
+     * mCalculateAverageTimeProcessing(typeNumberProcess aSeries) -
+     * PRE:
+     * - ;
+     * POST:
+     * - brak.
      */
     void mCalculateAverageTimeProcessing(typeNumberProcess aSeries);
+
     /*
-     *
+     * getAverageTimeProcessing(typeNumberProcess aSeries) -
+     * PRE:
+     * - ;
+     * POST:
+     * - .
      */
-    typeTime getAverageTimeProcessing(typeNumberProcess aSeries);
+    inline typeTime getAverageTimeProcessing(typeNumberProcess aSeries)
+    {
+        return tabAverageTimeProcessing[aSeries];
+    }
 
 
 
     /*
-     *
+     * mWriteResultsToFile() -
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
      */
     void mWriteResultsToFile();
 };
