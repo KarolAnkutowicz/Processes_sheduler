@@ -63,6 +63,9 @@ void cShedulingAlgorithms::mDrawProcesses()
  */
 void cShedulingAlgorithms::mResetAllProcesses()
 {
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+        for (typeNumberProcess j = 0; j < constProcesses; j++)
+            mResetProcesses(i, j);
 }
 
 /*
@@ -116,6 +119,8 @@ void cShedulingAlgorithms::mSortingDescendingAllProcesses()
  */
 void cShedulingAlgorithms::mResetAllTotalTimeDoing()
 {
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+        mResetTotalTimeDoing(i);
 }
 
 /*
@@ -132,6 +137,8 @@ void cShedulingAlgorithms::mCalculateTotalTimeDoing(typeNumberProcess aSeries)
  */
 void cShedulingAlgorithms::mResetAllAverageTimeDoing()
 {
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+        mResetAverageTimeDoing(i);
 }
 
 /*
@@ -148,6 +155,8 @@ void cShedulingAlgorithms::mCalculateAverageTimeDoing(typeNumberProcess aSeries)
  */
 void cShedulingAlgorithms::mResetAllTotalTimeProcessing()
 {
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+        mResetTotalTimeProcessing(i);
 }
 
 /*
@@ -164,6 +173,8 @@ void cShedulingAlgorithms::mCalculateTotalTimeProcessing(typeNumberProcess aSeri
  */
 void cShedulingAlgorithms::mResetAllAverageTimeProcessing()
 {
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+        mResetAverageTimeProcessing(i);
 }
 
 /*
