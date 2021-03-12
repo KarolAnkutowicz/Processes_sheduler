@@ -7,6 +7,11 @@
 using namespace std;
 
 /*
+ *
+ */
+enum enumAlgorithms {fcfs, lcfs, sjf, rr, srt};
+
+/*
  * unsigned int typeTime - zdefiniowany synonim typu
  * dla czasu trwania procesu.
  */
@@ -25,6 +30,11 @@ typedef unsigned short typeNumberProcess;
  * oraz maksymalmny czas trwania procesu.
  */
 const typeTime constMaxTime = 20;
+
+/*
+ * typeTime constQuantumOfTime -
+ */
+const typeTime constQuantumOfTime = 2;
 
 /*
  * typeNumberProcess constProcesses - zdefiniowana liczba procesow

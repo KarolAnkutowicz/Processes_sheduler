@@ -55,12 +55,20 @@ public:
      * cShedulingAlgorithms() - konstruktor wywolywany bez
      * parametrow.
      * PRE:
-     * - brak.
+     * - brak;
      * POST:
      * - utworzenie obiektu.
      */
     cShedulingAlgorithms();
 
+    /*
+     * cShedulingAlgorithms(enum aAlgorithm) -
+     * PRE:
+     * - ;
+     * POST:
+     * - utworzenie obiektu.
+     */
+    cShedulingAlgorithms(enumAlgorithms aAlgorithm);
 
 
     /*

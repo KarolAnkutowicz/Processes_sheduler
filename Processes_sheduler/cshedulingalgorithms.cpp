@@ -12,6 +12,13 @@ cShedulingAlgorithms::cShedulingAlgorithms()
 {
 }
 
+/*
+ * cShedulingAlgorithms(enum aAlgorithm)
+ */
+cShedulingAlgorithms::cShedulingAlgorithms(enumAlgorithms aAlgorithm)
+{
+}
+
 
 
 /*
