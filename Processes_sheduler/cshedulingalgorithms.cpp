@@ -63,6 +63,7 @@ void cShedulingAlgorithms::mMakeSRT()
  */
 void cShedulingAlgorithms::mDrawProcesses()
 {
+
 }
 
 /*
@@ -92,30 +93,16 @@ void cShedulingAlgorithms::mWriteProcessesToFile()
 
 
 /*
- * mSortingAscendingProcesses(typeNumberProcess aSeries)
+ * mSortingProcesses(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing)
  */
-void cShedulingAlgorithms::mSortingAscendingProcesses(typeNumberProcess aSeries)
+void cShedulingAlgorithms::mSortingProcesses(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing)
 {
 }
 
 /*
- * mSortingAscendingAllProcesses()
+ * mSortingAllProcesses(bool aAscendingWaiting, bool aAscendingDoing)
  */
-void cShedulingAlgorithms::mSortingAscendingAllProcesses()
-{
-}
-
-/*
- * mSortingDescendingProcesses(typeNumberProcess aSeries)
- */
-void cShedulingAlgorithms::mSortingDescendingProcesses(typeNumberProcess aSeries)
-{
-}
-
-/*
- * mSortingDescendingAllProcesses()
- */
-void cShedulingAlgorithms::mSortingDescendingAllProcesses()
+void cShedulingAlgorithms::mSortingAllProcesses(bool aAscendingWaiting, bool aAscendingDoing)
 {
 }
 
@@ -194,10 +181,27 @@ void cShedulingAlgorithms::mCalculateAverageTimeProcessing(typeNumberProcess aSe
 
 
 /*
- * mWriteResultsToFile()
+ * mWriteResultsToFile(enumAlgorithms parAlgorithm)
  */
-void cShedulingAlgorithms::mWriteResultsToFile()
+void cShedulingAlgorithms::mWriteResultsToFile(enumAlgorithms parAlgorithm)
 {
+    // fcfs, lcfs, sjf, rr, srt
+    ofstream StreamOut;
+    switch(parAlgorithm)
+    {
+        case fcfs: StreamOut.open("ResultsFCFS.txt"); break;
+        case lcfs: StreamOut.open("ResultsLCFS.txt"); break;
+        case sjf: StreamOut.open("ResultSJF.txt"); break;
+        case rr: StreamOut.open("ResultsRR.txt"); break;
+        case srt: StreamOut.open("ResultsSRT.txt"); break;
+    }
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+    {
+        StreamOut << "Average time doing " << setw(4) << i+1
+                  << " series: " << tabAverageTimeDoing[i] << "     "
+                  <<  "Average time processing " << setw(4) << i+1
+                  << " series: " << tabAverageTimeProcessing[i] << endl;
+    }
 }
 
 

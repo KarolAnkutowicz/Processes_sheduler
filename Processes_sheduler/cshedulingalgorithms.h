@@ -178,40 +178,22 @@ public:
 
 
     /*
-     * mSortingAscendingProcesses(typeNumberProcess aSeries) -
+     * mSortingProcesses(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing) -
      * PRE:
      * - ;
      * POST:
      * - brak.
      */
-    void mSortingAscendingProcesses(typeNumberProcess aSeries);
+    void mSortingProcesses(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing);
 
     /*
-     * mSortingAscendingAllProcesses() -
+     * mSortingAllProcesses(bool aAscendingWaiting, bool aAscendingDoing) -
      * PRE:
      * - brak;
      * POST:
      * - brak.
      */
-    void mSortingAscendingAllProcesses();
-
-    /*
-     * mSortingDescendingProcesses(typeNumberProcess aSeries) -
-     * PRE:
-     * - ;
-     * POST:
-     * - brak.
-     */
-    void mSortingDescendingProcesses(typeNumberProcess aSeries);
-
-    /*
-     * mSortingDescendingAllProcesses() -
-     * PRE:
-     * - brak;
-     * POST:
-     * - brak.
-     */
-    void mSortingDescendingAllProcesses();
+    void mSortingAllProcesses(bool aAscendingWaiting, bool aAscendingDoing);
 
 
 
@@ -392,13 +374,13 @@ public:
 
 
     /*
-     * mWriteResultsToFile() -
+     * mWriteResultsToFile(enumAlgorithms parAlgorithm) -
      * PRE:
      * - brak;
      * POST:
      * - brak.
      */
-    void mWriteResultsToFile();
+    void mWriteResultsToFile(enumAlgorithms parAlgorithm);
 };
 
 #endif // CSHEDULINGALGORITHMS_H
