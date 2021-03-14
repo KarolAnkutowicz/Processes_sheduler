@@ -101,16 +101,16 @@ void cShedulingAlgorithms::mWriteProcessesToFile()
 
 
 /*
- * mSortingSeries(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst)
+ * mSortingSeries(typeNumberProcess aSeries, bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst)
  */
-void cShedulingAlgorithms::mSortingSeries(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst)
+void cShedulingAlgorithms::mSortingSeries(typeNumberProcess aSeries, bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst)
 {
 }
 
 /*
- * mSortingAllSeries(bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst)
+ * mSortingAllSeries(bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst)
  */
-void cShedulingAlgorithms::mSortingAllProcesses(bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst)
+void cShedulingAlgorithms::mSortingAllProcesses(bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst)
 {
 }
 

@@ -140,16 +140,17 @@ public:
     void mDrawProcesses();
 
     /*
-     * mResetProcess(typeNumberProcess aSeries, typeNumberProcess aProcesses) -
+     * mResetProcess(typeNumberProcess aSeries, typeNumberProcess aProcess) -
      * metoda resetujaca konkretny proces.
      * PRE:
-     * - ;
+     * - podanie serii procesow (argument: aSeries), podanie numeru
+     * procesu w serii (argument: aProcess);
      * POST:
      * - brak.
      */
-    inline void mResetProcess(typeNumberProcess aSeries, typeNumberProcess aProcesses)
+    inline void mResetProcess(typeNumberProcess aSeries, typeNumberProcess aProcess)
     {
-        tabProcesses[aSeries][aProcesses].mResetProcess();
+        tabProcesses[aSeries][aProcess].mResetProcess();
     }
 
     /*
@@ -194,29 +195,42 @@ public:
 
 
     /*
-     * mSortingSeries(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst) -
+     * mSortingSeries(typeNumberProcess aSeries, bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst) -
+     * metoda sortujaca wskazana serie procesow wedlug wskazanych
+     * kryteriow.
      * PRE:
-     * - ;
+     * - podanie serii procesow (argument: aSeries), podanie czy mamy
+     * sortowac czasy gotowosci rosnaco (argument: aAscendingReadiness),
+     * podanie czy mamy sortowac czasy wykonywania rosnaco
+     * (argument: aAscendingDoing), podanie czy priorytetem sa czasy
+     * gotowosci (argument: aReadinessFirst);
      * POST:
      * - brak.
      */
-    void mSortingSeries(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst);
+    void mSortingSeries(typeNumberProcess aSeries, bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst);
 
     /*
-     * mSortingAllProcesses(bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst) -
+     * mSortingAllProcesses(bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst) -
+     * metoda sortujaca wszystkie procesy w seriach wedlug wskazanych
+     * kryteriow.
      * PRE:
-     * - brak;
+     * - podanie czy mamy sortowac czasy gotowosci rosnaco
+     * (argument: aAscendingReadiness), podanie czy mamy sortowac
+     * czasy wykonywania rosnaco (argument: aAscendingDoing),
+     * podanie czy priorytetem sa czasy gotowosci
+     * (argument: aReadinessFirst);
      * POST:
      * - brak.
      */
-    void mSortingAllProcesses(bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst);
+    void mSortingAllProcesses(bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst);
 
 
 
     /*
-     * mResetTotalTimeDoing(typeNumberProcess aSeries) -
+     * mResetTotalTimeDoing(typeNumberProcess aSeries) - metoda
+     * resetujaca sumaryczny czas wykonania wskazanej serii
      * PRE:
-     * - ;
+     * - podanie serii procesow (argument: aSeries);
      * POST:
      * - brak.
      */
@@ -226,7 +240,8 @@ public:
     }
 
     /*
-     * mResetAllTotalTimeDoing() -
+     * mResetAllTotalTimeDoing() - metoda resetujaca wszystkie
+     * sumaryczne czasy wykonywania procesow.
      * PRE:
      * - brak;
      * POST:
@@ -235,20 +250,24 @@ public:
     void mResetAllTotalTimeDoing();
 
     /*
-     * mCalculateTotalTimeDoing(typeNumberProcess aSeries) -
+     * mCalculateTotalTimeDoing(typeNumberProcess aSeries) - metoda
+     * obliczajaca symaryczny czas wykonywania procesow we wskazanej
+     * serii.
      * PRE:
-     * - ;
+     * - podanie serii procesow (argument: aSeries);
      * POST:
      * - brak.
      */
     void mCalculateTotalTimeDoing(typeNumberProcess aSeries);
 
     /*
-     * getTotalTimeDoing(typeNumberProcess aSeries) -
+     * getTotalTimeDoing(typeNumberProcess aSeries) - metoda zwracajaca
+     * sumaryczny czas wykonywania procesow wskazanej serii.
      * PRE:
-     * - ;
+     * - podanie serii procesow (argument: aSeries);
      * POST:
-     * - .
+     * - zwrocenie sumarycznej wartosci czasow wykonywania procesow
+     * danej serii (typ: typeTime).
      */
     inline typeTime getTotalTimeDoing(typeNumberProcess aSeries)
     {
