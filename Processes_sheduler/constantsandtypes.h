@@ -7,7 +7,9 @@
 using namespace std;
 
 /*
- *
+ * enum enumAlgorithms - zdefiniowany typ wyliczeniowy
+ * do znormalizowania argumentow potrzebnych do wywolywania
+ * wskazanych metod.
  */
 enum enumAlgorithms {fcfs, lcfs, sjf, rr, srt};
 
@@ -32,7 +34,8 @@ typedef unsigned short typeNumberProcess;
 const typeTime constMaxTime = 20;
 
 /*
- * typeTime constQuantumOfTime -
+ * typeTime constQuantumOfTime - zdefiniowany kwant czasu
+ * wykorzystywany w algorytmach wywlaszczeniowych.
  */
 const typeTime constQuantumOfTime = 2;
 
