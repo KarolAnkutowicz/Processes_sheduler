@@ -277,9 +277,10 @@ public:
 
 
     /*
-     * mResetAverageTimeDoing(typeNumberProcess aSeries) -
+     * mResetAverageTimeDoing(typeNumberProcess aSeries) - metoda
+     * resetujaca sredni czas wykonywania procesow wskazanej serii.
      * PRE:
-     * - ;
+     * - podanie serii procesow (argument: aSeries);
      * POST:
      * - brak.
      */
@@ -289,7 +290,8 @@ public:
     }
 
     /*
-     * mResetAllAverageTimeDoing() -
+     * mResetAllAverageTimeDoing() - metoda resetujaca srednie czasy
+     * wykonywania procesow wszystkich serii.
      * PRE:
      * - brak;
      * POST:
@@ -298,20 +300,23 @@ public:
     void mResetAllAverageTimeDoing();
 
     /*
-     * mCalculateAverageTimeDoing(typeNumberProcess aSeries) -
+     * mCalculateAverageTimeDoing(typeNumberProcess aSeries) - metoda
+     * obliczajaca sredni czas wykonywania procesow we wskazanej serii.
      * PRE:
-     * - ;
+     * - podanie serii procesow (argument: aSeries);
      * POST:
      * - brak.
      */
     void mCalculateAverageTimeDoing(typeNumberProcess aSeries);
 
     /*
-     * getAverageTimeDoing(typeNumberProcess aSeries) -
+     * getAverageTimeDoing(typeNumberProcess aSeries) - zwrocenie
+     * wartosci sredniego czasu wykonywania procesu we wskazanej serii.
      * PRE:
-     * - ;
+     * - podanie serii procesow (argument: aSeries);
      * POST:
-     * - .
+     * - zwrocenie srednego czasu wykonywania procesow wskazanej serii
+     * (typ: typeTime).
      */
     inline typeTime getAverageTimeDoing(typeNumberProcess aSeries)
     {
@@ -321,9 +326,11 @@ public:
 
 
     /*
-     * mResetTotalTimeProcessing(typeNumberProcess aSeries) -
+     * mResetTotalTimeProcessing(typeNumberProcess aSeries) - metoda
+     * resetujaca sumaryczny czas przetwarzania procesow wskazanej
+     * serii.
      * PRE:
-     * - ;
+     * - wskazanie serii procesow (argument: aSeries);
      * POST:
      * - brak.
      */
@@ -333,7 +340,8 @@ public:
     }
 
     /*
-     * mResetAllTotalTimeProcessing() -
+     * mResetAllTotalTimeProcessing() - metoda resetujaca sumaryczne
+     * czasy przetwarzania procesow wszystkich serii.
      * PRE:
      * - brak;
      * POST:
@@ -343,19 +351,24 @@ public:
 
     /*
      * mCalculateTotalTimeProcessing(typeNumberProcess aSeries) -
+     * metoda obliczajaca sredni czas przetwarzania procesow
+     * we wskazanej serii.
      * PRE:
-     * - ;
+     * - podanie serii procesow (argument: aSeries);
      * POST:
      * - brak.
      */
     void mCalculateTotalTimeProcessing(typeNumberProcess aSeries);
 
     /*
-     * getTotalTimeProcessing(typeNumberProcess aSeries) -
+     * getTotalTimeProcessing(typeNumberProcess aSeries) - metoda
+     * zwracajaca sumaryczny czas przetwarzania procesow wskazanej
+     * serii.
      * PRE:
-     * - ;
+     * - podanie serii procesow (argument: aSeries);
      * POST:
-     * - .
+     * - zwrocenie sumarycznego czasu przetwarzania wskazanej serii
+     * (typ: typeNumberProcess).
      */
     inline typeTime getTotalTimeProcessing(typeNumberProcess aSeries)
     {
@@ -366,8 +379,10 @@ public:
 
     /*
      * mResetAverageTimeProcessing(typeNumberProcess aSeries) -
+     * metoda resetujaca sredni czas przetwarzania procesow wskazanej
+     * serii.
      * PRE:
-     * - ;
+     * - podanie serii procesow (argument: aSeries);
      * POST:
      * - brak.
      */
@@ -377,7 +392,8 @@ public:
     }
 
     /*
-     * mResetAllAverageTimeProcessing() -
+     * mResetAllAverageTimeProcessing() - metoda resetujaca srednie
+     * czasy przetwarzania wszystkich serii procesow.
      * PRE:
      * - brak;
      * POST:
@@ -387,19 +403,23 @@ public:
 
     /*
      * mCalculateAverageTimeProcessing(typeNumberProcess aSeries) -
+     * metoda obliczajaca sredni czas przetwarzania procesow wskazanej
+     * serii
      * PRE:
-     * - ;
+     * - podanie serii procesow (argument: aSeries);
      * POST:
      * - brak.
      */
     void mCalculateAverageTimeProcessing(typeNumberProcess aSeries);
 
     /*
-     * getAverageTimeProcessing(typeNumberProcess aSeries) -
+     * getAverageTimeProcessing(typeNumberProcess aSeries) - metoda
+     * zwracajaca sredni czas przetwarzania wskazanej serii.
      * PRE:
-     * - ;
+     * - podanie serii procesow (argumenr: aSeries);
      * POST:
-     * - .
+     * - zwrocenie wartosci sredniej czasu przetwarzania wskazanej
+     * serii (typ: typeTime).
      */
     inline typeTime getAverageTimeProcessing(typeNumberProcess aSeries)
     {
@@ -409,13 +429,14 @@ public:
 
 
     /*
-     * mWriteResultsToFile(enumAlgorithms parAlgorithm) -
+     * mWriteResultsToFile(enumAlgorithms parAlgorithm) - metoda
+     * wypisujaca wyniki dzialania wskazanego algorytmu.
      * PRE:
-     * - brak;
+     * - podanie algorytmuc(argument: aAlgorithm;
      * POST:
      * - brak.
      */
-    void mWriteResultsToFile(enumAlgorithms parAlgorithm);
+    void mWriteResultsToFile(enumAlgorithms aAlgorithm);
 };
 
 #endif // CSHEDULINGALGORITHMS_H

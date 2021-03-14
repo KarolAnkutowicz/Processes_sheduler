@@ -189,13 +189,13 @@ void cShedulingAlgorithms::mCalculateAverageTimeProcessing(typeNumberProcess aSe
 
 
 /*
- * mWriteResultsToFile(enumAlgorithms parAlgorithm)
+ * mWriteResultsToFile(enumAlgorithms aAlgorithm)
  */
-void cShedulingAlgorithms::mWriteResultsToFile(enumAlgorithms parAlgorithm)
+void cShedulingAlgorithms::mWriteResultsToFile(enumAlgorithms aAlgorithm)
 {
     // fcfs, lcfs, sjf, rr, srt
     ofstream StreamOut;
-    switch(parAlgorithm)
+    switch(aAlgorithm)
     {
         case fcfs: StreamOut.open("ResultsFCFS.txt"); break;
         case lcfs: StreamOut.open("ResultsLCFS.txt"); break;
