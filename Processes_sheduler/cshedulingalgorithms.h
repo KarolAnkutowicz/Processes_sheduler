@@ -62,9 +62,10 @@ public:
     cShedulingAlgorithms();
 
     /*
-     * cShedulingAlgorithms(enum aAlgorithm) -
+     * cShedulingAlgorithms(enum aAlgorithm) - konstruktor wywolywany
+     * z jednym argumentem.
      * PRE:
-     * - ;
+     * - podanie wykorzystywanego algorytmu;
      * POST:
      * - utworzenie obiektu.
      */
@@ -129,27 +130,40 @@ public:
 
 
     /*
-     * mDrawProcesses() -
+     * mDrawProcesses() - metoda losujaca procesy, nastepnie umieszcza
+     * je w tablicy procesow.
      * PRE:
      * - brak;
      * POST:
      * - brak.
      */
     void mDrawProcesses();
+
     /*
-     * mResetProcesses(typeNumberProcess aSeries, typeNumberProcess aProcesses) -
+     * mResetProcess(typeNumberProcess aSeries, typeNumberProcess aProcesses) -
+     * metoda resetujaca konkretny proces.
      * PRE:
      * - ;
      * POST:
      * - brak.
      */
-    inline void mResetProcesses(typeNumberProcess aSeries, typeNumberProcess aProcesses)
+    inline void mResetProcess(typeNumberProcess aSeries, typeNumberProcess aProcesses)
     {
         tabProcesses[aSeries][aProcesses].mResetProcess();
     }
 
     /*
-     * mResetAllProcesses() -
+     * mResetSeries(typeNumberProcess aSeries) - metoda resetujaca
+     * wskazana serie procesow.
+     * PRE:
+     * - podanie serii procesow (argument: aSeries);
+     * POST:
+     * - brak.
+     */
+    void mResetSeries(typeNumberProcess aSeries);
+
+    /*
+     * mResetAllProcesses() - metoda resetujaca wszystkie procesy.
      * PRE:
      * - brak;
      * POST:
@@ -158,7 +172,8 @@ public:
     void mResetAllProcesses();
 
     /*
-     * mReadProcessesFromFile() -
+     * mReadProcessesFromFile() - metoda wczytujaca procesy
+     * z pliku.
      * PRE:
      * - brak;
      * POST:
@@ -167,7 +182,8 @@ public:
     void mReadProcessesFromFile();
 
     /*
-     * mWriteProcessesToFile() -
+     * mWriteProcessesToFile() - metoda zapisujaca procesy
+     * do pliku.
      * PRE:
      * - brak;
      * POST:
@@ -178,22 +194,22 @@ public:
 
 
     /*
-     * mSortingProcesses(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing) -
+     * mSortingSeries(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst) -
      * PRE:
      * - ;
      * POST:
      * - brak.
      */
-    void mSortingProcesses(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing);
+    void mSortingSeries(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst);
 
     /*
-     * mSortingAllProcesses(bool aAscendingWaiting, bool aAscendingDoing) -
+     * mSortingAllProcesses(bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst) -
      * PRE:
      * - brak;
      * POST:
      * - brak.
      */
-    void mSortingAllProcesses(bool aAscendingWaiting, bool aAscendingDoing);
+    void mSortingAllProcesses(bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst);
 
 
 

@@ -67,13 +67,21 @@ void cShedulingAlgorithms::mDrawProcesses()
 }
 
 /*
+ * mResetSeries(typeNumberProcess aSeries)
+ */
+void cShedulingAlgorithms::mResetSeries(typeNumberProcess aSeries)
+{
+    for (typeNumberProcess i = 0; i < constProcesses; i++)
+        mResetProcess(aSeries, i);
+}
+
+/*
  * mResetAllProcesses()
  */
 void cShedulingAlgorithms::mResetAllProcesses()
 {
     for (typeNumberProcess i = 0; i < constSeries; i++)
-        for (typeNumberProcess j = 0; j < constProcesses; j++)
-            mResetProcesses(i, j);
+        mResetSeries(i);
 }
 
 /*
@@ -93,16 +101,16 @@ void cShedulingAlgorithms::mWriteProcessesToFile()
 
 
 /*
- * mSortingProcesses(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing)
+ * mSortingSeries(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst)
  */
-void cShedulingAlgorithms::mSortingProcesses(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing)
+void cShedulingAlgorithms::mSortingSeries(typeNumberProcess aSeries, bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst)
 {
 }
 
 /*
- * mSortingAllProcesses(bool aAscendingWaiting, bool aAscendingDoing)
+ * mSortingAllSeries(bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst)
  */
-void cShedulingAlgorithms::mSortingAllProcesses(bool aAscendingWaiting, bool aAscendingDoing)
+void cShedulingAlgorithms::mSortingAllProcesses(bool aAscendingWaiting, bool aAscendingDoing, bool aWaitingFirst)
 {
 }
 

@@ -6,16 +6,6 @@
 using namespace std;
 
 /*
-typeTime vTimeReadiness;
-typeTime vTimeWaiting;
-typeTime vTimeDoing;
-typeTime vTimeDone;
-typeTime vTimeToDo;
-typeTime vTimeProcessing;
-*/
-
-
-/*
  * cProcess()
  */
 cProcess::cProcess()
