@@ -89,6 +89,17 @@ void cShedulingAlgorithms::mResetAllProcesses()
  */
 void cShedulingAlgorithms::mReadProcessesFromFile()
 {
+    mResetAllProcesses();
+    ifstream StreamIn;
+    StreamIn.open("procesy.txt");
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+    {
+        for (typeNumberProcess j = 0; j < constProcesses; j++)
+        {
+            StreamIn >> tabProcesses[i][j];
+        }
+    }
+    StreamIn.close();
 }
 
 /*
@@ -96,6 +107,15 @@ void cShedulingAlgorithms::mReadProcessesFromFile()
  */
 void cShedulingAlgorithms::mWriteProcessesToFile()
 {
+    ofstream StreamOut;
+    StreamOut.open("procesy.txt");
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+    {
+        for (typeNumberProcess j = 0; j < constProcesses; j++)
+            StreamOut << tabProcesses[i][j];
+        StreamOut << "   ";
+    }
+    StreamOut.close();
 }
 
 
