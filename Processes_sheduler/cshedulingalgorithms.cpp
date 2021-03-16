@@ -10,6 +10,11 @@ using namespace std;
  */
 cShedulingAlgorithms::cShedulingAlgorithms()
 {
+    mMakeFCFS();
+    mMakeLCFS();
+    mMakeSJF();
+    mMakeRR();
+    mMakeSRT();
 }
 
 /*
@@ -17,6 +22,14 @@ cShedulingAlgorithms::cShedulingAlgorithms()
  */
 cShedulingAlgorithms::cShedulingAlgorithms(enumAlgorithms aAlgorithm)
 {
+    switch (aAlgorithm)
+    {
+        case fcfs: mMakeFCFS(); break;
+        case lcfs: mMakeLCFS(); break;
+        case sjf: mMakeSJF(); break;
+        case rr: mMakeRR(); break;
+        case srt: mMakeSRT(); break;
+    }
 }
 
 
