@@ -63,7 +63,19 @@ void cShedulingAlgorithms::mMakeSRT()
  */
 void cShedulingAlgorithms::mDrawProcesses()
 {
-
+    typeTime vTime1, vTime2;
+    mResetAllProcesses();
+    srand(time_t(NULL) + (unsigned int)&constProcesses);
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+    {
+        for (typeNumberProcess j = 0; j < constProcesses; j++)
+        {
+            vTime1 = rand() % constMaxTime + 1;
+            vTime2 = rand() % constMaxTime + 1;
+            tabProcesses[i][j].setTimeReadiness(vTime1);
+            tabProcesses[i][j].setTimeDoing(vTime2);
+        }
+    }
 }
 
 /*
