@@ -150,6 +150,56 @@ void cShedulingAlgorithms::mWriteProcessesToFile()
  */
 void cShedulingAlgorithms::mSortingSeries(typeNumberProcess aSeries, bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst)
 {
+    if (aReadinessFirst)
+    {
+        if (aAscendingReadiness)
+        {
+            if (aAscendingDoing)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+        else
+        {
+            if (aAscendingDoing)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+    }
+    else
+    {
+        if (aAscendingReadiness)
+        {
+            if (aAscendingDoing)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+        else
+        {
+            if (aAscendingDoing)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+    }
 }
 
 /*
@@ -157,6 +207,43 @@ void cShedulingAlgorithms::mSortingSeries(typeNumberProcess aSeries, bool aAscen
  */
 void cShedulingAlgorithms::mSortingAllProcesses(bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst)
 {
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+    {
+        if (aReadinessFirst)
+        {
+            if (aAscendingReadiness)
+            {
+                if (aAscendingDoing)
+                    mSortingSeries(i, true, true, true);
+                else
+                    mSortingSeries(i, true, false, true);
+            }
+            else
+            {
+                if (aAscendingDoing)
+                    mSortingSeries(i, false, true, true);
+                else
+                    mSortingSeries(i, false, false, true);
+            }
+        }
+        else
+        {
+            if (aAscendingReadiness)
+            {
+                if (aAscendingDoing)
+                    mSortingSeries(i, true, true, false);
+                else
+                    mSortingSeries(i, true, false, false);
+            }
+            else
+            {
+                if (aAscendingDoing)
+                    mSortingSeries(i, false, true, false);
+                else
+                    mSortingSeries(i, false, false, false);
+            }
+        }
+    }
 }
 
 
@@ -175,6 +262,9 @@ void cShedulingAlgorithms::mResetAllTotalTimeDoing()
  */
 void cShedulingAlgorithms::mCalculateTotalTimeDoing(typeNumberProcess aSeries)
 {
+    mResetTotalTimeDoing(aSeries);
+    for (typeNumberProcess i = 0; i < constProcesses; i++)
+        tabTotalTimeDoing[aSeries] += tabProcesses[aSeries][i].getTimeDoing();
 }
 
 
@@ -193,6 +283,7 @@ void cShedulingAlgorithms::mResetAllAverageTimeDoing()
  */
 void cShedulingAlgorithms::mCalculateAverageTimeDoing(typeNumberProcess aSeries)
 {
+    tabAverageTimeDoing[aSeries] = getTotalTimeDoing(aSeries) / constProcesses;
 }
 
 
@@ -211,6 +302,9 @@ void cShedulingAlgorithms::mResetAllTotalTimeProcessing()
  */
 void cShedulingAlgorithms::mCalculateTotalTimeProcessing(typeNumberProcess aSeries)
 {
+    mResetTotalTimeProcessing(aSeries);
+    for (typeNumberProcess i = 0; i < constProcesses; i++)
+        tabTotalTimeProcessing[aSeries] += tabProcesses[aSeries][i].getTimeProcessing();
 }
 
 
@@ -229,6 +323,7 @@ void cShedulingAlgorithms::mResetAllAverageTimeProcessing()
  */
 void cShedulingAlgorithms::mCalculateAverageTimeProcessing(typeNumberProcess aSeries)
 {
+    tabAverageTimeProcessing[aSeries] = getTotalTimeProcessing(aSeries) / constProcesses;
 }
 
 
