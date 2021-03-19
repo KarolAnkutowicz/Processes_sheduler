@@ -224,6 +224,14 @@ public:
      */
     void mSortingAllProcesses(bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst);
 
+    /*
+     * void mReverseOrderProcesses() -
+     * PRE:
+     * - ;
+     * POST:
+     * - .
+     */
+    void mReverseOrderProcesses();
 
 
     /*

@@ -246,6 +246,13 @@ void cShedulingAlgorithms::mSortingAllProcesses(bool aAscendingReadiness, bool a
     }
 }
 
+/*
+ * void mReverseOrderProcesses()
+ */
+void cShedulingAlgorithms::mReverseOrderProcesses()
+{
+}
+
 
 
 /*
