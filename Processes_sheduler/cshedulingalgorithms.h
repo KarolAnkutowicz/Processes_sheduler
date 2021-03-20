@@ -225,13 +225,25 @@ public:
     void mSortingAllProcesses(bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst);
 
     /*
-     * void mReverseOrderProcesses() -
+     * mReverseOrderSeries(typeNumberProcess aSeries) - metoda
+     * odwracajaca kolejnosc procesow w danej serii.
      * PRE:
-     * - ;
+     * - podanie serii (argument: aSeries);
      * POST:
-     * - .
+     * - brak.
      */
-    void mReverseOrderProcesses();
+    void mReverseOrderSeries(typeNumberProcess aSeries);
+
+    /*
+     * mReverseOrderAllSeries() - metoda odwracajaca kolejnosc
+     * procesow we wszystkich seriach.
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
+     */
+    void mReverseOrderAllSeries();
+
 
 
     /*

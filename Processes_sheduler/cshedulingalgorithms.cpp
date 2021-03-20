@@ -247,10 +247,26 @@ void cShedulingAlgorithms::mSortingAllProcesses(bool aAscendingReadiness, bool a
 }
 
 /*
- * void mReverseOrderProcesses()
+ * void mReverseOrderSeries(typeNumberProcess aSeries)
  */
-void cShedulingAlgorithms::mReverseOrderProcesses()
+void cShedulingAlgorithms::mReverseOrderSeries(typeNumberProcess aSeries)
 {
+    cProcess vProc;
+    for (typeNumberProcess i = 0; i < (constProcesses / 2); i++)
+    {
+        vProc = tabProcesses[aSeries][i];
+        tabProcesses[aSeries][i] = tabProcesses[aSeries][constProcesses - i - 1];
+        tabProcesses[aSeries][constProcesses - i - 1] = vProc;
+    }
+}
+
+/*
+ * mReverseOrderAllSeries()
+ */
+void cShedulingAlgorithms::mReverseOrderAllSeries()
+{
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+        mReverseOrderSeries(i);
 }
 
 
