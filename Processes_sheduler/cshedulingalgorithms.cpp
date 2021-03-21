@@ -10,6 +10,9 @@ using namespace std;
  */
 cShedulingAlgorithms::cShedulingAlgorithms()
 {
+    mResetAllProcesses();
+    mDrawProcesses();
+    mWriteProcessesToFile();
     mMakeFCFS();
     mMakeLCFS();
     mMakeSJF();
@@ -22,6 +25,9 @@ cShedulingAlgorithms::cShedulingAlgorithms()
  */
 cShedulingAlgorithms::cShedulingAlgorithms(enumAlgorithms aAlgorithm)
 {
+    mResetAllProcesses();
+    mDrawProcesses();
+    mWriteProcessesToFile();
     switch (aAlgorithm)
     {
         case fcfs: mMakeFCFS(); break;
