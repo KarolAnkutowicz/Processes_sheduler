@@ -7,6 +7,10 @@ using namespace std;
 
 int main()
 {
+    cShedulingAlgorithms A;
+    A.mDrawProcesses();
+    A.mWriteProcessesToFile();
+
     return 0;
 }
 

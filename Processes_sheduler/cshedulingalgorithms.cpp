@@ -139,12 +139,12 @@ void cShedulingAlgorithms::mReadProcessesFromFile()
 void cShedulingAlgorithms::mWriteProcessesToFile()
 {
     ofstream StreamOut;
-    StreamOut.open("procesy.txt");
+    StreamOut.open("processes.txt");
     for (typeNumberProcess i = 0; i < constSeries; i++)
     {
         for (typeNumberProcess j = 0; j < constProcesses; j++)
             StreamOut << tabProcesses[i][j];
-        StreamOut << "   ";
+        StreamOut << endl;
     }
     StreamOut.close();
 }
@@ -366,11 +366,11 @@ void cShedulingAlgorithms::mWriteResultsToFile(enumAlgorithms aAlgorithm)
     ofstream StreamOut;
     switch(aAlgorithm)
     {
-        case fcfs: StreamOut.open("ResultsFCFS.txt"); break;
-        case lcfs: StreamOut.open("ResultsLCFS.txt"); break;
-        case sjf: StreamOut.open("ResultSJF.txt"); break;
-        case rr: StreamOut.open("ResultsRR.txt"); break;
-        case srt: StreamOut.open("ResultsSRT.txt"); break;
+        case fcfs: StreamOut.open("resultsFCFS.txt"); break;
+        case lcfs: StreamOut.open("resultsLCFS.txt"); break;
+        case sjf: StreamOut.open("resultSJF.txt"); break;
+        case rr: StreamOut.open("resultsRR.txt"); break;
+        case srt: StreamOut.open("resultsSRT.txt"); break;
     }
     for (typeNumberProcess i = 0; i < constSeries; i++)
     {
