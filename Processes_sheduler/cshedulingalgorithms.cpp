@@ -152,104 +152,17 @@ void cShedulingAlgorithms::mWriteProcessesToFile()
 
 
 /*
- * mSortingSeries(typeNumberProcess aSeries, bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst)
+ * mSortingSeries()
  */
-void cShedulingAlgorithms::mSortingSeries(typeNumberProcess aSeries, bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst)
+void cShedulingAlgorithms::mSortingSeries()
 {
-    if (aReadinessFirst)
-    {
-        if (aAscendingReadiness)
-        {
-            if (aAscendingDoing)
-            {
-
-            }
-            else
-            {
-
-            }
-        }
-        else
-        {
-            if (aAscendingDoing)
-            {
-
-            }
-            else
-            {
-
-            }
-        }
-    }
-    else
-    {
-        if (aAscendingReadiness)
-        {
-            if (aAscendingDoing)
-            {
-
-            }
-            else
-            {
-
-            }
-        }
-        else
-        {
-            if (aAscendingDoing)
-            {
-
-            }
-            else
-            {
-
-            }
-        }
-    }
 }
 
 /*
- * mSortingAllSeries(bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst)
+ * mSortingAllSeries()
  */
-void cShedulingAlgorithms::mSortingAllProcesses(bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst)
+void cShedulingAlgorithms::mSortingAllProcesses()
 {
-    for (typeNumberProcess i = 0; i < constSeries; i++)
-    {
-        if (aReadinessFirst)
-        {
-            if (aAscendingReadiness)
-            {
-                if (aAscendingDoing)
-                    mSortingSeries(i, true, true, true);
-                else
-                    mSortingSeries(i, true, false, true);
-            }
-            else
-            {
-                if (aAscendingDoing)
-                    mSortingSeries(i, false, true, true);
-                else
-                    mSortingSeries(i, false, false, true);
-            }
-        }
-        else
-        {
-            if (aAscendingReadiness)
-            {
-                if (aAscendingDoing)
-                    mSortingSeries(i, true, true, false);
-                else
-                    mSortingSeries(i, true, false, false);
-            }
-            else
-            {
-                if (aAscendingDoing)
-                    mSortingSeries(i, false, true, false);
-                else
-                    mSortingSeries(i, false, false, false);
-            }
-        }
-    }
 }
 
 /*
@@ -257,13 +170,6 @@ void cShedulingAlgorithms::mSortingAllProcesses(bool aAscendingReadiness, bool a
  */
 void cShedulingAlgorithms::mReverseOrderSeries(typeNumberProcess aSeries)
 {
-    cProcess vProc;
-    for (typeNumberProcess i = 0; i < (constProcesses / 2); i++)
-    {
-        vProc = tabProcesses[aSeries][i];
-        tabProcesses[aSeries][i] = tabProcesses[aSeries][constProcesses - i - 1];
-        tabProcesses[aSeries][constProcesses - i - 1] = vProc;
-    }
 }
 
 /*
@@ -271,8 +177,6 @@ void cShedulingAlgorithms::mReverseOrderSeries(typeNumberProcess aSeries)
  */
 void cShedulingAlgorithms::mReverseOrderAllSeries()
 {
-    for (typeNumberProcess i = 0; i < constSeries; i++)
-        mReverseOrderSeries(i);
 }
 
 

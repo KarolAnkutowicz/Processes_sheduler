@@ -195,34 +195,22 @@ public:
 
 
     /*
-     * mSortingSeries(typeNumberProcess aSeries, bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst) -
-     * metoda sortujaca wskazana serie procesow wedlug wskazanych
-     * kryteriow.
+     * mSortingSeries() -
      * PRE:
-     * - podanie serii procesow (argument: aSeries), podanie czy mamy
-     * sortowac czasy gotowosci rosnaco (argument: aAscendingReadiness),
-     * podanie czy mamy sortowac czasy wykonywania rosnaco
-     * (argument: aAscendingDoing), podanie czy priorytetem sa czasy
-     * gotowosci (argument: aReadinessFirst);
+     * - brak;
      * POST:
      * - brak.
      */
-    void mSortingSeries(typeNumberProcess aSeries, bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst);
+    void mSortingSeries();
 
     /*
-     * mSortingAllProcesses(bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst) -
-     * metoda sortujaca wszystkie procesy w seriach wedlug wskazanych
-     * kryteriow.
+     * mSortingAllProcesses() -
      * PRE:
-     * - podanie czy mamy sortowac czasy gotowosci rosnaco
-     * (argument: aAscendingReadiness), podanie czy mamy sortowac
-     * czasy wykonywania rosnaco (argument: aAscendingDoing),
-     * podanie czy priorytetem sa czasy gotowosci
-     * (argument: aReadinessFirst);
+     * - brak;
      * POST:
      * - brak.
      */
-    void mSortingAllProcesses(bool aAscendingReadiness, bool aAscendingDoing, bool aReadinessFirst);
+    void mSortingAllProcesses();
 
     /*
      * mReverseOrderSeries(typeNumberProcess aSeries) - metoda
