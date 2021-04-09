@@ -152,31 +152,32 @@ void cShedulingAlgorithms::mWriteProcessesToFile()
 
 
 /*
- * mSortingSeries()
+ * mSortingSeriesReadiness(typeNumberProcess aSeries)
  */
-void cShedulingAlgorithms::mSortingSeries()
+void cShedulingAlgorithms::mSortingSeriesReadiness(typeNumberProcess aSeries)
 {
+    cProcess Proc;
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+    {
+        for (typeNumberProcess j = i + 1; j < constProcesses; j++)
+        {
+            if (tabProcesses[aSeries][i].getTimeReadiness() > tabProcesses[aSeries][j].getTimeProcessing())
+            {
+                Proc = tabProcesses[aSeries][i];
+                tabProcesses[aSeries][i] = tabProcesses[aSeries][j];
+                tabProcesses[aSeries][j] = Proc;
+            }
+        }
+    }
 }
 
 /*
- * mSortingAllSeries()
+ * mSortingAllSeriesReadiness()
  */
-void cShedulingAlgorithms::mSortingAllProcesses()
+void cShedulingAlgorithms::mSortingAllSeriesReadiness()
 {
-}
-
-/*
- * void mReverseOrderSeries(typeNumberProcess aSeries)
- */
-void cShedulingAlgorithms::mReverseOrderSeries(typeNumberProcess aSeries)
-{
-}
-
-/*
- * mReverseOrderAllSeries()
- */
-void cShedulingAlgorithms::mReverseOrderAllSeries()
-{
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+        mSortingSeriesReadiness(i);
 }
 
 

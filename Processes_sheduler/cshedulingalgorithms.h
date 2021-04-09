@@ -195,42 +195,22 @@ public:
 
 
     /*
-     * mSortingSeries() -
+     * mSortingSeries(typeNumberProcess aSeries) -
      * PRE:
      * - brak;
      * POST:
      * - brak.
      */
-    void mSortingSeries();
+    void mSortingSeriesReadiness(typeNumberProcess aSeries);
 
     /*
-     * mSortingAllProcesses() -
+     * mSortingAllSeriesReadiness() -
      * PRE:
      * - brak;
      * POST:
      * - brak.
      */
-    void mSortingAllProcesses();
-
-    /*
-     * mReverseOrderSeries(typeNumberProcess aSeries) - metoda
-     * odwracajaca kolejnosc procesow w danej serii.
-     * PRE:
-     * - podanie serii (argument: aSeries);
-     * POST:
-     * - brak.
-     */
-    void mReverseOrderSeries(typeNumberProcess aSeries);
-
-    /*
-     * mReverseOrderAllSeries() - metoda odwracajaca kolejnosc
-     * procesow we wszystkich seriach.
-     * PRE:
-     * - brak;
-     * POST:
-     * - brak.
-     */
-    void mReverseOrderAllSeries();
+    void mSortingAllSeriesReadiness();
 
 
 
