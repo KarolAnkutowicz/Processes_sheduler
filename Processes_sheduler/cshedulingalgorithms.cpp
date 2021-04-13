@@ -180,6 +180,22 @@ void cShedulingAlgorithms::mSortingAllSeriesReadiness()
         mSortingSeriesReadiness(i);
 }
 
+/*
+ * mSortingSeriesReadinessAndDoing(typeNumberProcess aSeries)
+ */
+void cShedulingAlgorithms::mSortingSeriesReadinessAndDoing(typeNumberProcess aSeries)
+{
+
+}
+
+/*
+ * mSortingAllSeriesReadinessAndDoind()
+ */
+void cShedulingAlgorithms::mSortingAllSeriesReadinessAndDoind()
+{
+
+}
+
 
 
 /*

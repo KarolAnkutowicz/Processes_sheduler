@@ -212,6 +212,24 @@ public:
      */
     void mSortingAllSeriesReadiness();
 
+    /*
+     * mSortingSeriesReadinessAndDoing(typeNumberProcess aSeries) -
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
+     */
+    void mSortingSeriesReadinessAndDoing(typeNumberProcess aSeries);
+
+    /*
+     * mSortingAllSeriesReadinessAndDoind() -
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
+     */
+    void mSortingAllSeriesReadinessAndDoind();
+
 
 
     /*
