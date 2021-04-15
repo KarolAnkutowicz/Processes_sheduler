@@ -45,6 +45,20 @@ cShedulingAlgorithms::cShedulingAlgorithms(enumAlgorithms aAlgorithm)
  */
 void cShedulingAlgorithms::mMakeFCFS()
 {
+    mReadProcessesFromFile();
+    mSortingAllSeriesReadiness();
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+    {
+        for (typeNumberProcess j = 0; j < constProcesses; j++)
+            cout << tabProcesses[i][j] << "   ";
+        cout << endl;
+    }
+
+    /*for (typeNumberProcess i = 0; i < constSeries; i++)
+    {
+
+    }*/
+
 }
 
 /*

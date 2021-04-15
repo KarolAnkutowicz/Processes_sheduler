@@ -93,22 +93,31 @@ public:
 
 
     /*
-     * ostream & operator << (ostream & StreamOut, cProcess P) -
+     * ostream & operator << (ostream & StreamOut, cProcess & P) -
      * PRE:
      * - referencja obiektu klasy ostream, obiekt klasy cProcess;
      * POST:
      * - referencja do obiektu klasy ostream.
      */
-    friend ostream & operator << (ostream & StreamOut, cProcess P);
+    friend ostream & operator << (ostream & StreamOut, cProcess & P);
 
     /*
-     * istream & operator >> (istream & StreamIn, cProcess P) -
+     * istream & operator >> (istream & StreamIn, cProcess & P) -
      * PRE:
      * - referencja obiektu klasy istream, obiekt klasy cProcess;
      * POST:
      * - referencja do obiektu klasy istream.
      */
-    friend istream & operator >> (istream & StreamIn, cProcess P);
+    friend istream & operator >> (istream & StreamIn, cProcess & P);
+
+    /*
+     * operator = (cProcess & P) -
+     * PRE:
+     * -
+     * POST:
+     * -
+     */
+    void operator = (cProcess & P);
 
 
 
