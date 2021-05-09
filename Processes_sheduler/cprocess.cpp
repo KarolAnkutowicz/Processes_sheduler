@@ -1,5 +1,8 @@
 /********** BEGIN_OF_FILE **********/
-/* cprocess.cpp */
+/*
+ * author: Karol Ankutowicz
+ * file: cprocess.cpp
+ */
 
 #include "cprocess.h"
 

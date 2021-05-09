@@ -1,5 +1,8 @@
 /********** BEGIN_OF_FILE **********/
-/* constantsandtypes.h */
+/*
+ * author: Karol Ankutowicz
+ * file: constantsandtypes.h
+ */
 
 #ifndef CONSTANTSANDTYPES_H
 #define CONSTANTSANDTYPES_H

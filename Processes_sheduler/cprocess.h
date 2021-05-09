@@ -1,5 +1,8 @@
 /********** BEGIN_OF_FILE **********/
-/* cprocess.h */
+/*
+ * author: Karol Ankutowicz
+ * file: cprocess.h
+ */
 
 #ifndef CPROCESS_H
 #define CPROCESS_H

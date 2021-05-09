@@ -1,5 +1,8 @@
 /********** BEGIN_OF_FILE **********/
-/* cshedulingalgorithms.h */
+/*
+ * author: Karol Ankutowicz
+ * file: cshedulingalgorithms.h
+ */
 
 #ifndef CSHEDULINGALGORITHMS_H
 #define CSHEDULINGALGORITHMS_H

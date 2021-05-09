@@ -1,5 +1,8 @@
 /********** BEGIN_OF_FILE **********/
-/* cshedulingalgorithms.cpp */
+/*
+ * author: Karol Ankutowicz
+ * file: cshedulingalgorithms.cpp
+ */
 
 #include "cshedulingalgorithms.h"
 
