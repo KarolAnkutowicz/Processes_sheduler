@@ -26,6 +26,17 @@ class cProcess
     typeTime vTimeReadiness;
 
     /*
+     * vTimeReady - czas do momentu gotowosci jaki juz uplynal.
+     */
+    typeTime vTimeReady;
+
+    /*
+     * vTimeToReady - czas do momentu gotowosci jaki jeszcze
+     * pozostal.
+     */
+    typeTime vTimeToReady;
+
+    /*
      * vTimeWaiting - czas oczekiwania na wykonanie procesu.
      */
     typeTime vTimeWaiting;
@@ -125,7 +136,7 @@ public:
 
 
     /*
-     * getTimeReadiness - metoda zwracajaca czas uplywajacy czas
+     * getTimeReadiness() - metoda zwracajaca uplywajacy czas
      * od momentu rozpoczecia przetwarzania procesow do momentu
      * rozpoczecia gotowosci procesu do wykonania.
      * PRE:
@@ -139,7 +150,33 @@ public:
     }
 
     /*
-     * getTimeWaiting - metoda zwracajaca czas oczekiwania
+     * getTimeReady() - metoda zwracajaca czas do gotowosci
+     * wykonania procesu jaki juz uplynal.
+     * PRE:
+     * - brak;
+     * POST:
+     * - zwrocenie wartosci pola vTimeReady (typeTime).
+     */
+    inline typeTime getTimeReady()
+    {
+        return vTimeReady;
+    }
+
+    /*
+     * getTimeToReady() - metoda zwracajaca czas jaki pozostal
+     * do gotowosci procesu.
+     * PRE:
+     * - brak;
+     * POST:
+     * - zwrocenie wartosci pola vTimeToReady (typeTime).
+     */
+    inline typeTime getTimeToReady()
+    {
+        return vTimeToReady;
+    }
+
+    /*
+     * getTimeWaiting() - metoda zwracajaca czas oczekiwania
      * na wykonanie procesu.
      * PRE:
      * - brak;
@@ -152,7 +189,7 @@ public:
     }
 
     /*
-     * getTimeWaiting - metoda zwracajaca czas wykonywania procesu.
+     * getTimeWaiting() - metoda zwracajaca czas wykonywania procesu.
      * PRE:
      * - brak;
      * POST:
@@ -164,7 +201,7 @@ public:
     }
 
     /*
-     * getTimeDone - metoda zwracajaca czas procesu jaki zostal
+     * getTimeDone() - metoda zwracajaca czas procesu jaki zostal
      * juz wykonany.
      * PRE:
      * - brak;
@@ -177,7 +214,7 @@ public:
     }
 
     /*
-     * getTimeToDo - metoda zwracajaca czas jaki zostal do wykonania.
+     * getTimeToDo() - metoda zwracajaca czas jaki zostal do wykonania.
      * PRE:
      * - brak;
      * POST:
@@ -189,7 +226,7 @@ public:
     }
 
     /*
-     * getTimeProcessing - metoda zwracajaca calkowity czas
+     * getTimeProcessing() - metoda zwracajaca calkowity czas
      * przetwarzania procesu.
      * PRE:
      * - brak;
@@ -238,6 +275,26 @@ public:
     {
         vTimeWaiting++;
     }
+
+    /*
+     * mIncrementTimeReady() - metoda inkrementujaca czas
+     * oczekiwania na gotowosc procesu do wykonania.
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
+     */
+    void mIncrementTimeReady();
+
+    /*
+     * mDecrementTimeToReady() - metoda dekrementujaca czas
+     * jaki pozostal do gotowosci do wykonywania procesu.
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
+     */
+    void mDecrementTimeToReady();
 
     /*
      * mIncrementTimeDone() - metoda inkrementujaca czas procesu

@@ -108,6 +108,24 @@ void cProcess::setTimeDoing(typeTime aTimeDoing)
 
 
 /*
+ * mIncrementTimeReady()
+ */
+void cProcess::mIncrementTimeReady()
+{
+    if (vTimeReady < vTimeReadiness)
+        vTimeReady++;
+}
+
+/*
+ * mDecrementTimeToReady()
+ */
+void cProcess::mDecrementTimeToReady()
+{
+    if (vTimeToReady > 0 )
+        vTimeToReady--;
+}
+
+/*
  * mIncrementTimeDone()
  */
 void cProcess::mIncrementTimeDone()
