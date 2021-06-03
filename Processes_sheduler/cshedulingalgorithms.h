@@ -23,32 +23,32 @@ using namespace std;
 class cShedulingAlgorithms
 {
     /*
-     * tabProcesses[constSeries][constProcesses] - tablica procesow,
-     * ktore sa przetwarzane przez kolejne algorytmy. Zebrane
+     * cProcess tabProcesses[constSeries][constProcesses] - tablica
+     * procesow, ktore sa przetwarzane przez kolejne algorytmy. Zebrane
      * w okreslonej liczbie ciagow.
      */
     cProcess tabProcesses[constSeries][constProcesses];
 
     /*
-     * tabTotalTimeDoing[constSeries] - tablica sumarycznych czasow
-     * dzialanie procesow.
+     * typeTime tabTotalTimeDoing[constSeries] - tablica sumarycznych
+     * czasow dzialanie procesow.
      */
     typeTime tabTotalTimeDoing[constSeries];
 
     /*
-     * tabAverageTimeDoing[constSeries] - tablica srednich czasow
+     * double tabAverageTimeDoing[constSeries] - tablica srednich czasow
      * dzialanie procesow.
      */
     double tabAverageTimeDoing[constSeries];
 
     /*
-     * tabTotalTimeProcessing[constSeries] - tablica sumarycznych
+     * typeTime tabTotalTimeProcessing[constSeries] - tablica sumarycznych
      * czasow przetwarzania procesow.
      */
     typeTime tabTotalTimeProcessing[constSeries];
 
     /*
-     * tabAverageTimeProcessing[constSeries] - tablica srednich
+     * double tabAverageTimeProcessing[constSeries] - tablica srednich
      * czasow przetwarzania procesow.
      */
     double tabAverageTimeProcessing[constSeries];
@@ -56,11 +56,11 @@ class cShedulingAlgorithms
 public:
     /*
      * cShedulingAlgorithms() - konstruktor wywolywany bez
-     * parametrow.
+     * argumentow.
      * PRE:
      * - brak;
      * POST:
-     * - utworzenie obiektu.
+     * - utworzenie obiektu klasy cShedulingAlgorithms.
      */
     cShedulingAlgorithms();
 
@@ -70,13 +70,13 @@ public:
      * PRE:
      * - podanie wykorzystywanego algorytmu;
      * POST:
-     * - utworzenie obiektu.
+     * - utworzenie obiektu klasy cShedulingAlgorithms.
      */
     cShedulingAlgorithms(enumAlgorithms aAlgorithm);
 
 
     /*
-     * mMakeFCFS() - metoda realizujaca niewywlaszczajacy algorytm
+     * void mMakeFCFS() - metoda realizujaca niewywlaszczajacy algorytm
      * FCFS (First Come First Served - pierwszy zgloszony, pierwszy
      * obsluzony).
      * PRE:
@@ -87,7 +87,7 @@ public:
     void mMakeFCFS();
 
     /*
-     * mMakeLCFS() - metoda realizujaca niewywlaszczajacy algorytm
+     * void mMakeLCFS() - metoda realizujaca niewywlaszczajacy algorytm
      * FCFS (First Come First Served - pierwszy zgloszony, pierwszy
      * obsluzony).
      * PRE:
@@ -98,7 +98,7 @@ public:
     void mMakeLCFS();
 
     /*
-     * mMakeSJF() - metoda realizujaca niewywlaszczajacy algorytm
+     * void mMakeSJF() - metoda realizujaca niewywlaszczajacy algorytm
      * SJF (SJN, SPF, SPN, Shortest Job/Process First/Next - najpierw
      * najkrotsze zadanie).
      * PRE:
@@ -109,7 +109,7 @@ public:
     void mMakeSJF();
 
     /*
-     * mMakeRR() - metoda realizujaca wywlaszczajacy algorytm
+     * void mMakeRR() - metoda realizujaca wywlaszczajacy algorytm
      * RR (Round Robin - rotacyjne obslugiwanie kolejnych procesow
      * przez ustalony kwant czasu).
      * PRE:
@@ -120,7 +120,7 @@ public:
     void mMakeRR();
 
     /*
-     * mMakeSRT() - metoda realizujaca wywlaszczajacy algorytm
+     * void mMakeSRT() - metoda realizujaca wywlaszczajacy algorytm
      * SRT (Shortest Remaining Time - w pierwszej kolejnosci
      * obslugiwane jest zadanie z najkrotszym czasem zakonczenia).
      * PRE:
@@ -133,7 +133,7 @@ public:
 
 
     /*
-     * mDrawProcesses() - metoda losujaca procesy, nastepnie umieszcza
+     * void mDrawProcesses() - metoda losujaca procesy, nastepnie umieszcza
      * je w tablicy procesow.
      * PRE:
      * - brak;
@@ -143,11 +143,11 @@ public:
     void mDrawProcesses();
 
     /*
-     * mResetProcess(typeNumberProcess aSeries, typeNumberProcess aProcess) -
+     * void mResetProcess(typeNumberProcess aSeries, typeNumberProcess aProcess) -
      * metoda resetujaca konkretny proces.
      * PRE:
-     * - podanie serii procesow (argument: aSeries), podanie numeru
-     * procesu w serii (argument: aProcess);
+     * - podanie serii procesow (typ: typeNumberProcess), podanie numeru
+     * procesu w serii (typ: typeNumberProcess);
      * POST:
      * - brak.
      */
@@ -157,17 +157,17 @@ public:
     }
 
     /*
-     * mResetSeries(typeNumberProcess aSeries) - metoda resetujaca
+     * void mResetSeries(typeNumberProcess aSeries) - metoda resetujaca
      * wskazana serie procesow.
      * PRE:
-     * - podanie serii procesow (argument: aSeries);
+     * - podanie serii procesow (typ: typeNumberProcess);
      * POST:
      * - brak.
      */
     void mResetSeries(typeNumberProcess aSeries);
 
     /*
-     * mResetAllProcesses() - metoda resetujaca wszystkie procesy.
+     * void mResetAllProcesses() - metoda resetujaca wszystkie procesy.
      * PRE:
      * - brak;
      * POST:
@@ -176,7 +176,7 @@ public:
     void mResetAllProcesses();
 
     /*
-     * mReadProcessesFromFile() - metoda wczytujaca procesy
+     * void mReadProcessesFromFile() - metoda wczytujaca procesy
      * z pliku.
      * PRE:
      * - brak;
@@ -186,7 +186,7 @@ public:
     void mReadProcessesFromFile();
 
     /*
-     * mWriteProcessesToFile() - metoda zapisujaca procesy
+     * void mWriteProcessesToFile() - metoda zapisujaca procesy
      * do pliku.
      * PRE:
      * - brak;
@@ -198,16 +198,18 @@ public:
 
 
     /*
-     * mSortingSeries(typeNumberProcess aSeries) -
+     * void mSortingSeries(typeNumberProcess aSeries) - metoda
+     * sortujaca procesy rosnaco wg czasow gotowosci do wykonywania.
      * PRE:
-     * - brak;
+     * - podanie numeru serii procesow (typ: typeNumberProcess);
      * POST:
      * - brak.
      */
     void mSortingSeriesReadiness(typeNumberProcess aSeries);
 
     /*
-     * mSortingAllSeriesReadiness() -
+     * void mSortingAllSeriesReadiness() - metoda sortujaca wszystkie
+     * serie procesow rosnoca wg czasow gotowosci do wykonywania.
      * PRE:
      * - brak;
      * POST:
@@ -216,16 +218,21 @@ public:
     void mSortingAllSeriesReadiness();
 
     /*
-     * mSortingSeriesReadinessAndDoing(typeNumberProcess aSeries) -
+     * void mSortingSeriesReadinessAndDoing(typeNumberProcess aSeries) -
+     * metoda sortujaca procesy rosnaco wg czasu gotowosci do
+     * wykonywania a nastepnie rosnaco wg czasu wykonywania w danej
+     * serii.
      * PRE:
-     * - brak;
+     * - podanie numeru serii procesow (typ: typeNumberProcess);
      * POST:
      * - brak.
      */
     void mSortingSeriesReadinessAndDoing(typeNumberProcess aSeries);
 
     /*
-     * mSortingAllSeriesReadinessAndDoind() -
+     * void mSortingAllSeriesReadinessAndDoind() - metoda sortujaca
+     * procesy rosnaco wg czasu gotowosci do wykonywania a nastepnie
+     * rosnaco wg czasu wykonywania we wszystkich seriach procesow.
      * PRE:
      * - brak;
      * POST:
@@ -236,10 +243,10 @@ public:
 
 
     /*
-     * mResetTotalTimeDoing(typeNumberProcess aSeries) - metoda
+     * void mResetTotalTimeDoing(typeNumberProcess aSeries) - metoda
      * resetujaca sumaryczny czas wykonania wskazanej serii
      * PRE:
-     * - podanie serii procesow (argument: aSeries);
+     * - podanie serii procesow (typ: typeNumberProcess);
      * POST:
      * - brak.
      */
@@ -249,7 +256,7 @@ public:
     }
 
     /*
-     * mResetAllTotalTimeDoing() - metoda resetujaca wszystkie
+     * void mResetAllTotalTimeDoing() - metoda resetujaca wszystkie
      * sumaryczne czasy wykonywania procesow.
      * PRE:
      * - brak;
@@ -259,21 +266,22 @@ public:
     void mResetAllTotalTimeDoing();
 
     /*
-     * mCalculateTotalTimeDoing(typeNumberProcess aSeries) - metoda
-     * obliczajaca symaryczny czas wykonywania procesow we wskazanej
-     * serii.
+     * void mCalculateTotalTimeDoing(typeNumberProcess aSeries) -
+     * metoda obliczajaca symaryczny czas wykonywania procesow
+     * we wskazanej serii.
      * PRE:
-     * - podanie serii procesow (argument: aSeries);
+     * - podanie serii procesow (typ: typeNumberProcess);
      * POST:
      * - brak.
      */
     void mCalculateTotalTimeDoing(typeNumberProcess aSeries);
 
     /*
-     * getTotalTimeDoing(typeNumberProcess aSeries) - metoda zwracajaca
-     * sumaryczny czas wykonywania procesow wskazanej serii.
+     * typeTime getTotalTimeDoing(typeNumberProcess aSeries) -
+     * metoda zwracajaca sumaryczny czas wykonywania procesow
+     * wskazanej serii.
      * PRE:
-     * - podanie serii procesow (argument: aSeries);
+     * - podanie serii procesow (typ: typeNumberProcess);
      * POST:
      * - zwrocenie sumarycznej wartosci czasow wykonywania procesow
      * danej serii (typ: typeTime).
@@ -286,10 +294,10 @@ public:
 
 
     /*
-     * mResetAverageTimeDoing(typeNumberProcess aSeries) - metoda
+     * void mResetAverageTimeDoing(typeNumberProcess aSeries) - metoda
      * resetujaca sredni czas wykonywania procesow wskazanej serii.
      * PRE:
-     * - podanie serii procesow (argument: aSeries);
+     * - podanie serii procesow (typ: typeNumberProcess);
      * POST:
      * - brak.
      */
@@ -299,8 +307,8 @@ public:
     }
 
     /*
-     * mResetAllAverageTimeDoing() - metoda resetujaca srednie czasy
-     * wykonywania procesow wszystkich serii.
+     * void mResetAllAverageTimeDoing() - metoda resetujaca srednie
+     * czasy wykonywania procesow wszystkich serii.
      * PRE:
      * - brak;
      * POST:
@@ -309,20 +317,22 @@ public:
     void mResetAllAverageTimeDoing();
 
     /*
-     * mCalculateAverageTimeDoing(typeNumberProcess aSeries) - metoda
-     * obliczajaca sredni czas wykonywania procesow we wskazanej serii.
+     * void mCalculateAverageTimeDoing(typeNumberProcess aSeries) -
+     * metoda obliczajaca sredni czas wykonywania procesow
+     * we wskazanej serii.
      * PRE:
-     * - podanie serii procesow (argument: aSeries);
+     * - podanie serii procesow (typ: typeNumberProcess);
      * POST:
      * - brak.
      */
     void mCalculateAverageTimeDoing(typeNumberProcess aSeries);
 
     /*
-     * getAverageTimeDoing(typeNumberProcess aSeries) - zwrocenie
-     * wartosci sredniego czasu wykonywania procesu we wskazanej serii.
+     * typeTime getAverageTimeDoing(typeNumberProcess aSeries) -
+     * zwrocenie wartosci sredniego czasu wykonywania procesu
+     * we wskazanej serii.
      * PRE:
-     * - podanie serii procesow (argument: aSeries);
+     * - podanie serii procesow (typ: typeNumberProcess);
      * POST:
      * - zwrocenie srednego czasu wykonywania procesow wskazanej serii
      * (typ: typeTime).
@@ -335,11 +345,11 @@ public:
 
 
     /*
-     * mResetTotalTimeProcessing(typeNumberProcess aSeries) - metoda
-     * resetujaca sumaryczny czas przetwarzania procesow wskazanej
-     * serii.
+     * void mResetTotalTimeProcessing(typeNumberProcess aSeries) -
+     * metoda resetujaca sumaryczny czas przetwarzania procesow
+     * wskazanej serii.
      * PRE:
-     * - wskazanie serii procesow (argument: aSeries);
+     * - wskazanie serii procesow (typ: typeNumberProcess);
      * POST:
      * - brak.
      */
@@ -349,8 +359,8 @@ public:
     }
 
     /*
-     * mResetAllTotalTimeProcessing() - metoda resetujaca sumaryczne
-     * czasy przetwarzania procesow wszystkich serii.
+     * void mResetAllTotalTimeProcessing() - metoda resetujaca
+     * sumaryczne czasy przetwarzania procesow wszystkich serii.
      * PRE:
      * - brak;
      * POST:
@@ -359,25 +369,25 @@ public:
     void mResetAllTotalTimeProcessing();
 
     /*
-     * mCalculateTotalTimeProcessing(typeNumberProcess aSeries) -
+     * void mCalculateTotalTimeProcessing(typeNumberProcess aSeries) -
      * metoda obliczajaca sredni czas przetwarzania procesow
      * we wskazanej serii.
      * PRE:
-     * - podanie serii procesow (argument: aSeries);
+     * - podanie serii procesow (typ: typeNumberProcess);
      * POST:
      * - brak.
      */
     void mCalculateTotalTimeProcessing(typeNumberProcess aSeries);
 
     /*
-     * getTotalTimeProcessing(typeNumberProcess aSeries) - metoda
-     * zwracajaca sumaryczny czas przetwarzania procesow wskazanej
-     * serii.
+     * typeTime getTotalTimeProcessing(typeNumberProcess aSeries) -
+     * metoda zwracajaca sumaryczny czas przetwarzania procesow
+     * wskazanej serii.
      * PRE:
-     * - podanie serii procesow (argument: aSeries);
+     * - podanie serii procesow (typ: typeNumberProcess);
      * POST:
      * - zwrocenie sumarycznego czasu przetwarzania wskazanej serii
-     * (typ: typeNumberProcess).
+     * (typ: typeTime).
      */
     inline typeTime getTotalTimeProcessing(typeNumberProcess aSeries)
     {
@@ -387,11 +397,11 @@ public:
 
 
     /*
-     * mResetAverageTimeProcessing(typeNumberProcess aSeries) -
+     * void mResetAverageTimeProcessing(typeNumberProcess aSeries) -
      * metoda resetujaca sredni czas przetwarzania procesow wskazanej
      * serii.
      * PRE:
-     * - podanie serii procesow (argument: aSeries);
+     * - podanie serii procesow (typ: typeNumberProcess);
      * POST:
      * - brak.
      */
@@ -401,8 +411,8 @@ public:
     }
 
     /*
-     * mResetAllAverageTimeProcessing() - metoda resetujaca srednie
-     * czasy przetwarzania wszystkich serii procesow.
+     *  void mResetAllAverageTimeProcessing() - metoda resetujaca
+     * srednie czasy przetwarzania wszystkich serii procesow.
      * PRE:
      * - brak;
      * POST:
@@ -411,21 +421,21 @@ public:
     void mResetAllAverageTimeProcessing();
 
     /*
-     * mCalculateAverageTimeProcessing(typeNumberProcess aSeries) -
+     * void mCalculateAverageTimeProcessing(typeNumberProcess aSeries) -
      * metoda obliczajaca sredni czas przetwarzania procesow wskazanej
      * serii
      * PRE:
-     * - podanie serii procesow (argument: aSeries);
+     * - podanie serii procesow (typ: typeNumberProcess);
      * POST:
      * - brak.
      */
     void mCalculateAverageTimeProcessing(typeNumberProcess aSeries);
 
     /*
-     * getAverageTimeProcessing(typeNumberProcess aSeries) - metoda
-     * zwracajaca sredni czas przetwarzania wskazanej serii.
+     * typeTime getAverageTimeProcessing(typeNumberProcess aSeries) -
+     * metoda zwracajaca sredni czas przetwarzania wskazanej serii.
      * PRE:
-     * - podanie serii procesow (argumenr: aSeries);
+     * - podanie serii procesow (typ: typeNumberProcess);
      * POST:
      * - zwrocenie wartosci sredniej czasu przetwarzania wskazanej
      * serii (typ: typeTime).
@@ -438,10 +448,10 @@ public:
 
 
     /*
-     * mWriteResultsToFile(enumAlgorithms parAlgorithm) - metoda
+     * void mWriteResultsToFile(enumAlgorithms parAlgorithm) - metoda
      * wypisujaca wyniki dzialania wskazanego algorytmu.
      * PRE:
-     * - podanie algorytmuc(argument: aAlgorithm;
+     * - podanie algorytmuc(typ: enumAlgorithm);
      * POST:
      * - brak.
      */

@@ -44,7 +44,7 @@ cShedulingAlgorithms::cShedulingAlgorithms(enumAlgorithms aAlgorithm)
 
 
 /*
- * mMakeFCFS()
+ * void mMakeFCFS()
  */
 void cShedulingAlgorithms::mMakeFCFS()
 {
@@ -65,28 +65,28 @@ void cShedulingAlgorithms::mMakeFCFS()
 }
 
 /*
- * mMakeLCFS()
+ * void mMakeLCFS()
  */
 void cShedulingAlgorithms::mMakeLCFS()
 {
 }
 
 /*
- * mMakeSJF()
+ * void mMakeSJF()
  */
 void cShedulingAlgorithms::mMakeSJF()
 {
 }
 
 /*
- * mMakeRR()
+ * void mMakeRR()
  */
 void cShedulingAlgorithms::mMakeRR()
 {
 }
 
 /*
- * mMakeSRT()
+ * void mMakeSRT()
  */
 void cShedulingAlgorithms::mMakeSRT()
 {
@@ -95,7 +95,7 @@ void cShedulingAlgorithms::mMakeSRT()
 
 
 /*
- * mDrawProcesses()
+ * void mDrawProcesses()
  */
 void cShedulingAlgorithms::mDrawProcesses()
 {
@@ -115,7 +115,7 @@ void cShedulingAlgorithms::mDrawProcesses()
 }
 
 /*
- * mResetSeries(typeNumberProcess aSeries)
+ * void mResetSeries(typeNumberProcess aSeries)
  */
 void cShedulingAlgorithms::mResetSeries(typeNumberProcess aSeries)
 {
@@ -124,7 +124,7 @@ void cShedulingAlgorithms::mResetSeries(typeNumberProcess aSeries)
 }
 
 /*
- * mResetAllProcesses()
+ * void mResetAllProcesses()
  */
 void cShedulingAlgorithms::mResetAllProcesses()
 {
@@ -133,7 +133,7 @@ void cShedulingAlgorithms::mResetAllProcesses()
 }
 
 /*
- * mReadProcessesFromFile()
+ * void mReadProcessesFromFile()
  */
 void cShedulingAlgorithms::mReadProcessesFromFile()
 {
@@ -151,7 +151,7 @@ void cShedulingAlgorithms::mReadProcessesFromFile()
 }
 
 /*
- * mWriteProcessesToFile()
+ * void mWriteProcessesToFile()
  */
 void cShedulingAlgorithms::mWriteProcessesToFile()
 {
@@ -169,7 +169,7 @@ void cShedulingAlgorithms::mWriteProcessesToFile()
 
 
 /*
- * mSortingSeriesReadiness(typeNumberProcess aSeries)
+ * void mSortingSeriesReadiness(typeNumberProcess aSeries)
  */
 void cShedulingAlgorithms::mSortingSeriesReadiness(typeNumberProcess aSeries)
 {
@@ -189,7 +189,7 @@ void cShedulingAlgorithms::mSortingSeriesReadiness(typeNumberProcess aSeries)
 }
 
 /*
- * mSortingAllSeriesReadiness()
+ * void mSortingAllSeriesReadiness()
  */
 void cShedulingAlgorithms::mSortingAllSeriesReadiness()
 {
@@ -198,7 +198,7 @@ void cShedulingAlgorithms::mSortingAllSeriesReadiness()
 }
 
 /*
- * mSortingSeriesReadinessAndDoing(typeNumberProcess aSeries)
+ * void mSortingSeriesReadinessAndDoing(typeNumberProcess aSeries)
  */
 void cShedulingAlgorithms::mSortingSeriesReadinessAndDoing(typeNumberProcess aSeries)
 {
@@ -206,7 +206,7 @@ void cShedulingAlgorithms::mSortingSeriesReadinessAndDoing(typeNumberProcess aSe
 }
 
 /*
- * mSortingAllSeriesReadinessAndDoind()
+ * void mSortingAllSeriesReadinessAndDoind()
  */
 void cShedulingAlgorithms::mSortingAllSeriesReadinessAndDoind()
 {
@@ -216,7 +216,7 @@ void cShedulingAlgorithms::mSortingAllSeriesReadinessAndDoind()
 
 
 /*
- * mResetAllTotalTimeDoing()
+ * void mResetAllTotalTimeDoing()
  */
 void cShedulingAlgorithms::mResetAllTotalTimeDoing()
 {
@@ -225,7 +225,7 @@ void cShedulingAlgorithms::mResetAllTotalTimeDoing()
 }
 
 /*
- * mCalculateTotalTimeDoing(typeNumberProcess aSeries)
+ * void mCalculateTotalTimeDoing(typeNumberProcess aSeries)
  */
 void cShedulingAlgorithms::mCalculateTotalTimeDoing(typeNumberProcess aSeries)
 {
@@ -237,7 +237,7 @@ void cShedulingAlgorithms::mCalculateTotalTimeDoing(typeNumberProcess aSeries)
 
 
 /*
- * mResetAllAverageTimeDoing()
+ * void mResetAllAverageTimeDoing()
  */
 void cShedulingAlgorithms::mResetAllAverageTimeDoing()
 {
@@ -246,7 +246,7 @@ void cShedulingAlgorithms::mResetAllAverageTimeDoing()
 }
 
 /*
- * mCalculateAverageTimeDoing(typeNumberProcess aSeries)
+ * void mCalculateAverageTimeDoing(typeNumberProcess aSeries)
  */
 void cShedulingAlgorithms::mCalculateAverageTimeDoing(typeNumberProcess aSeries)
 {
@@ -256,7 +256,7 @@ void cShedulingAlgorithms::mCalculateAverageTimeDoing(typeNumberProcess aSeries)
 
 
 /*
- * mResetAllTotalTimeProcessing()
+ * void mResetAllTotalTimeProcessing()
  */
 void cShedulingAlgorithms::mResetAllTotalTimeProcessing()
 {
@@ -265,7 +265,7 @@ void cShedulingAlgorithms::mResetAllTotalTimeProcessing()
 }
 
 /*
- * mCalculateTotalTimeProcessing(typeNumberProcess aSeries)
+ * void mCalculateTotalTimeProcessing(typeNumberProcess aSeries)
  */
 void cShedulingAlgorithms::mCalculateTotalTimeProcessing(typeNumberProcess aSeries)
 {
@@ -277,7 +277,7 @@ void cShedulingAlgorithms::mCalculateTotalTimeProcessing(typeNumberProcess aSeri
 
 
 /*
- * mResetAllAverageTimeProcessing()
+ * void mResetAllAverageTimeProcessing()
  */
 void cShedulingAlgorithms::mResetAllAverageTimeProcessing()
 {
@@ -286,7 +286,7 @@ void cShedulingAlgorithms::mResetAllAverageTimeProcessing()
 }
 
 /*
- * mCalculateAverageTimeProcessing(typeNumberProcess aSeries)
+ * void mCalculateAverageTimeProcessing(typeNumberProcess aSeries)
  */
 void cShedulingAlgorithms::mCalculateAverageTimeProcessing(typeNumberProcess aSeries)
 {
@@ -296,7 +296,7 @@ void cShedulingAlgorithms::mCalculateAverageTimeProcessing(typeNumberProcess aSe
 
 
 /*
- * mWriteResultsToFile(enumAlgorithms aAlgorithm)
+ * void mWriteResultsToFile(enumAlgorithms aAlgorithm)
  */
 void cShedulingAlgorithms::mWriteResultsToFile(enumAlgorithms aAlgorithm)
 {

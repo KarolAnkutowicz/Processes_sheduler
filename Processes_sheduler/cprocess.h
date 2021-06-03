@@ -19,47 +19,49 @@ using namespace std;
 class cProcess
 {
     /*
-     * vTimeReadiness - czas uplywajacy od momentu rozpoczecie
-     * przetwarzania procesow do momentu gotowosci procesu
-     * do wykonywania.
+     * typeTime vTimeReadiness - czas uplywajacy od momentu
+     * rozpoczecie przetwarzania procesow do momentu gotowosci
+     * procesu do wykonywania.
      */
     typeTime vTimeReadiness;
 
     /*
-     * vTimeReady - czas do momentu gotowosci jaki juz uplynal.
+     * typeTime vTimeReady - czas do momentu gotowosci jaki
+     * juz uplynal.
      */
     typeTime vTimeReady;
 
     /*
-     * vTimeToReady - czas do momentu gotowosci jaki jeszcze
-     * pozostal.
+     * typeTime vTimeToReady - czas do momentu gotowosci jaki
+     * jeszcze pozostal.
      */
     typeTime vTimeToReady;
 
     /*
-     * vTimeWaiting - czas oczekiwania na wykonanie procesu.
+     * typeTime vTimeWaiting - czas oczekiwania na wykonanie
+     * procesu.
      */
     typeTime vTimeWaiting;
 
     /*
-     * vTimeDoing - czas wykonywania procesu.
+     * typeTime vTimeDoing - czas wykonywania procesu.
      */
     typeTime vTimeDoing;
 
     /*
-     * vTimeDone - czas procesu jaki zostal juz wykonany.
+     * typeTime vTimeDone - czas procesu jaki zostal juz wykonany.
      */
     typeTime vTimeDone;
 
     /*
-     * vTimeToDo - czas jaki pozostal do calkowitego wykonania
-     * procesu.
+     * typeTime vTimeToDo - czas jaki pozostal do calkowitego
+     * wykonania procesu.
      */
     typeTime vTimeToDo;
 
     /*
-     * vTimeProcessing - calkowity czas przetwarzania procesu
-     * (oczekiwanie + wykonywanie).
+     * typeTime vTimeProcessing - calkowity czas przetwarzania
+     * procesu (oczekiwanie + wykonywanie).
      */
     typeTime vTimeProcessing;
 
@@ -69,7 +71,7 @@ public:
      * PRE:
      * - brak;
      * POST:
-     * - tworzenie obiektu.
+     * - tworzenie obiektu klasy cProcess.
      */
     cProcess();
 
@@ -77,9 +79,9 @@ public:
      * cProcess(typeTime aTimeDoing) - konstruktor wywolywany
      * z jednym argumentem - czasem trwania procesu.
      * PRE:
-     * - czas trwania prcesu (argument: aTimeDoing;
+     * - czas trwania prcesu (typ: typeTime);
      * POST:
-     * - tworzenie obiektu.
+     * - tworzenie obiektu klasy cProcess.
      */
     cProcess(typeTime aTimeDoing);
 
@@ -88,10 +90,10 @@ public:
      * konstruktor wywolywany z dwoma argumentami - czas trwania
      * procesu oraz czas potrzebny do gotowosci procesu.
      * PRE:
-     * - czas trwania procesu (argument: aTimeDoing), czas
-     * oczekiwania na gotowosc procesu (argument: aTimeReadiness);
+     * - czas trwania procesu (typ: typeTime), czas
+     * oczekiwania na gotowosc procesu (typ: typeTime);
      * POST:
-     * - tworzenie obiektu.
+     * - tworzenie obiektu klasy cProcess.
      */
     cProcess(typeTime aTimeReadiness, typeTime aTimeDoing);
 
@@ -125,7 +127,7 @@ public:
     friend istream & operator >> (istream & StreamIn, cProcess & P);
 
     /*
-     * operator = (cProcess & P) -
+     * void operator = (cProcess & P) -
      * PRE:
      * -
      * POST:
@@ -136,13 +138,13 @@ public:
 
 
     /*
-     * getTimeReadiness() - metoda zwracajaca uplywajacy czas
-     * od momentu rozpoczecia przetwarzania procesow do momentu
+     * typeTime getTimeReadiness() - metoda zwracajaca uplywajacy
+     * czas od momentu rozpoczecia przetwarzania procesow do momentu
      * rozpoczecia gotowosci procesu do wykonania.
      * PRE:
      * - brak;
      * POST:
-     * - zwrocenie wartosci pola vTimeReadiness (typeTime).
+     * - zwrocenie wartosci pola vTimeReadiness (typ: typeTime).
      */
     inline typeTime getTimeReadiness()
     {
@@ -150,12 +152,12 @@ public:
     }
 
     /*
-     * getTimeReady() - metoda zwracajaca czas do gotowosci
+     * typeTime getTimeReady() - metoda zwracajaca czas do gotowosci
      * wykonania procesu jaki juz uplynal.
      * PRE:
      * - brak;
      * POST:
-     * - zwrocenie wartosci pola vTimeReady (typeTime).
+     * - zwrocenie wartosci pola vTimeReady (typ: typeTime).
      */
     inline typeTime getTimeReady()
     {
@@ -163,12 +165,12 @@ public:
     }
 
     /*
-     * getTimeToReady() - metoda zwracajaca czas jaki pozostal
-     * do gotowosci procesu.
+     * typeTime getTimeToReady() - metoda zwracajaca czas jaki
+     * pozostal do gotowosci procesu.
      * PRE:
      * - brak;
      * POST:
-     * - zwrocenie wartosci pola vTimeToReady (typeTime).
+     * - zwrocenie wartosci pola vTimeToReady (typ: typeTime).
      */
     inline typeTime getTimeToReady()
     {
@@ -176,8 +178,8 @@ public:
     }
 
     /*
-     * getTimeWaiting() - metoda zwracajaca czas oczekiwania
-     * na wykonanie procesu.
+     * typeTime getTimeWaiting() - metoda zwracajaca czas
+     * oczekiwania na wykonanie procesu.
      * PRE:
      * - brak;
      * POST:
@@ -189,7 +191,8 @@ public:
     }
 
     /*
-     * getTimeWaiting() - metoda zwracajaca czas wykonywania procesu.
+     * typeTime getTimeWaiting() - metoda zwracajaca czas
+     * wykonywania procesu.
      * PRE:
      * - brak;
      * POST:
@@ -201,8 +204,8 @@ public:
     }
 
     /*
-     * getTimeDone() - metoda zwracajaca czas procesu jaki zostal
-     * juz wykonany.
+     * typeTime getTimeDone() - metoda zwracajaca czas procesu
+     * jaki zostal juz wykonany.
      * PRE:
      * - brak;
      * POST:
@@ -214,7 +217,8 @@ public:
     }
 
     /*
-     * getTimeToDo() - metoda zwracajaca czas jaki zostal do wykonania.
+     * typeTime getTimeToDo() - metoda zwracajaca czas jaki
+     * zostal do wykonania.
      * PRE:
      * - brak;
      * POST:
@@ -226,8 +230,8 @@ public:
     }
 
     /*
-     * getTimeProcessing() - metoda zwracajaca calkowity czas
-     * przetwarzania procesu.
+     * typeTime getTimeProcessing() - metoda zwracajaca calkowity
+     * czas przetwarzania procesu.
      * PRE:
      * - brak;
      * POST:
@@ -241,21 +245,21 @@ public:
 
 
     /*
-     * setTimeReadiness(typeTime argTimeReadiness) - metoda ustawiajaca
-     * czas uplywajacy od momentu rozpoczecia przetwarzania procesow do
-     * momentu rozpoczecia gotowosci procesu do wykonania.
+     * void setTimeReadiness(typeTime argTimeReadiness) - metoda
+     * ustawiajaca czas uplywajacy od momentu rozpoczecia przetwarzania
+     * procesow do momentu rozpoczecia gotowosci procesu do wykonania.
      * PRE:
-     * - podanie wartosci czasu (argument: aTimeReadiness);
+     * - podanie wartosci czasu (typ: typeTime);
      * POST:
      * - brak.
      */
     void setTimeReadiness(typeTime aTimeReadiness);
 
     /*
-     * setTimeDoing(typeTime aTimeDoing) - metoda ustawiajaca
+     * void setTimeDoing(typeTime aTimeDoing) - metoda ustawiajaca
      * czas wykonywania procesu.
      * PRE:
-     * - podanie wartosci czasu (argument: aTimeDoing);
+     * - podanie wartosci czasu (typ: typeTime);
      * POST:
      * - brak.
      */
@@ -264,7 +268,7 @@ public:
 
 
     /*
-     * mIncrementTimeWaiting() - metoda inkrementujaca czas
+     * void mIncrementTimeWaiting() - metoda inkrementujaca czas
      * oczekiwania procesu na wykonannie.
      * PRE:
      * - brak;
@@ -277,7 +281,7 @@ public:
     }
 
     /*
-     * mIncrementTimeReady() - metoda inkrementujaca czas
+     * void mIncrementTimeReady() - metoda inkrementujaca czas
      * oczekiwania na gotowosc procesu do wykonania.
      * PRE:
      * - brak;
@@ -287,7 +291,7 @@ public:
     void mIncrementTimeReady();
 
     /*
-     * mDecrementTimeToReady() - metoda dekrementujaca czas
+     * void mDecrementTimeToReady() - metoda dekrementujaca czas
      * jaki pozostal do gotowosci do wykonywania procesu.
      * PRE:
      * - brak;
@@ -297,7 +301,7 @@ public:
     void mDecrementTimeToReady();
 
     /*
-     * mIncrementTimeDone() - metoda inkrementujaca czas procesu
+     * void mIncrementTimeDone() - metoda inkrementujaca czas procesu
      * jaki zostal juz wykonany.
      * PRE:
      * - brak;
@@ -307,7 +311,7 @@ public:
     void mIncrementTimeDone();
 
     /*
-     * mDecrementTimeToDo() - metoda dekrememntujaca czas procesu
+     * void mDecrementTimeToDo() - metoda dekrememntujaca czas procesu
      * jaki zostal do wykonania.
      * PRE:
      * - brak;
@@ -317,7 +321,7 @@ public:
     void mDecrementTimeToDo();
 
     /*
-     * mIncrementTimeProcessing() - metoda inkrementujaca czas
+     * void mIncrementTimeProcessing() - metoda inkrementujaca czas
      * calkowitego przetwarzania procesu.
      * PRE:
      * - brak;
@@ -330,7 +334,7 @@ public:
     }
 
     /*
-     * mResetProcess() - metoda zerujaca wszystkie czasy procesu.
+     * void mResetProcess() - metoda zerujaca wszystkie czasy procesu.
      * PRE:
      * - brak;
      * POST:

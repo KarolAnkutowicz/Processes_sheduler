@@ -73,7 +73,7 @@ istream & operator >> (istream & StreamIn, cProcess & P)
 }
 
 /*
- * operator = (cProcess & P)
+ * void operator = (cProcess & P)
  */
 void cProcess::operator = (cProcess & P)
 {
@@ -84,7 +84,7 @@ void cProcess::operator = (cProcess & P)
 
 
 /*
- * setTimeReadiness(typeTime argTimeReadiness)
+ * void setTimeReadiness(typeTime argTimeReadiness)
  */
 void cProcess::setTimeReadiness(typeTime aTimeReadiness)
 {
@@ -95,7 +95,7 @@ void cProcess::setTimeReadiness(typeTime aTimeReadiness)
 }
 
 /*
- * setTimeDoing(typeTime aTimeDoing)
+ * void setTimeDoing(typeTime aTimeDoing)
  */
 void cProcess::setTimeDoing(typeTime aTimeDoing)
 {
@@ -108,7 +108,7 @@ void cProcess::setTimeDoing(typeTime aTimeDoing)
 
 
 /*
- * mIncrementTimeReady()
+ * void mIncrementTimeReady()
  */
 void cProcess::mIncrementTimeReady()
 {
@@ -117,7 +117,7 @@ void cProcess::mIncrementTimeReady()
 }
 
 /*
- * mDecrementTimeToReady()
+ * void mDecrementTimeToReady()
  */
 void cProcess::mDecrementTimeToReady()
 {
@@ -126,7 +126,7 @@ void cProcess::mDecrementTimeToReady()
 }
 
 /*
- * mIncrementTimeDone()
+ * void mIncrementTimeDone()
  */
 void cProcess::mIncrementTimeDone()
 {
@@ -135,7 +135,7 @@ void cProcess::mIncrementTimeDone()
 }
 
 /*
- * mDecrementTimeToDo()
+ * void mDecrementTimeToDo()
  */
 void cProcess::mDecrementTimeToDo()
 {
@@ -144,7 +144,7 @@ void cProcess::mDecrementTimeToDo()
 }
 
 /*
- * mResetProcess()
+ * void mResetProcess()
  */
 void cProcess::mResetProcess()
 {
