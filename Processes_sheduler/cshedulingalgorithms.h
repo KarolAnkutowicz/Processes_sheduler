@@ -325,7 +325,10 @@ public:
      * POST:
      * - brak.
      */
-    void mCalculateAverageTimeDoing(typeNumberProcess aSeries);
+    inline void mCalculateAverageTimeDoing(typeNumberProcess aSeries)
+    {
+        tabAverageTimeDoing[aSeries] = getTotalTimeDoing(aSeries) / constProcesses;
+    }
 
     /*
      * typeTime getAverageTimeDoing(typeNumberProcess aSeries) -
@@ -429,7 +432,10 @@ public:
      * POST:
      * - brak.
      */
-    void mCalculateAverageTimeProcessing(typeNumberProcess aSeries);
+    inline void mCalculateAverageTimeProcessing(typeNumberProcess aSeries)
+    {
+        tabAverageTimeProcessing[aSeries] = getTotalTimeProcessing(aSeries) / constProcesses;
+    }
 
     /*
      * typeTime getAverageTimeProcessing(typeNumberProcess aSeries) -

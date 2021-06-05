@@ -245,14 +245,6 @@ void cShedulingAlgorithms::mResetAllAverageTimeDoing()
         mResetAverageTimeDoing(i);
 }
 
-/*
- * void mCalculateAverageTimeDoing(typeNumberProcess aSeries)
- */
-void cShedulingAlgorithms::mCalculateAverageTimeDoing(typeNumberProcess aSeries)
-{
-    tabAverageTimeDoing[aSeries] = getTotalTimeDoing(aSeries) / constProcesses;
-}
-
 
 
 /*
@@ -283,14 +275,6 @@ void cShedulingAlgorithms::mResetAllAverageTimeProcessing()
 {
     for (typeNumberProcess i = 0; i < constSeries; i++)
         mResetAverageTimeProcessing(i);
-}
-
-/*
- * void mCalculateAverageTimeProcessing(typeNumberProcess aSeries)
- */
-void cShedulingAlgorithms::mCalculateAverageTimeProcessing(typeNumberProcess aSeries)
-{
-    tabAverageTimeProcessing[aSeries] = getTotalTimeProcessing(aSeries) / constProcesses;
 }
 
 
