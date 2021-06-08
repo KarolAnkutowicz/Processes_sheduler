@@ -291,16 +291,6 @@ public:
     void mIncrementTimeReady();
 
     /*
-     * void mDecrementTimeToReady() - metoda dekrementujaca czas
-     * jaki pozostal do gotowosci do wykonywania procesu.
-     * PRE:
-     * - brak;
-     * POST:
-     * - brak.
-     */
-    void mDecrementTimeToReady();
-
-    /*
      * void mIncrementTimeDone() - metoda inkrementujaca czas procesu
      * jaki zostal juz wykonany.
      * PRE:
@@ -309,16 +299,6 @@ public:
      * - brak.
      */
     void mIncrementTimeDone();
-
-    /*
-     * void mDecrementTimeToDo() - metoda dekrememntujaca czas procesu
-     * jaki zostal do wykonania.
-     * PRE:
-     * - brak;
-     * POST:
-     * - brak.
-     */
-    void mDecrementTimeToDo();
 
     /*
      * void mIncrementTimeProcessing() - metoda inkrementujaca czas

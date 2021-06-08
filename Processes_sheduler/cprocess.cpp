@@ -14,7 +14,7 @@ using namespace std;
 cProcess::cProcess()
 {
     vTimeReadiness = vTimeReady = vTimeToReady = vTimeWaiting = vTimeDoing
-            = vTimeDone = vTimeToDo = vTimeProcessing = 0;
+            = vTimeDone = vTimeToDo = vTimeProcessing = 0; // ustanowienie wszystkisch czasow na'0'
 }
 
 /*
@@ -22,9 +22,9 @@ cProcess::cProcess()
  */
 cProcess::cProcess(typeTime aTimeDoing)
 {
-    vTimeDoing = vTimeToReady = vTimeToDo = aTimeDoing;
-    vTimeReadiness = vTimeReady = vTimeWaiting = vTimeDone
-            = vTimeProcessing = 0;
+    vTimeDoing = vTimeToDo = aTimeDoing; // ustanowienie czasu do wykonania procesu
+    vTimeReadiness = vTimeReady = vTimeToReady
+            = vTimeWaiting = vTimeDone = vTimeProcessing = 0; // pozostale czasy sa na'0'
 }
 
 /*
@@ -32,9 +32,9 @@ cProcess::cProcess(typeTime aTimeDoing)
  */
 cProcess::cProcess(typeTime aTimeReadiness, typeTime aTimeDoing)
 {
-    vTimeReadiness = vTimeToReady = aTimeReadiness;
-    vTimeDoing = vTimeToDo = aTimeDoing;
-    vTimeReady = vTimeWaiting = vTimeDone = vTimeProcessing = 0;
+    vTimeReadiness = vTimeToReady = aTimeReadiness; // ustanowienie czasu oczekiwania
+    vTimeDoing = vTimeToDo = aTimeDoing; // ustanowienie czasu wykonywania procesu
+    vTimeReady = vTimeWaiting = vTimeDone = vTimeProcessing = 0; // ustanowienie pozostalych czasow na'0'
 }
 
 /*
@@ -42,7 +42,7 @@ cProcess::cProcess(typeTime aTimeReadiness, typeTime aTimeDoing)
  */
 cProcess::cProcess(cProcess &P)
 {
-    vTimeReadiness = P.vTimeReadiness;
+    vTimeReadiness = P.vTimeReadiness; // przypisanie odpowiednich czasow nowemu obiektowi
     vTimeReady = P.vTimeReady;
     vTimeToReady = vTimeToReady;
     vTimeWaiting = P.vTimeWaiting;
@@ -59,8 +59,8 @@ cProcess::cProcess(cProcess &P)
  */
 ostream & operator << (ostream & StreamOut, cProcess & P)
 {
-    StreamOut << P.getTimeReadiness() << " " << P.getTimeDoing();
-    return StreamOut;
+    StreamOut << P.getTimeReadiness() << " " << P.getTimeDoing(); // wypisanie czasow procesu
+    return StreamOut; // zwrocenie strumienia
 }
 
 /*
@@ -68,11 +68,11 @@ ostream & operator << (ostream & StreamOut, cProcess & P)
  */
 istream & operator >> (istream & StreamIn, cProcess & P)
 {
-    typeTime aTimeReadiness, aTimeDoing;
-    StreamIn >> skipws >> aTimeReadiness >> aTimeDoing;
-    P.setTimeReadiness(aTimeReadiness);
-    P.setTimeDoing(aTimeDoing);
-    return StreamIn;
+    typeTime aTimeReadiness, aTimeDoing; // utworzenie zmiennych
+    StreamIn >> skipws >> aTimeReadiness >> aTimeDoing; // wczytanie czasow procesu
+    P.setTimeReadiness(aTimeReadiness); // ustanowienie czasu oczekiwania
+    P.setTimeDoing(aTimeDoing); // ustanowienie czasu wykonania
+    return StreamIn; // zwrocenie strumienia
 }
 
 /*
@@ -80,8 +80,14 @@ istream & operator >> (istream & StreamIn, cProcess & P)
  */
 void cProcess::operator = (cProcess & P)
 {
-    vTimeReadiness = P.getTimeReadiness();
-    vTimeDoing = P.getTimeDoing();
+    vTimeReadiness = P.vTimeReadiness; // przypisanie odpowiednich czasow kopiowanemu obiektowi
+    vTimeReady = P.vTimeReady;
+    vTimeToReady = vTimeToReady;
+    vTimeWaiting = P.vTimeWaiting;
+    vTimeDoing = P.vTimeDoing;
+    vTimeDone = P.vTimeDone;
+    vTimeToDo = P.vTimeToDo;
+    vTimeProcessing = P.vTimeProcessing;
 }
 
 
@@ -91,10 +97,10 @@ void cProcess::operator = (cProcess & P)
  */
 void cProcess::setTimeReadiness(typeTime aTimeReadiness)
 {
-    if (aTimeReadiness > constMaxTime)
-        vTimeReadiness = constMaxTime;
+    if (aTimeReadiness > constMaxTime) // sprawdzamy czy podany przez nas czas nie jest sprzeczny z zalozeniami
+        vTimeReadiness = constMaxTime; // jesli tak to ustawiamy maksimum
     else
-        vTimeReadiness = aTimeReadiness;
+        vTimeReadiness = aTimeReadiness; // jesli jest ok to przypisujemy wartosc z argumentu
 }
 
 /*
@@ -102,10 +108,10 @@ void cProcess::setTimeReadiness(typeTime aTimeReadiness)
  */
 void cProcess::setTimeDoing(typeTime aTimeDoing)
 {
-    if (aTimeDoing > constMaxTime)
-        vTimeDoing = constMaxTime;
+    if (aTimeDoing > constMaxTime) // sprawdzamy czy podany przez nas czas nie jest sprzeczny z zalozeniami
+        vTimeDoing = constMaxTime; // jesli tak to ustawiamy maksimum
     else
-        vTimeDoing = aTimeDoing;
+        vTimeDoing = aTimeDoing; // jesli jest ok to przypisujemy wartosc z argumentu
 }
 
 
@@ -115,17 +121,11 @@ void cProcess::setTimeDoing(typeTime aTimeDoing)
  */
 void cProcess::mIncrementTimeReady()
 {
-    if (vTimeReady < vTimeReadiness)
-        vTimeReady++;
-}
-
-/*
- * void mDecrementTimeToReady()
- */
-void cProcess::mDecrementTimeToReady()
-{
-    if (vTimeToReady > 0 )
+    if (vTimeReady < vTimeReadiness) // sprawdzamy czy proces nie jest juz gotowy
+    {
+        vTimeReady++; // jesli nie to skraca sie czas oczekiwania
         vTimeToReady--;
+    }
 }
 
 /*
@@ -133,17 +133,11 @@ void cProcess::mDecrementTimeToReady()
  */
 void cProcess::mIncrementTimeDone()
 {
-    if (vTimeDone < vTimeDoing)
-        vTimeDone++;
-}
-
-/*
- * void mDecrementTimeToDo()
- */
-void cProcess::mDecrementTimeToDo()
-{
-    if (vTimeToDo > 0)
+    if (vTimeDone < vTimeDoing) // sprawdzamy czy proces nie jest juz wykonany
+    {
+        vTimeDone++; // jesli nie to wykonujemy jego fragment
         vTimeToDo--;
+    }
 }
 
 /*
@@ -151,8 +145,8 @@ void cProcess::mDecrementTimeToDo()
  */
 void cProcess::mResetProcess()
 {
-    vTimeReadiness = vTimeWaiting = vTimeDoing = vTimeDone
-    = vTimeToDo = vTimeProcessing = 0;
+    vTimeReadiness = vTimeReady = vTimeToReady = vTimeWaiting = vTimeDoing
+            = vTimeDone = vTimeToDo = vTimeProcessing = 0; // ustanawiamy wszystkie wartosci na'0'
 }
 
 
