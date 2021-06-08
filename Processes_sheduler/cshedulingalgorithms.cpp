@@ -5,6 +5,7 @@
  */
 
 #include "cshedulingalgorithms.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -13,14 +14,14 @@ using namespace std;
  */
 cShedulingAlgorithms::cShedulingAlgorithms()
 {
-    mResetAllProcesses();
-    mDrawProcesses();
-    mWriteProcessesToFile();
-    mMakeFCFS();
-    mMakeLCFS();
-    mMakeSJF();
-    mMakeRR();
-    mMakeSRT();
+    mResetAllProcesses(); // wyczyszczenie tablicy procesow
+    mDrawProcesses(); // wylosowanie procesow
+    mWriteProcessesToFile(); // wypisanie procesow do pliku
+    mMakeFCFS(); // wywolanie metody implementujacej dzialanie algorytmu FCFS
+    mMakeLCFS(); // wywolanie metody implementujacej dzialanie algorytmu LCFS
+    mMakeSJF(); // wywolanie metody implementujacej dzialanie algorytmu SJF
+    mMakeRR(); // wywolanie metody implementujacej dzialanie algorytmu Round-Robin
+    mMakeSRT(); // wywolanie metody implementujacej dzialanie algorytmu SRT
 }
 
 /*
@@ -28,10 +29,10 @@ cShedulingAlgorithms::cShedulingAlgorithms()
  */
 cShedulingAlgorithms::cShedulingAlgorithms(enumAlgorithms aAlgorithm)
 {
-    mResetAllProcesses();
-    mDrawProcesses();
-    mWriteProcessesToFile();
-    switch (aAlgorithm)
+    mResetAllProcesses(); // wyczyszczenie tablicy procesow
+    mDrawProcesses(); // wylosowanie procesow
+    mWriteProcessesToFile(); // wypisanie procesow do pliku
+    switch (aAlgorithm) // wywolanie odpowiedniej metody, zgodnie z podanym argumentem
     {
         case fcfs: mMakeFCFS(); break;
         case lcfs: mMakeLCFS(); break;
@@ -99,17 +100,17 @@ void cShedulingAlgorithms::mMakeSRT()
  */
 void cShedulingAlgorithms::mDrawProcesses()
 {
-    typeTime vTime1, vTime2;
-    mResetAllProcesses();
-    srand(time_t(NULL) + (unsigned int)&constProcesses);
-    for (typeNumberProcess i = 0; i < constSeries; i++)
+    typeTime vTime1, vTime2; // zmienne, ktorych wartosci bedziemy losowac
+    mResetAllProcesses(); // wyczyszczenie tablicy procesow
+    srand(time_t(NULL) + (unsigned int)&constProcesses); // ustanowienie zmiennej losowej
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystich seriach
     {
-        for (typeNumberProcess j = 0; j < constProcesses; j++)
+        for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach
         {
-            vTime1 = rand() % constMaxTime + 1;
-            vTime2 = rand() % constMaxTime + 1;
-            tabProcesses[i][j].setTimeReadiness(vTime1);
-            tabProcesses[i][j].setTimeDoing(vTime2);
+            vTime1 = rand() % constMaxTime + 1; // losowanie czasu oczekiwania na gotowosc
+            vTime2 = rand() % constMaxTime + 1; // losowanie czasu wykonania
+            tabProcesses[i][j].setTimeReadiness(vTime1); // ustanowienie czasu oczekiwania na gotowosc
+            tabProcesses[i][j].setTimeDoing(vTime2); // ustanowienie czasu wykonania
         }
     }
 }
@@ -119,8 +120,8 @@ void cShedulingAlgorithms::mDrawProcesses()
  */
 void cShedulingAlgorithms::mResetSeries(typeNumberProcess aSeries)
 {
-    for (typeNumberProcess i = 0; i < constProcesses; i++)
-        mResetProcess(aSeries, i);
+    for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach
+        mResetProcess(aSeries, i); // resetowanie wskazanego procesu
 }
 
 /*
@@ -128,8 +129,8 @@ void cShedulingAlgorithms::mResetSeries(typeNumberProcess aSeries)
  */
 void cShedulingAlgorithms::mResetAllProcesses()
 {
-    for (typeNumberProcess i = 0; i < constSeries; i++)
-        mResetSeries(i);
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
+        mResetSeries(i); // resetowanie wskazanej serii
 }
 
 /*
@@ -137,17 +138,17 @@ void cShedulingAlgorithms::mResetAllProcesses()
  */
 void cShedulingAlgorithms::mReadProcessesFromFile()
 {
-    mResetAllProcesses();
-    ifstream StreamIn;
-    StreamIn.open("procesy.txt");
-    for (typeNumberProcess i = 0; i < constSeries; i++)
+    mResetAllProcesses(); // wyczyszczenie aktualnej tablicy procesow
+    ifstream StreamIn; // utworzenie wejsciowego strumienia plikowego
+    StreamIn.open("procesy.txt"); // otwarcie strumienia
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
     {
-        for (typeNumberProcess j = 0; j < constProcesses; j++)
+        for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach
         {
-            StreamIn >> tabProcesses[i][j];
+            StreamIn >> skipws >> tabProcesses[i][j]; // wczytanie pojedynczego procesu
         }
     }
-    StreamIn.close();
+    StreamIn.close(); // zamkniecie strumienia
 }
 
 /*
@@ -155,15 +156,15 @@ void cShedulingAlgorithms::mReadProcessesFromFile()
  */
 void cShedulingAlgorithms::mWriteProcessesToFile()
 {
-    ofstream StreamOut;
-    StreamOut.open("processes.txt");
-    for (typeNumberProcess i = 0; i < constSeries; i++)
+    ofstream StreamOut; // otwarcie wyjsciowego strumienia plikowego
+    StreamOut.open("processes.txt"); // otwarcie strumienia
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystich seriach
     {
-        for (typeNumberProcess j = 0; j < constProcesses; j++)
-            StreamOut << tabProcesses[i][j];
-        StreamOut << endl;
+        for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach
+            StreamOut << tabProcesses[i][j]; // wypisanie procesu
+        StreamOut << endl; // nowa seria - nowa linijka tekstu
     }
-    StreamOut.close();
+    StreamOut.close(); // zamkniecie strumienia
 }
 
 
@@ -173,7 +174,7 @@ void cShedulingAlgorithms::mWriteProcessesToFile()
  */
 void cShedulingAlgorithms::mSortingSeriesReadiness(typeNumberProcess aSeries)
 {
-    cProcess Proc;
+    cProcess Proc; // utworzenie zmiennej pomocniczej
     for (typeNumberProcess i = 0; i < constSeries; i++)
     {
         for (typeNumberProcess j = i + 1; j < constProcesses; j++)
@@ -301,6 +302,7 @@ void cShedulingAlgorithms::mWriteResultsToFile(enumAlgorithms aAlgorithm)
                   <<  "Average time processing " << setw(4) << i+1
                   << " series: " << tabAverageTimeProcessing[i] << endl;
     }
+    StreamOut.close();
 }
 
 
