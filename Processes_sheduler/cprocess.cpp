@@ -13,8 +13,8 @@ using namespace std;
  */
 cProcess::cProcess()
 {
-    vTimeReadiness = vTimeWaiting = vTimeDoing = vTimeDone
-            = vTimeToDo = vTimeProcessing = 0;
+    vTimeReadiness = vTimeReady = vTimeToReady = vTimeWaiting = vTimeDoing
+            = vTimeDone = vTimeToDo = vTimeProcessing = 0;
 }
 
 /*
@@ -22,8 +22,9 @@ cProcess::cProcess()
  */
 cProcess::cProcess(typeTime aTimeDoing)
 {
-    vTimeDoing = vTimeToDo = aTimeDoing;
-    vTimeReadiness = vTimeWaiting = vTimeDone = vTimeProcessing = 0;
+    vTimeDoing = vTimeToReady = vTimeToDo = aTimeDoing;
+    vTimeReadiness = vTimeReady = vTimeWaiting = vTimeDone
+            = vTimeProcessing = 0;
 }
 
 /*
@@ -31,9 +32,9 @@ cProcess::cProcess(typeTime aTimeDoing)
  */
 cProcess::cProcess(typeTime aTimeReadiness, typeTime aTimeDoing)
 {
-    vTimeReadiness = aTimeReadiness;
+    vTimeReadiness = vTimeToReady = aTimeReadiness;
     vTimeDoing = vTimeToDo = aTimeDoing;
-    vTimeWaiting = vTimeDone = vTimeProcessing = 0;
+    vTimeReady = vTimeWaiting = vTimeDone = vTimeProcessing = 0;
 }
 
 /*
@@ -42,6 +43,8 @@ cProcess::cProcess(typeTime aTimeReadiness, typeTime aTimeDoing)
 cProcess::cProcess(cProcess &P)
 {
     vTimeReadiness = P.vTimeReadiness;
+    vTimeReady = P.vTimeReady;
+    vTimeToReady = vTimeToReady;
     vTimeWaiting = P.vTimeWaiting;
     vTimeDoing = P.vTimeDoing;
     vTimeDone = P.vTimeDone;
