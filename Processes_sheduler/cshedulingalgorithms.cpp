@@ -63,6 +63,12 @@ void cShedulingAlgorithms::mMakeFCFS()
 
     }*/
 
+    /*
+     * - pojawil sie pierwszy proces
+     * - wykonujemy go
+     * - pojawiaja sie nowe procesy
+     * - sa obslugiwane w kolejnosci pojawienia sie bez wzgledu na dlugosc
+     */
 }
 
 /*
@@ -70,6 +76,15 @@ void cShedulingAlgorithms::mMakeFCFS()
  */
 void cShedulingAlgorithms::mMakeLCFS()
 {
+    /*
+     * - pojawil sie pierwszy proces
+     * - wykonujemy go
+     * - pojawiaja sie nowe procesy
+     * - ostatni ktory przyszedl jest obslugiwany jako pierwszy
+     * - pojawiaja sie nowe procesy
+     * - ostatni ktory przyszedl jest obslugowany jako pierwszy
+     * - itd...
+     */
 }
 
 /*
@@ -77,6 +92,13 @@ void cShedulingAlgorithms::mMakeLCFS()
  */
 void cShedulingAlgorithms::mMakeSJF()
 {
+    /*
+     * - pojawil sie pierwszy proces
+     * - wykonujemy go
+     * - pojawiaja sie nowe procesy
+     * - proces, ktory zakonczylby sie najszybciej jest wykonywany
+     * - itd...
+     */
 }
 
 /*
@@ -84,6 +106,13 @@ void cShedulingAlgorithms::mMakeSJF()
  */
 void cShedulingAlgorithms::mMakeRR()
 {
+    /*
+     * - pojawil sie pierwszy proces
+     * - wykonujemy go przez kwant czasu
+     * - przechodzimy na kolejny proces
+     * - wykonujemy go przez kwant czasu
+     * - itd...
+     */
 }
 
 /*
@@ -91,6 +120,12 @@ void cShedulingAlgorithms::mMakeRR()
  */
 void cShedulingAlgorithms::mMakeSRT()
 {
+    /*
+     * - pojawil sie pierwszy proces
+     * - wykonujemy go...
+     * - do momentu kiedy pojawi sie proces, ktory moglby sie zakonczyc szybciej
+     * - itd...
+     */
 }
 
 
@@ -221,7 +256,7 @@ void cShedulingAlgorithms::mSortingAllSeriesReadinessAndDoind()
  */
 void cShedulingAlgorithms::mResetAllTotalTimeDoing()
 {
-    for (typeNumberProcess i = 0; i < constSeries; i++)
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
         mResetTotalTimeDoing(i);
 }
 
