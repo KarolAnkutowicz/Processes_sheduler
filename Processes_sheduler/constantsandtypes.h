@@ -46,12 +46,12 @@ const typeTime constQuantumOfTime = 2;
  * typeNumberProcess constProcesses - zdefiniowana liczba procesow
  * w ciagu.
  */
-const typeNumberProcess constProcesses = 10;
+const typeNumberProcess constProcesses = 5;
 
 /*
  * typeNumberProcess constSeries - zdefiniowana liczba ciagow procesow.
  */
-const typeNumberProcess constSeries = 10;
+const typeNumberProcess constSeries = 5;
 
 #endif // CONSTANTSANDTYPES_H
 

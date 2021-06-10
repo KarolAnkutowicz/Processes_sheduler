@@ -10,6 +10,7 @@
 #include "constantsandtypes.h"
 #include "cprocess.h"
 #include <cstdlib>
+#include <ctime>
 #include <fstream>
 #include <iomanip>
 

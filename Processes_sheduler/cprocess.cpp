@@ -98,7 +98,7 @@ void cProcess::operator = (cProcess & P)
 void cProcess::setTimeReadiness(typeTime aTimeReadiness)
 {
     if (aTimeReadiness > constMaxTime) // sprawdzamy czy podany przez nas czas nie jest sprzeczny z zalozeniami
-        vTimeReadiness = constMaxTime; // jesli tak to ustawiamy maksimum
+        vTimeReadiness = aTimeReadiness % constMaxTime; // jesli tak to ustawiamy maksimum
     else
         vTimeReadiness = aTimeReadiness; // jesli jest ok to przypisujemy wartosc z argumentu
 }
@@ -109,7 +109,7 @@ void cProcess::setTimeReadiness(typeTime aTimeReadiness)
 void cProcess::setTimeDoing(typeTime aTimeDoing)
 {
     if (aTimeDoing > constMaxTime) // sprawdzamy czy podany przez nas czas nie jest sprzeczny z zalozeniami
-        vTimeDoing = constMaxTime; // jesli tak to ustawiamy maksimum
+        vTimeDoing = aTimeDoing % constMaxTime; // jesli tak to ustawiamy maksimum
     else
         vTimeDoing = aTimeDoing; // jesli jest ok to przypisujemy wartosc z argumentu
 }

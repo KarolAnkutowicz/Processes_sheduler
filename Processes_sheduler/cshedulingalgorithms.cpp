@@ -137,7 +137,7 @@ void cShedulingAlgorithms::mDrawProcesses()
 {
     typeTime vTime1, vTime2; // zmienne, ktorych wartosci bedziemy losowac
     mResetAllProcesses(); // wyczyszczenie tablicy procesow
-    srand(time_t(NULL) + (unsigned int)&constProcesses); // ustanowienie zmiennej losowej
+    srand(time_t(NULL)); // ustanowienie zmiennej losowej
     for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystich seriach
     {
         for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach

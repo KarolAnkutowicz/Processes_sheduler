@@ -6,6 +6,9 @@
 
 #include "cshedulingalgorithms.h"
 
+#include <cstdlib>
+#include <iostream>
+
 using namespace std;
 
 int main()
@@ -14,6 +17,7 @@ int main()
     //A.mDrawProcesses();
     //A.mWriteProcessesToFile();
     cShedulingAlgorithms A(fcfs);
+
 
     return 0;
 }
