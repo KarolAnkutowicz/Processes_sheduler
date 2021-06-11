@@ -268,7 +268,7 @@ public:
 
     /*
      * void mCalculateTotalTimeDoing(typeNumberProcess aSeries) -
-     * metoda obliczajaca symaryczny czas wykonywania procesow
+     * metoda obliczajaca sumaryczny czas wykonywania procesow
      * we wskazanej serii.
      * PRE:
      * - podanie serii procesow (typ: typeNumberProcess);
@@ -276,6 +276,15 @@ public:
      * - brak.
      */
     void mCalculateTotalTimeDoing(typeNumberProcess aSeries);
+
+    /*
+     * void mCalculateAllTotalTimeDoing() - metoda obliczajaca
+     * sumaryczne czasy wykonywanie procesow we wszystkich seriach
+     * - brak;
+     * POST:
+     * - brak.
+     */
+    void mCalculateAllTotalTimeDoing();
 
     /*
      * typeTime getTotalTimeDoing(typeNumberProcess aSeries) -
@@ -330,6 +339,16 @@ public:
     {
         tabAverageTimeDoing[aSeries] = getTotalTimeDoing(aSeries) / constProcesses;
     }
+
+    /*
+     * void mCalculateAllAverageTimeDoing() - metoda obliczajaca sredni
+     * czas wykonywania procesow dla wszystkich serii.
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
+     */
+    void mCalculateAllAverageTimeDoing();
 
     /*
      * typeTime getAverageTimeDoing(typeNumberProcess aSeries) -

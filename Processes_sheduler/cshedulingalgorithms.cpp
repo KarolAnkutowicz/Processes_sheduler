@@ -270,6 +270,15 @@ void cShedulingAlgorithms::mCalculateTotalTimeDoing(typeNumberProcess aSeries)
         tabTotalTimeDoing[aSeries] += tabProcesses[aSeries][i].getTimeDoing();
 }
 
+/*
+ * void mCalculateAllTotalTimeDoing()
+ */
+void cShedulingAlgorithms::mCalculateAllTotalTimeDoing()
+{
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+        mCalculateTotalTimeDoing(i);
+}
+
 
 
 /*
@@ -279,6 +288,15 @@ void cShedulingAlgorithms::mResetAllAverageTimeDoing()
 {
     for (typeNumberProcess i = 0; i < constSeries; i++)
         mResetAverageTimeDoing(i);
+}
+
+/*
+ * void mCalculateAllAverageTimeDoing()
+ */
+void cShedulingAlgorithms::mCalculateAllAverageTimeDoing()
+{
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+        mCalculateAverageTimeDoing(i);
 }
 
 
