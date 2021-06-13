@@ -210,13 +210,13 @@ void cShedulingAlgorithms::mWriteProcessesToFile()
 void cShedulingAlgorithms::mSortingSeriesReadiness(typeNumberProcess aSeries)
 {
     cProcess Proc; // utworzenie zmiennej pomocniczej
-    for (typeNumberProcess i = 0; i < constSeries; i++)
+    for (typeNumberProcess i = 0; i < (constProcesses - 1); i++) // przejscie po wszystkich elementach do przedostatniego
     {
-        for (typeNumberProcess j = i + 1; j < constProcesses; j++)
+        for (typeNumberProcess j = i + 1; j < constProcesses; j++) // przejscie po dalszych elementach
         {
-            if (tabProcesses[aSeries][i].getTimeReadiness() > tabProcesses[aSeries][j].getTimeProcessing())
+            if (tabProcesses[aSeries][i].getTimeReadiness() > tabProcesses[aSeries][j].getTimeProcessing()) // sprawdzamy czy pierwszy element jest wiekszy
             {
-                Proc = tabProcesses[aSeries][i];
+                Proc = tabProcesses[aSeries][i]; // jesli pierwszy element jest wiekszy to sortujemy z zastosowaniem sortowania babelkowego
                 tabProcesses[aSeries][i] = tabProcesses[aSeries][j];
                 tabProcesses[aSeries][j] = Proc;
             }
@@ -229,8 +229,8 @@ void cShedulingAlgorithms::mSortingSeriesReadiness(typeNumberProcess aSeries)
  */
 void cShedulingAlgorithms::mSortingAllSeriesReadiness()
 {
-    for (typeNumberProcess i = 0; i < constSeries; i++)
-        mSortingSeriesReadiness(i);
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
+        mSortingSeriesReadiness(i); // wywolanie metody sortowania wskazanej serii
 }
 
 /*
@@ -257,7 +257,7 @@ void cShedulingAlgorithms::mSortingAllSeriesReadinessAndDoind()
 void cShedulingAlgorithms::mResetAllTotalTimeDoing()
 {
     for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
-        mResetTotalTimeDoing(i);
+        mResetTotalTimeDoing(i); // resetowanie wskazanej serii
 }
 
 /*
@@ -265,9 +265,9 @@ void cShedulingAlgorithms::mResetAllTotalTimeDoing()
  */
 void cShedulingAlgorithms::mCalculateTotalTimeDoing(typeNumberProcess aSeries)
 {
-    mResetTotalTimeDoing(aSeries);
-    for (typeNumberProcess i = 0; i < constProcesses; i++)
-        tabTotalTimeDoing[aSeries] += tabProcesses[aSeries][i].getTimeDoing();
+    mResetTotalTimeDoing(aSeries); // resetowanie wszystkich calkowitych czasow wykonywania procesow
+    for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach w serii
+        tabTotalTimeDoing[aSeries] += tabProcesses[aSeries][i].getTimeDoing(); // dodawanie do sumy kolejnych czasow
 }
 
 /*
@@ -275,8 +275,8 @@ void cShedulingAlgorithms::mCalculateTotalTimeDoing(typeNumberProcess aSeries)
  */
 void cShedulingAlgorithms::mCalculateAllTotalTimeDoing()
 {
-    for (typeNumberProcess i = 0; i < constSeries; i++)
-        mCalculateTotalTimeDoing(i);
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
+        mCalculateTotalTimeDoing(i); // obliczenie calkowitego czasu dzialanie procesow w danej serii
 }
 
 
@@ -286,8 +286,8 @@ void cShedulingAlgorithms::mCalculateAllTotalTimeDoing()
  */
 void cShedulingAlgorithms::mResetAllAverageTimeDoing()
 {
-    for (typeNumberProcess i = 0; i < constSeries; i++)
-        mResetAverageTimeDoing(i);
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
+        mResetAverageTimeDoing(i); // resetowanie wskazanej serii
 }
 
 /*
@@ -295,8 +295,8 @@ void cShedulingAlgorithms::mResetAllAverageTimeDoing()
  */
 void cShedulingAlgorithms::mCalculateAllAverageTimeDoing()
 {
-    for (typeNumberProcess i = 0; i < constSeries; i++)
-        mCalculateAverageTimeDoing(i);
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
+        mCalculateAverageTimeDoing(i); // obliczenie sredniego czasu wykonywanie procesow we wskazanej serii
 }
 
 
@@ -306,8 +306,8 @@ void cShedulingAlgorithms::mCalculateAllAverageTimeDoing()
  */
 void cShedulingAlgorithms::mResetAllTotalTimeProcessing()
 {
-    for (typeNumberProcess i = 0; i < constSeries; i++)
-        mResetTotalTimeProcessing(i);
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
+        mResetTotalTimeProcessing(i); // resetowanie wskazanego calkowitego czasu przetwarzania
 }
 
 /*
@@ -315,9 +315,9 @@ void cShedulingAlgorithms::mResetAllTotalTimeProcessing()
  */
 void cShedulingAlgorithms::mCalculateTotalTimeProcessing(typeNumberProcess aSeries)
 {
-    mResetTotalTimeProcessing(aSeries);
-    for (typeNumberProcess i = 0; i < constProcesses; i++)
-        tabTotalTimeProcessing[aSeries] += tabProcesses[aSeries][i].getTimeProcessing();
+    mResetTotalTimeProcessing(aSeries); // resetowanie wskazanego calkowitego czasu przetwarzania
+    for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie  po wszystkich procesach w serii
+        tabTotalTimeProcessing[aSeries] += tabProcesses[aSeries][i].getTimeProcessing(); // dodanie do sumy czasu przetwarzanie kolejnego procesu
 }
 
 
@@ -327,8 +327,8 @@ void cShedulingAlgorithms::mCalculateTotalTimeProcessing(typeNumberProcess aSeri
  */
 void cShedulingAlgorithms::mResetAllAverageTimeProcessing()
 {
-    for (typeNumberProcess i = 0; i < constSeries; i++)
-        mResetAverageTimeProcessing(i);
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
+        mResetAverageTimeProcessing(i); // resetowanie sredniego czasu przetwarzania w danej serii
 }
 
 
@@ -339,14 +339,14 @@ void cShedulingAlgorithms::mResetAllAverageTimeProcessing()
 void cShedulingAlgorithms::mWriteResultsToFile(enumAlgorithms aAlgorithm)
 {
     // fcfs, lcfs, sjf, rr, srt
-    ofstream StreamOut;
-    switch(aAlgorithm)
+    ofstream StreamOut; // zdefiniowanie strumienia
+    switch(aAlgorithm) // wybranie odpowiedniego alogorytmu
     {
-        case fcfs: StreamOut.open("resultsFCFS.txt"); break;
-        case lcfs: StreamOut.open("resultsLCFS.txt"); break;
-        case sjf: StreamOut.open("resultSJF.txt"); break;
-        case rr: StreamOut.open("resultsRR.txt"); break;
-        case srt: StreamOut.open("resultsSRT.txt"); break;
+        case fcfs: StreamOut.open("resultsFCFS.txt"); break; // otwarcie strumienia dla wynikow algorytmu FCFS
+        case lcfs: StreamOut.open("resultsLCFS.txt"); break; // otwarcie strumienia dla wynikow algorytmu LCFS
+        case sjf: StreamOut.open("resultSJF.txt"); break; // otwarcie strumienia dla wynikow algorytmu SJF
+        case rr: StreamOut.open("resultsRR.txt"); break; // otwarcie strumienia dla wynikow algorytmu Round-Robin
+        case srt: StreamOut.open("resultsSRT.txt"); break; // otwarcie strumienia dla wynikow algorytmu SRT
     }
     for (typeNumberProcess i = 0; i < constSeries; i++)
     {
