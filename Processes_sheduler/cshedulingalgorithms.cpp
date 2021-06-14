@@ -57,7 +57,17 @@ void cShedulingAlgorithms::mMakeFCFS()
         cout << endl;
     }
     cout << endl;
-    mSortingAllSeriesReadiness();
+
+    /*mSortingAllSeriesReadiness();
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+    {
+        for (typeNumberProcess j = 0; j < constProcesses; j++)
+            cout << tabProcesses[i][j] << "   ";
+        cout << endl;
+    }
+    cout << endl;*/
+
+    mSortingAllSeriesReadinessAndDoind();
     for (typeNumberProcess i = 0; i < constSeries; i++)
     {
         for (typeNumberProcess j = 0; j < constProcesses; j++)
@@ -65,9 +75,9 @@ void cShedulingAlgorithms::mMakeFCFS()
         cout << endl;
     }
 
-    for (typeNumberProcess i = 0; i < constSeries; i++)
+    /*for (typeNumberProcess i = 0; i < constSeries; i++)
     {
-    }
+    }*/
 
     /*
      * - pojawil sie pierwszy proces
@@ -244,7 +254,27 @@ void cShedulingAlgorithms::mSortingAllSeriesReadiness()
  */
 void cShedulingAlgorithms::mSortingSeriesReadinessAndDoing(typeNumberProcess aSeries)
 {
-
+    mSortingSeriesReadiness(aSeries); // sortujemy czasu wedlug czasu oczekiwania na gotowosc
+    cProcess Proc; // utworzenie zmiennej pomocniczej
+    for (typeNumberProcess i = 0; i < (constProcesses - 1); i++) // przejscie po wszystkich elementach do przedostatniego
+    {
+        //cout << "porownuje element i = " << i << endl;
+        for (typeNumberProcess j = i + 1; j < constProcesses; j++) // przejscie po dalszych elementach
+        {
+            //cout << "  porownuje element j = " << j << endl;
+            if (tabProcesses[aSeries][i].getTimeReadiness() == tabProcesses[aSeries][j].getTimeReadiness()) // sprawdzamy czy czasy oczekiwania na gotowosc sa takie same
+            {
+                //cout << "    mam identyczne czasy oczekiwania na gotowosc" << endl;
+                if (tabProcesses[aSeries][i].getTimeDoing() > tabProcesses[aSeries][j].getTimeDoing()) // jesli tak to takie procesy sortujemy rosnaco wzgledem czasu wykonywania
+                {
+                    //cout << "      sortuje jesli jest potrzeba" << endl;
+                    Proc = tabProcesses[aSeries][i]; // jesli pierwszy element jest wiekszy to sortujemy z zastosowaniem sortowania babelkowego
+                    tabProcesses[aSeries][i] = tabProcesses[aSeries][j];
+                    tabProcesses[aSeries][j] = Proc;
+                }
+            }
+        }
+    }
 }
 
 /*
@@ -252,7 +282,8 @@ void cShedulingAlgorithms::mSortingSeriesReadinessAndDoing(typeNumberProcess aSe
  */
 void cShedulingAlgorithms::mSortingAllSeriesReadinessAndDoind()
 {
-
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
+        mSortingSeriesReadinessAndDoing(i); // posortowanie wskazanej serii
 }
 
 
