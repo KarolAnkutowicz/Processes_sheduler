@@ -50,6 +50,13 @@ cShedulingAlgorithms::cShedulingAlgorithms(enumAlgorithms aAlgorithm)
 void cShedulingAlgorithms::mMakeFCFS()
 {
     mReadProcessesFromFile();
+    for (typeNumberProcess i = 0; i < constSeries; i++)
+    {
+        for (typeNumberProcess j = 0; j < constProcesses; j++)
+            cout << tabProcesses[i][j] << "   ";
+        cout << endl;
+    }
+    cout << endl;
     mSortingAllSeriesReadiness();
     for (typeNumberProcess i = 0; i < constSeries; i++)
     {
@@ -58,10 +65,9 @@ void cShedulingAlgorithms::mMakeFCFS()
         cout << endl;
     }
 
-    /*for (typeNumberProcess i = 0; i < constSeries; i++)
+    for (typeNumberProcess i = 0; i < constSeries; i++)
     {
-
-    }*/
+    }
 
     /*
      * - pojawil sie pierwszy proces
@@ -214,7 +220,7 @@ void cShedulingAlgorithms::mSortingSeriesReadiness(typeNumberProcess aSeries)
     {
         for (typeNumberProcess j = i + 1; j < constProcesses; j++) // przejscie po dalszych elementach
         {
-            if (tabProcesses[aSeries][i].getTimeReadiness() > tabProcesses[aSeries][j].getTimeProcessing()) // sprawdzamy czy pierwszy element jest wiekszy
+            if (tabProcesses[aSeries][i].getTimeReadiness() > tabProcesses[aSeries][j].getTimeReadiness()) // sprawdzamy czy pierwszy element jest wiekszy
             {
                 Proc = tabProcesses[aSeries][i]; // jesli pierwszy element jest wiekszy to sortujemy z zastosowaniem sortowania babelkowego
                 tabProcesses[aSeries][i] = tabProcesses[aSeries][j];
