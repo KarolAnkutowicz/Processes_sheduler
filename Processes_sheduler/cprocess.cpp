@@ -129,6 +129,18 @@ void cProcess::mIncrementTimeReady()
 }
 
 /*
+ * void mForwardTimeReady(typeTime aTimeForward)
+ */
+void cProcess::mForwardTimeReady(typeTime aTimeForward)
+{
+    if (aTimeForward <= vTimeToReady) // sprawdzamy czy nie przekroczymy czasu gotowosci
+    {
+        vTimeReady += aTimeForward; // jesli nie to skraca sie czas oczekiwania
+        vTimeToReady -= aTimeForward;
+    }
+}
+
+/*
  * void mIncrementTimeDone()
  */
 void cProcess::mIncrementTimeDone()
@@ -137,6 +149,18 @@ void cProcess::mIncrementTimeDone()
     {
         vTimeDone++; // jesli nie to wykonujemy jego fragment
         vTimeToDo--;
+    }
+}
+
+/*
+ * void mForwardTimeDone(typeTime aTimeForward)
+ */
+void cProcess::mForwardTimeDone(typeTime aTimeForward)
+{
+    if (aTimeForward <= vTimeToDo) // sprawdzamy czy nie przekroczymy czasu wykonania
+    {
+        vTimeDone += aTimeForward; // jesli nie to wykonujemy proces przez wskazany czas
+        vTimeToDo -= aTimeForward;
     }
 }
 

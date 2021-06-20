@@ -50,16 +50,7 @@ cShedulingAlgorithms::cShedulingAlgorithms(enumAlgorithms aAlgorithm)
 void cShedulingAlgorithms::mMakeFCFS()
 {
     mReadProcessesFromFile();
-    for (typeNumberProcess i = 0; i < constSeries; i++)
-    {
-        for (typeNumberProcess j = 0; j < constProcesses; j++)
-            cout << tabProcesses[i][j] << "   ";
-        cout << endl;
-    }
-    cout << endl;
-
-    /*mSortingAllSeriesReadiness();
-    for (typeNumberProcess i = 0; i < constSeries; i++)
+    /*for (typeNumberProcess i = 0; i < constSeries; i++)
     {
         for (typeNumberProcess j = 0; j < constProcesses; j++)
             cout << tabProcesses[i][j] << "   ";
@@ -67,17 +58,15 @@ void cShedulingAlgorithms::mMakeFCFS()
     }
     cout << endl;*/
 
-    mSortingAllSeriesReadinessAndDoind();
+    mSortingAllSeriesReadiness();
+
     for (typeNumberProcess i = 0; i < constSeries; i++)
     {
-        for (typeNumberProcess j = 0; j < constProcesses; j++)
-            cout << tabProcesses[i][j] << "   ";
-        cout << endl;
-    }
+        for(typeNumberProcess j = 0; j < constProcesses; j++)
+        {
 
-    /*for (typeNumberProcess i = 0; i < constSeries; i++)
-    {
-    }*/
+        }
+    }
 
     /*
      * - pojawil sie pierwszy proces
@@ -278,9 +267,9 @@ void cShedulingAlgorithms::mSortingSeriesReadinessAndDoing(typeNumberProcess aSe
 }
 
 /*
- * void mSortingAllSeriesReadinessAndDoind()
+ * void mSortingAllSeriesReadinessAndDoing()
  */
-void cShedulingAlgorithms::mSortingAllSeriesReadinessAndDoind()
+void cShedulingAlgorithms::mSortingAllSeriesReadinessAndDoing()
 {
     for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
         mSortingSeriesReadinessAndDoing(i); // posortowanie wskazanej serii

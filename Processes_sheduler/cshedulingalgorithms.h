@@ -231,7 +231,7 @@ public:
     void mSortingSeriesReadinessAndDoing(typeNumberProcess aSeries);
 
     /*
-     * void mSortingAllSeriesReadinessAndDoind() - metoda sortujaca
+     * void mSortingAllSeriesReadinessAndDoing() - metoda sortujaca
      * procesy rosnaco wg czasu gotowosci do wykonywania a nastepnie
      * rosnaco wg czasu wykonywania we wszystkich seriach procesow.
      * PRE:
@@ -239,7 +239,7 @@ public:
      * POST:
      * - brak.
      */
-    void mSortingAllSeriesReadinessAndDoind();
+    void mSortingAllSeriesReadinessAndDoing();
 
 
 

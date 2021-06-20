@@ -268,6 +268,27 @@ public:
 
 
     /*
+     * void mIncrementTimeReady() - metoda inkrementujaca czas
+     * oczekiwania na gotowosc procesu do wykonania.
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
+     */
+    void mIncrementTimeReady();
+
+    /*
+     * void mForwardTimeReady(typeTime aTimeForward) - metoda
+     * zwiekszajaca czas jaki uplynal od momentu rozpoczecia
+     * oczekiwania na gotowosc procesu do wykonania.
+     * PRE:
+     * - podanie wartosci czasu (typ: typeTime);
+     * POST:
+     * - brak.
+     */
+    void mForwardTimeReady(typeTime aTimeForward);
+
+    /*
      * void mIncrementTimeWaiting() - metoda inkrementujaca czas
      * oczekiwania procesu na wykonannie.
      * PRE:
@@ -281,14 +302,18 @@ public:
     }
 
     /*
-     * void mIncrementTimeReady() - metoda inkrementujaca czas
-     * oczekiwania na gotowosc procesu do wykonania.
+     * void mForwardTimeWaiting(typeTime aTimeForward) - metoda
+     * zwiekszajaca czas jaki proces jest w stanie gotowosci
+     * do wykonania.
      * PRE:
-     * - brak;
+     * - podanie wartosci czasu (typ: typeTime);
      * POST:
      * - brak.
      */
-    void mIncrementTimeReady();
+    inline void mForwardTimeWaiting(typeTime aTimeForward)
+    {
+        vTimeWaiting += aTimeForward;
+    }
 
     /*
      * void mIncrementTimeDone() - metoda inkrementujaca czas procesu
@@ -301,16 +326,26 @@ public:
     void mIncrementTimeDone();
 
     /*
-     * void mIncrementTimeProcessing() - metoda inkrementujaca czas
-     * calkowitego przetwarzania procesu.
+     * void mForwardTimeDone(typeTime aTimeForward) - metoda
+     * zwiekszajaca czas wykonania pracesu.
+     * PRE:
+     * - podanie wartosci czasu (typ: typeTime);
+     * POST:
+     * - brak.
+     */
+    void mForwardTimeDone(typeTime aTimeForward);
+
+    /*
+     * void mCalculateTimeProcessing() - metoda obliczajaca
+     * calkowity czas przetwarzania procesu.
      * PRE:
      * - brak;
      * POST:
      * - brak.
      */
-    inline void mIncrementTimeProcessing()
+    inline void mCalculateTimeProcessing()
     {
-        vTimeProcessing++;
+        vTimeProcessing = vTimeDoing + vTimeWaiting;
     }
 
     /*
