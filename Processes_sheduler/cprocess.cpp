@@ -72,22 +72,9 @@ istream & operator >> (istream & StreamIn, cProcess & P)
     StreamIn >> skipws >> aTimeReadiness >> aTimeDoing; // wczytanie czasow procesu
     P.setTimeReadiness(aTimeReadiness); // ustanowienie czasu oczekiwania
     P.setTimeDoing(aTimeDoing); // ustanowienie czasu wykonania
+    P.vTimeToReady = P.vTimeReadiness;
+    P.vTimeToDo = P.vTimeDoing;
     return StreamIn; // zwrocenie strumienia
-}
-
-/*
- * void operator = (cProcess & P)
- */
-void cProcess::operator = (cProcess & P)
-{
-    vTimeReadiness = P.vTimeReadiness; // przypisanie odpowiednich czasow kopiowanemu obiektowi
-    vTimeReady = P.vTimeReady;
-    vTimeToReady = vTimeToReady;
-    vTimeWaiting = P.vTimeWaiting;
-    vTimeDoing = P.vTimeDoing;
-    vTimeDone = P.vTimeDone;
-    vTimeToDo = P.vTimeToDo;
-    vTimeProcessing = P.vTimeProcessing;
 }
 
 
@@ -101,6 +88,7 @@ void cProcess::setTimeReadiness(typeTime aTimeReadiness)
         vTimeReadiness = aTimeReadiness % constMaxTime; // jesli tak to ustawiamy maksimum
     else
         vTimeReadiness = aTimeReadiness; // jesli jest ok to przypisujemy wartosc z argumentu
+    vTimeToReady = vTimeReadiness; // ustanowienie czasu jaki musi uplynac do pelnej gotowosci
 }
 
 /*
@@ -112,6 +100,7 @@ void cProcess::setTimeDoing(typeTime aTimeDoing)
         vTimeDoing = aTimeDoing % constMaxTime; // jesli tak to ustawiamy maksimum
     else
         vTimeDoing = aTimeDoing; // jesli jest ok to przypisujemy wartosc z argumentu
+    vTimeToDo = vTimeDoing; // ustanowienie czasu jaki jeszcze mamy do wykonania calego procesu
 }
 
 

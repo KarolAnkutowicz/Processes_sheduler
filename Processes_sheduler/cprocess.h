@@ -126,15 +126,6 @@ public:
      */
     friend istream & operator >> (istream & StreamIn, cProcess & P);
 
-    /*
-     * void operator = (cProcess & P) -
-     * PRE:
-     * -
-     * POST:
-     * -
-     */
-    void operator = (cProcess & P);
-
 
 
     /*

@@ -58,15 +58,51 @@ void cShedulingAlgorithms::mMakeFCFS()
     }
     cout << endl;*/
 
+    /*for (typeNumberProcess i = 0; i < constSeries; i++)
+    {
+        for(typeNumberProcess j = 0; j < constProcesses; j++)
+        {
+            //tabProcesses[i][j].mForwardTimeReady(tabProcesses[0][j].getTimeReadiness());
+            cout << "Proces w serii " << i << " o numerze " << j << " :" << endl
+                 << "    TimeReadiness: " << tabProcesses[i][j].getTimeReadiness() << endl
+                 //<< "    TimeReady: " << tabProcesses[i][j].getTimeReady() << endl
+                 << "    TimeToReady: " << tabProcesses[i][j].getTimeToReady() << endl
+                 //<< "    TimeWaiting: " << tabProcesses[i][j].getTimeWaiting() << endl
+                 << "    TimeDoing: " << tabProcesses[i][j].getTimeDoing() << endl
+                 //<< "    TimeDone: " << tabProcesses[i][j].getTimeDone() << endl
+                 << "    TimeToDo: " << tabProcesses[i][j].getTimeToDo() << endl
+                 //<< "    TimeProcessing: " << tabProcesses[i][j].getTimeProcessing() << endl*/
+;
+            /*cout << i << " " << j << endl
+                 << "    " << tabProcesses[i][j].getTimeReadiness() << " " << tabProcesses[i][j].getTimeDoing() << endl;*/
+        /*}
+        cout << endl;
+    }*/
+
+    /*cout << endl << endl << "Po sortowaniu:" << endl << endl;
+
     mSortingAllSeriesReadiness();
 
     for (typeNumberProcess i = 0; i < constSeries; i++)
     {
         for(typeNumberProcess j = 0; j < constProcesses; j++)
         {
-
-        }
-    }
+            //tabProcesses[i][j].mForwardTimeReady(tabProcesses[0][j].getTimeReadiness());
+            cout << "Proces w serii " << i << " o numerze " << j << " :" << endl
+                 << "    TimeReadiness: " << tabProcesses[i][j].getTimeReadiness() << endl
+                 //<< "    TimeReady: " << tabProcesses[i][j].getTimeReady() << endl
+                 << "    TimeToReady: " << tabProcesses[i][j].getTimeToReady() << endl
+                 //<< "    TimeWaiting: " << tabProcesses[i][j].getTimeWaiting() << endl
+                 << "    TimeDoing: " << tabProcesses[i][j].getTimeDoing() << endl
+                 //<< "    TimeDone: " << tabProcesses[i][j].getTimeDone() << endl
+                 << "    TimeToDo: " << tabProcesses[i][j].getTimeToDo() << endl
+                 //<< "    TimeProcessing: " << tabProcesses[i][j].getTimeProcessing() << endl*/
+;
+            /*cout << i << " " << j << endl
+                 << "    " << tabProcesses[i][j].getTimeReadiness() << " " << tabProcesses[i][j].getTimeDoing() << endl;*/
+       /* }
+        cout << endl;
+    }*/
 
     /*
      * - pojawil sie pierwszy proces
