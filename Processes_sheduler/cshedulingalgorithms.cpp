@@ -296,19 +296,8 @@ void cShedulingAlgorithms::mMakeProcess(typeNumberProcess aSeries, typeNumberPro
 /*
  * typeNumberProcess mGetLast(typeNumberProcess aSeries)
  */
-typeNumberProcess cShedulingAlgorithms::mGetLast(typeNumberProcess aSeries) // KONIECZNE POPRAWKI
+typeNumberProcess cShedulingAlgorithms::mGetLast(typeNumberProcess aSeries)
 {
-    bool vAnyone = false; // zmienna pomocnicza do potwierdzenia czy jakikolwiek proces jest gotowy do wykonania
-    for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach
-    {
-        if (tabProcesses[aSeries][i].getTimeToReady() == 0) // sprawdzamy czy proces jest gotowy
-        {
-            vAnyone = true; // potwierdzamy gotowosc
-            break; // wychodzimy z petli - nie ma potrzeby dalszego sprawdzania
-        }
-    }
-    if (vAnyone == false) // sprawdzamy czy jest chociaz jeden gotowy proces
-        return constProcesses; // zwracamy wartosc poza zakresem - dajemy sygnal, ze nie ma zadnego gotowego do wykonania procesu
     typeNumberProcess vIndex = 0; // nadanie wartosci poczatkowej
     for (typeNumberProcess i = 0; i < (constProcesses - 1); i++) // przejscie po wszystkich procesach oprocz ostatniego
     {
