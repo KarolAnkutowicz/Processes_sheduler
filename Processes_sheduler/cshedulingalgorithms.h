@@ -88,6 +88,17 @@ public:
     void mMakeFCFS();
 
     /*
+     * typeNumberProcess mGetLast(typeNumberProcess aSeries) - metoda
+     * pomocnicza do algorytmu LCFS, wyznaczajaca numer indeksu, ktory
+     * mamy wykonac.
+     * PRE:
+     * - podanie numeru serii (typ: typeNumberProcess;
+     * POST:
+     * - brak.
+     */
+    typeNumberProcess mGetLast(typeNumberProcess aSeries);
+
+    /*
      * void mMakeLCFS() - metoda realizujaca niewywlaszczajacy algorytm
      * FCFS (First Come First Served - pierwszy zgloszony, pierwszy
      * obsluzony).
