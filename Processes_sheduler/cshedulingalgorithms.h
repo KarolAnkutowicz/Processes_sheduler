@@ -76,6 +76,7 @@ public:
     cShedulingAlgorithms(enumAlgorithms aAlgorithm);
 
 
+
     /*
      * void mMakeFCFS() - metoda realizujaca niewywlaszczajacy algorytm
      * FCFS (First Come First Served - pierwszy zgloszony, pierwszy
@@ -86,17 +87,6 @@ public:
      * - brak.
      */
     void mMakeFCFS();
-
-    /*
-     * typeNumberProcess mGetLast(typeNumberProcess aSeries) - metoda
-     * pomocnicza do algorytmu LCFS, wyznaczajaca numer indeksu, ktory
-     * mamy wykonac.
-     * PRE:
-     * - podanie numeru serii (typ: typeNumberProcess;
-     * POST:
-     * - brak.
-     */
-    typeNumberProcess mGetLast(typeNumberProcess aSeries);
 
     /*
      * void mMakeLCFS() - metoda realizujaca niewywlaszczajacy algorytm
@@ -141,6 +131,40 @@ public:
      * - brak.
      */
     void mMakeSRT();
+
+    /*
+     * bool mReadyAny(typeNumberProcess aSeries) - metoda pomocnicza
+     * sprawdzajaca czy istnieje aktualnie proces ktory mozemy wykonywac
+     * (tzn. nieukonczony proces ktory jest w stanie gotowosci).
+     * PRE:
+     * - podanie numeru serii (typ: typeNumberProcess;
+     * POST:
+     * - brak.
+     */
+    bool mReadyAny(typeNumberProcess aSeries);
+
+    /*
+     * void mForwardReadinessSeries(typeNumberProcess aSeries, typeTime aTime) -
+     * metoda przesuwajaca czas oczekiwania na gotowosc we wskazanej serii
+     * procesow o wskazana ilosc czasu.
+     * PRE:
+     * - podanie numeru serii (typ: typeNumberProcess), podanie czasu
+     * (typ: typeTime);
+     * POST:
+     * - brak.
+     */
+    void mForwardReadinessSeries(typeNumberProcess aSeries, typeTime aTime);
+
+    /*
+     * typeNumberProcess mGetLast(typeNumberProcess aSeries) - metoda
+     * pomocnicza do algorytmu LCFS, wyznaczajaca numer indeksu, ktory
+     * mamy wykonac.
+     * PRE:
+     * - podanie numeru serii (typ: typeNumberProcess;
+     * POST:
+     * - brak.
+     */
+    typeNumberProcess mGetLast(typeNumberProcess aSeries);
 
 
 

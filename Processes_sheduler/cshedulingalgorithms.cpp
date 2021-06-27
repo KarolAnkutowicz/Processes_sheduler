@@ -99,39 +99,9 @@ void cShedulingAlgorithms::mMakeFCFS()
 }
 
 /*
- * typeNumberProcess mGetLast(typeNumberProcess aSeries)
- */
-typeNumberProcess cShedulingAlgorithms::mGetLast(typeNumberProcess aSeries)
-{
-    bool vAnyone = false; // zmienna pomocnicza do potwierdzenia czy jakikolwiek proces jest gotowy do wykonania
-    for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach
-    {
-        if (tabProcesses[aSeries][i].getTimeToReady() == 0) // sprawdzamy czy proces jest gotowy
-        {
-            vAnyone = true; // potwierdzamy gotowosc
-            break; // wychodzimy z petli - nie ma potrzeby dalszego sprawdzania
-        }
-    }
-    if (vAnyone == false) // sprawdzamy czy jest chociaz jeden gotowy proces
-        return constProcesses; // zwracamy wartosc poza zakresem - dajemy sygnal, ze nie ma zadnego gotowego do wykonania procesu
-    typeNumberProcess vIndex = 0; // nadanie wartosci poczatkowej
-    for (typeNumberProcess i = 0; i < (constProcesses - 1); i++) // przejscie po wszystkich procesach oprocz ostatniego
-    {
-        for (typeNumberProcess j = i + 1; j < constProcesses; j++) // przejscie po wszystkich procesach od wskazanego momentu
-        {
-            if (tabProcesses[aSeries][j].getTimeToReady() > 0) // sprawdzamy czy proces jeszcze nie jest gotowy
-                continue; // jesli nie jest to go pomijamy
-            else if (tabProcesses[aSeries][i].getTimeWaiting() > tabProcesses[aSeries][j].getTimeWaiting()) // sprawdzamy czy czas oczekiwania dalszego w kolejnosci procesu jest krotszy
-                vIndex = j; // jesli tak to on staje sie ostatnim procesem
-        }
-    }
-    return vIndex; // zwrocenie wartosci indeksu procesu do wykonania
-}
-
-/*
  * void mMakeLCFS()
  */
-void cShedulingAlgorithms::mMakeLCFS()
+void cShedulingAlgorithms::mMakeLCFS() // KONIECZNE POPRAWKI
 {
     mSortingAllSeriesReadiness(); // sortujemy procesu uzyskujac kolejnosc gotowosci do wykonania
 
@@ -242,6 +212,67 @@ void cShedulingAlgorithms::mMakeSRT()
      * - itd...
      */
 }
+
+/*
+ * bool mReadyAny(typeNumberProcess aSeries)
+ */
+bool cShedulingAlgorithms::mReadyAny(typeNumberProcess aSeries)
+{
+    bool vAny = false; // nadanie wartosci poczatkowej zmiennej okreslajacej wystepowanie gotowego procesu
+    for (typeNumberProcess i = 0; i < constProcesses; i++)
+    {
+        if ((tabProcesses[aSeries][i].getTimeToReady() == 0) && (tabProcesses[aSeries][i].getTimeToDo() > 0)) // sprawdzamy czy mamy nieukonczony proces gotowy do wykonywania
+        {
+            vAny = true; // jesli tak to ustawiamy wartosc zmiennej na "true"
+            break; // wychodzimy z petli
+        }
+    }
+    return vAny; // zwrocenie wartosci
+}
+
+/*
+ * void mForwardReadinessSeries(typeNumberProcess aSeries, typeTime aTime)
+ */
+void cShedulingAlgorithms::mForwardReadinessSeries(typeNumberProcess aSeries, typeTime aTime)
+{
+    for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach
+    {
+        if (tabProcesses[aSeries][i].getTimeToReady() > 0) // sprawdzenie czy proces nie jest jeszcze gotowy do wykonania
+            tabProcesses[aSeries][i].mForwardTimeReady(aTime); // przesuniece czasu oczekiwania na gotowosc
+    }
+}
+
+/*
+ * typeNumberProcess mGetLast(typeNumberProcess aSeries)
+ */
+typeNumberProcess cShedulingAlgorithms::mGetLast(typeNumberProcess aSeries)
+{
+    bool vAnyone = false; // zmienna pomocnicza do potwierdzenia czy jakikolwiek proces jest gotowy do wykonania
+    for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach
+    {
+        if (tabProcesses[aSeries][i].getTimeToReady() == 0) // sprawdzamy czy proces jest gotowy
+        {
+            vAnyone = true; // potwierdzamy gotowosc
+            break; // wychodzimy z petli - nie ma potrzeby dalszego sprawdzania
+        }
+    }
+    if (vAnyone == false) // sprawdzamy czy jest chociaz jeden gotowy proces
+        return constProcesses; // zwracamy wartosc poza zakresem - dajemy sygnal, ze nie ma zadnego gotowego do wykonania procesu
+    typeNumberProcess vIndex = 0; // nadanie wartosci poczatkowej
+    for (typeNumberProcess i = 0; i < (constProcesses - 1); i++) // przejscie po wszystkich procesach oprocz ostatniego
+    {
+        for (typeNumberProcess j = i + 1; j < constProcesses; j++) // przejscie po wszystkich procesach od wskazanego momentu
+        {
+            if (tabProcesses[aSeries][j].getTimeToReady() > 0) // sprawdzamy czy proces jeszcze nie jest gotowy
+                continue; // jesli nie jest to go pomijamy
+            else if (tabProcesses[aSeries][i].getTimeWaiting() > tabProcesses[aSeries][j].getTimeWaiting()) // sprawdzamy czy czas oczekiwania dalszego w kolejnosci procesu jest krotszy
+                vIndex = j; // jesli tak to on staje sie ostatnim procesem
+        }
+    }
+    return vIndex; // zwrocenie wartosci indeksu procesu do wykonania
+}
+
+
 
 
 
