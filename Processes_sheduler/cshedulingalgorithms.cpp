@@ -49,67 +49,53 @@ cShedulingAlgorithms::cShedulingAlgorithms(enumAlgorithms aAlgorithm)
  */
 void cShedulingAlgorithms::mMakeFCFS()
 {
-    mReadProcessesFromFile();
-    /*for (typeNumberProcess i = 0; i < constSeries; i++)
+    mSortingAllSeriesReadiness(); // sortujemy procesu uzyskujac kolejnosc gotowosci do wykonania
+
+    typeTime vForward, vForwardPart; // zmienea pomocnicze stosowane do przesuwania czasow procesow
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
     {
-        for (typeNumberProcess j = 0; j < constProcesses; j++)
-            cout << tabProcesses[i][j] << "   ";
-        cout << endl;
+        for (typeNumberProcess j = 0; j < constProcesses; j++)// przejscie po wszystkich procesach
+        {
+            tabProcesses[i][j].mForwardTimeReady(tabProcesses[i][0].getTimeReadiness()); // przesuniecie oczekiwania wszystkich procesow z danej serii o minimalna wartosc danej serii
+        }
+        for (typeNumberProcess j = 0; j < (constProcesses - 1); j++) // przechodzimy przez wszystkie procesy w serii oprocz ostatniego
+        {
+            vForward = tabProcesses[i][j].getTimeToDo(); // przypisujemy wartosc czasu pozostala do wykonania pierwszego w aktualnej kolejce procesu
+            tabProcesses[i][j].mForwardTimeDone(vForward); // dokladnie tyle czasu proces sie wykonuje
+            for (typeNumberProcess k = j + 1; k < constProcesses; k++) // przechodzimy po wszystkich dalszych procesach w serii
+            {
+                if (tabProcesses[i][k].getTimeToReady() >= vForward) // sprawdzamy czy czas gotowosci nie jest zbyt dlugi w stosunku do czasu wykonania przed chwila zakonczeonego procesu
+                    tabProcesses[i][k].mForwardTimeReady(vForward); // jesli tak to skracamy czas oczekiwania
+                else if (tabProcesses[i][k].getTimeToReady() == 0) // sprawdzamy czy proces jest juz gotowy do wykonania
+                    tabProcesses[i][k].mForwardTimeWaiting(vForward); // jesli tak to jeszcze musi poczekac na swoja kolej
+                else // trzeci przypadek - tutaj proces stanie sie gotowy ale jeszcze nie bedziemy mogli go wykonac
+                {
+                    vForwardPart = vForward - tabProcesses[i][k].getTimeToReady(); // okreslenie ilosci czasu jaka bedziemy czekac
+                    tabProcesses[i][k].mForwardTimeReady(vForward - vForwardPart); // konczymy oczekiwania do wykonania
+                    tabProcesses[i][k].mForwardTimeWaiting(vForwardPart); // zwieksza sie czas oczekiwania na gotowosc do wykonania
+                }
+            }
+        }
+        vForward = tabProcesses[i][constProcesses - 1].getTimeToDo(); // przypisujemy wartosc czasu jaka zostala do wykonania ostatniemu procesowi w serii
+        tabProcesses[i][constProcesses - 1].mForwardTimeDone(vForward); // wykonujemy ostatni proces w serii
+
+        for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach w serii
+            tabProcesses[i][j].mCalculateTimeProcessing(); // wyznaczenie czasu calkowitego przetwarzania procesu
+
+        /*for(typeNumberProcess j = 0; j < constProcesses; j++) // kontrolne wypisanie odpowiednich czasow
+        {
+            cout << "Proces w serii " << i << " o numerze " << j << " :" << endl
+                 << "    TimeReadiness: " << tabProcesses[i][j].getTimeReadiness() << endl
+                 //<< "    TimeReady: " << tabProcesses[i][j].getTimeReady() << endl
+                 //<< "    TimeToReady: " << tabProcesses[i][j].getTimeToReady() << endl
+                 << "    TimeWaiting: " << tabProcesses[i][j].getTimeWaiting() << endl
+                 << "    TimeDoing: " << tabProcesses[i][j].getTimeDoing() << endl
+                 //<< "    TimeDone: " << tabProcesses[i][j].getTimeDone() << endl
+                 //<< "    TimeToDo: " << tabProcesses[i][j].getTimeToDo() << endl
+                 << "    TimeProcessing: " << tabProcesses[i][j].getTimeProcessing() << endl;
+        }
+        cout << endl << endl;*/
     }
-    cout << endl;*/
-
-    /*for (typeNumberProcess i = 0; i < constSeries; i++)
-    {
-        for(typeNumberProcess j = 0; j < constProcesses; j++)
-        {
-            //tabProcesses[i][j].mForwardTimeReady(tabProcesses[0][j].getTimeReadiness());
-            cout << "Proces w serii " << i << " o numerze " << j << " :" << endl
-                 << "    TimeReadiness: " << tabProcesses[i][j].getTimeReadiness() << endl
-                 //<< "    TimeReady: " << tabProcesses[i][j].getTimeReady() << endl
-                 << "    TimeToReady: " << tabProcesses[i][j].getTimeToReady() << endl
-                 //<< "    TimeWaiting: " << tabProcesses[i][j].getTimeWaiting() << endl
-                 << "    TimeDoing: " << tabProcesses[i][j].getTimeDoing() << endl
-                 //<< "    TimeDone: " << tabProcesses[i][j].getTimeDone() << endl
-                 << "    TimeToDo: " << tabProcesses[i][j].getTimeToDo() << endl
-                 //<< "    TimeProcessing: " << tabProcesses[i][j].getTimeProcessing() << endl*/
-;
-            /*cout << i << " " << j << endl
-                 << "    " << tabProcesses[i][j].getTimeReadiness() << " " << tabProcesses[i][j].getTimeDoing() << endl;*/
-        /*}
-        cout << endl;
-    }*/
-
-    /*cout << endl << endl << "Po sortowaniu:" << endl << endl;
-
-    mSortingAllSeriesReadiness();
-
-    for (typeNumberProcess i = 0; i < constSeries; i++)
-    {
-        for(typeNumberProcess j = 0; j < constProcesses; j++)
-        {
-            //tabProcesses[i][j].mForwardTimeReady(tabProcesses[0][j].getTimeReadiness());
-            cout << "Proces w serii " << i << " o numerze " << j << " :" << endl
-                 << "    TimeReadiness: " << tabProcesses[i][j].getTimeReadiness() << endl
-                 //<< "    TimeReady: " << tabProcesses[i][j].getTimeReady() << endl
-                 << "    TimeToReady: " << tabProcesses[i][j].getTimeToReady() << endl
-                 //<< "    TimeWaiting: " << tabProcesses[i][j].getTimeWaiting() << endl
-                 << "    TimeDoing: " << tabProcesses[i][j].getTimeDoing() << endl
-                 //<< "    TimeDone: " << tabProcesses[i][j].getTimeDone() << endl
-                 << "    TimeToDo: " << tabProcesses[i][j].getTimeToDo() << endl
-                 //<< "    TimeProcessing: " << tabProcesses[i][j].getTimeProcessing() << endl*/
-;
-            /*cout << i << " " << j << endl
-                 << "    " << tabProcesses[i][j].getTimeReadiness() << " " << tabProcesses[i][j].getTimeDoing() << endl;*/
-       /* }
-        cout << endl;
-    }*/
-
-    /*
-     * - pojawil sie pierwszy proces
-     * - wykonujemy go
-     * - pojawiaja sie nowe procesy
-     * - sa obslugiwane w kolejnosci pojawienia sie bez wzgledu na dlugosc
-     */
 }
 
 /*

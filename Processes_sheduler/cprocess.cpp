@@ -59,7 +59,7 @@ cProcess::cProcess(cProcess &P)
  */
 ostream & operator << (ostream & StreamOut, cProcess & P)
 {
-    StreamOut << P.getTimeReadiness() << " " << P.getTimeDoing(); // wypisanie czasow procesu
+    StreamOut << P.getTimeReadiness() << " " << P.getTimeDoing() << " "; // wypisanie czasow procesu
     return StreamOut; // zwrocenie strumienia
 }
 
