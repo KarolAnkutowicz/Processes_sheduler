@@ -47,7 +47,7 @@ cShedulingAlgorithms::cShedulingAlgorithms(enumAlgorithms aAlgorithm)
 /*
  * void mMakeFCFS()
  */
-void cShedulingAlgorithms::mMakeFCFS()
+void cShedulingAlgorithms::mMakeFCFS() // KONIECZNE POPRAWKI
 {
     mSortingAllSeriesReadiness(); // sortujemy procesu uzyskujac kolejnosc gotowosci do wykonania
 
@@ -238,14 +238,65 @@ void cShedulingAlgorithms::mForwardReadinessSeries(typeNumberProcess aSeries, ty
     for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach
     {
         if (tabProcesses[aSeries][i].getTimeToReady() > 0) // sprawdzenie czy proces nie jest jeszcze gotowy do wykonania
-            tabProcesses[aSeries][i].mForwardTimeReady(aTime); // przesuniece czasu oczekiwania na gotowosc
+            tabProcesses[aSeries][i].mForwardTimeReady(aTime); // przesuniecie czasu oczekiwania na gotowosc
+    }
+}
+
+/*
+ * void mMakeProcess(typeNumberProcess aSeries, typeNumberProcess aIndex, typeTime aTime)
+ */
+void cShedulingAlgorithms::mMakeProcess(typeNumberProcess aSeries, typeNumberProcess aIndex, typeTime aTime)
+{
+    typeTime vForward; // zmienna pomocnicza stosowana do przesuwania czasow procesow
+    for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach w serii
+    {
+        if (i == aIndex) // sprawdzamy czy to jest numer procesu, ktory mamy wykonac
+            tabProcesses[aSeries][i].mForwardTimeDone(aTime); // jesli tak to go wykonujemy
+        else if ((tabProcesses[aSeries][i].getTimeToReady() == 0) && (tabProcesses[aSeries][i].getTimeToDo() == 0)) // sprawdzamy czy proces juz jest w calosci wykonany
+            continue; // kontynuujemy sprawdzanie kolejnych procesow
+        else if (tabProcesses[aSeries][i].getTimeToReady() > aTime) // sprawdzamy czy proces nie bedzie nawet gotowy
+            tabProcesses[aSeries][i].mForwardTimeReady(aTime); // przesuwamy czas oczekiwania na gotowosc do wykonania
+        else if ((tabProcesses[aSeries][i].getTimeToReady() == 0) && (tabProcesses[aSeries][i].getTimeToDo() > 0)) // przypadek kiedy proces jest juz gotowy ale jeszcze nie mozemy go wykonac
+            tabProcesses[aSeries][i].mForwardTimeWaiting(aTime); // wydluza sie czas oczekiwanie
+        else // ostatni przypadek kiedy proces stanie sie gotowy ale nie bedzie go mozna jeszcze wykonac
+        {
+            vForward = aTime - tabProcesses[aSeries][i].getTimeToReady(); // ustalamy ile czasu proces bedzie czekal na wykonanie
+            tabProcesses[aSeries][i].mForwardTimeReady(tabProcesses[aSeries][i].getTimeToReady()); // konczymy jego czas na oczekiwanie
+            tabProcesses[aSeries][i].mForwardTimeWaiting(vForward); // zaczynamy oczekiwac na wykonanie (proces jest juz gotowy
+        }
+    }
+}
+
+/*
+ * void mMakeProcess(typeNumberProcess aSeries, typeNumberProcess aIndex)
+ */
+void cShedulingAlgorithms::mMakeProcess(typeNumberProcess aSeries, typeNumberProcess aIndex)
+{
+    typeTime vForward, vForwardPart; // zmienne pomocnicze stosowane do przesuwania czasow procesow
+    vForward = tabProcesses[aSeries][aIndex].getTimeToDo(); // ustalenie ile czasu zostanie do wykonania wskazanego procesu
+    for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach w serii
+    {
+        if (i == aIndex) // sprawdzamy czy to jest numer procesu, ktory mamy wykonac
+            tabProcesses[aSeries][i].mForwardTimeDone(vForward); // jesli tak to go wykonujemy
+        else if ((tabProcesses[aSeries][i].getTimeToReady() == 0) && (tabProcesses[aSeries][i].getTimeToDo() == 0)) // sprawdzamy czy proces juz jest w calosci wykonany
+            continue; // kontynuujemy sprawdzanie kolejnych procesow
+        else if (tabProcesses[aSeries][i].getTimeToReady() > vForward) // sprawdzamy czy proces nie bedzie nawet gotowy
+            tabProcesses[aSeries][i].mForwardTimeReady(vForward); // przesuwamy czas oczekiwania na gotowosc do wykonania
+        else if ((tabProcesses[aSeries][i].getTimeToReady() == 0) && (tabProcesses[aSeries][i].getTimeToDo() > 0)) // przypadek kiedy proces jest juz gotowy ale jeszcze nie mozemy go wykonac
+            tabProcesses[aSeries][i].mForwardTimeWaiting(vForward); // wydluza sie czas oczekiwanie
+        else // ostatni przypadek kiedy proces stanie sie gotowy ale nie bedzie go mozna jeszcze wykonac
+        {
+            vForwardPart = vForward - tabProcesses[aSeries][i].getTimeToReady(); // ustalamy ile czasu proces bedzie czekal na wykonanie
+            tabProcesses[aSeries][i].mForwardTimeReady(tabProcesses[aSeries][i].getTimeToReady()); // konczymy jego czas na oczekiwanie
+            tabProcesses[aSeries][i].mForwardTimeWaiting(vForwardPart); // zaczynamy oczekiwac na wykonanie (proces jest juz gotowy
+        }
     }
 }
 
 /*
  * typeNumberProcess mGetLast(typeNumberProcess aSeries)
  */
-typeNumberProcess cShedulingAlgorithms::mGetLast(typeNumberProcess aSeries)
+typeNumberProcess cShedulingAlgorithms::mGetLast(typeNumberProcess aSeries) // KONIECZNE POPRAWKI
 {
     bool vAnyone = false; // zmienna pomocnicza do potwierdzenia czy jakikolwiek proces jest gotowy do wykonania
     for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach

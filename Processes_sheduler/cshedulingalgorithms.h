@@ -156,11 +156,38 @@ public:
     void mForwardReadinessSeries(typeNumberProcess aSeries, typeTime aTime);
 
     /*
+     * void mMakeProcess(typeNumberProcess aSeries, typeNumberProcess aIndex, typeTime aTime) -
+     * metoda wykonujaca wskazany proces przez wskazana ilosc czasu. Przy
+     * okazji obsluguje reszte procesow w serii (przesuwa czasy oczekiwania
+     * na gotowosc i oczekiwania na wykonanie)
+     * PRE:
+     * - podanie numeru serii (typ: typeNumberProcess), podanie numeru
+     * procesu w serii (typ: typeNumberProcess), podanie czasu
+     * (typ: typeTime);
+     * POST:
+     * - brak.
+     */
+    void mMakeProcess(typeNumberProcess aSeries, typeNumberProcess aIndex, typeTime aTime);
+
+    /*
+     * void mMakeProcess(typeNumberProcess aSeries, typeNumberProcess aIndex) -
+     * metoda wykonujaca wskazany proces az do jego konca wykonywania. Przy
+     * okazji obsluguje reszte procesow w serii (przesuwa czasy oczekiwania
+     * na gotowosc i oczekiwania na wykonanie)
+     * PRE:
+     * - podanie numeru serii (typ: typeNumberProcess), podanie numeru
+     * procesu w serii (typ: typeNumberProcess), podanie czasu;
+     * POST:
+     * - brak.
+     */
+    void mMakeProcess(typeNumberProcess aSeries, typeNumberProcess aIndex);
+
+    /*
      * typeNumberProcess mGetLast(typeNumberProcess aSeries) - metoda
      * pomocnicza do algorytmu LCFS, wyznaczajaca numer indeksu, ktory
      * mamy wykonac.
      * PRE:
-     * - podanie numeru serii (typ: typeNumberProcess;
+     * - podanie numeru serii (typ: typeNumberProcess);
      * POST:
      * - brak.
      */
