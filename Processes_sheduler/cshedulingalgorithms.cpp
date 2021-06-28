@@ -52,30 +52,14 @@ void cShedulingAlgorithms::mMakeFCFS() // KONIECZNE POPRAWKI
     mSortingAllSeriesReadiness(); // sortujemy procesu uzyskujac kolejnosc gotowosci do wykonania
     for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
     {
-
         for (typeNumberProcess j = 0; j < constProcesses; j++)// przejscie po wszystkich procesach
         {
             if (mReadyAny(i) == false) // sprawdzamy czy jakikolwiek proces jest gotowy do wykonania
-                mForwardReadinessSeries(i, tabProcesses[i][j].getTimeReadiness()); // jesli nie to przesuwamy czas oczekiwania na gotowosc wszystkich procesow
+                mForwardReadinessSeries(i, tabProcesses[i][j].getTimeToReady()); // jesli nie to przesuwamy czas oczekiwania na gotowosc wszystkich procesow
             mMakeProcess(i, j); // wykonujemy kolejny proces
         }
         for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach w serii
             tabProcesses[i][j].mCalculateTimeProcessing(); // wyznaczenie czasu calkowitego przetwarzania procesu
-
-
-        for(typeNumberProcess j = 0; j < constProcesses; j++) // kontrolne wypisanie odpowiednich czasow
-        {
-            cout << "Proces w serii " << i << " o numerze " << j << " :" << endl
-                 << "    TimeReadiness: " << tabProcesses[i][j].getTimeReadiness() << endl
-                 //<< "    TimeReady: " << tabProcesses[i][j].getTimeReady() << endl
-                 //<< "    TimeToReady: " << tabProcesses[i][j].getTimeToReady() << endl
-                 << "    TimeWaiting: " << tabProcesses[i][j].getTimeWaiting() << endl
-                 << "    TimeDoing: " << tabProcesses[i][j].getTimeDoing() << endl
-                 //<< "    TimeDone: " << tabProcesses[i][j].getTimeDone() << endl
-                 //<< "    TimeToDo: " << tabProcesses[i][j].getTimeToDo() << endl
-                 << "    TimeProcessing: " << tabProcesses[i][j].getTimeProcessing() << endl;
-        }
-        cout << endl << endl << endl;
     }
 }
 
