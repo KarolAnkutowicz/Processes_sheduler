@@ -244,6 +244,29 @@ typeNumberProcess cShedulingAlgorithms::mGetLast(typeNumberProcess aSeries)
     return vIndex; // zwrocenie wartosci
 }
 
+/*
+ * typeNumberProcess mGetTheShortest(typeNumberProcess aSeries)
+ */
+typeNumberProcess cShedulingAlgorithms::mGetTheShortest(typeNumberProcess aSeries)
+{
+    typeNumberProcess vIndex = 0; // nadanie wartosci poczatkowej indeksu
+    typeTime vTime = (constMaxTime * (constProcesses + 1)); // nadanie wartosci poczatkowej czasu
+    for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach we wskazanej serii
+    {
+        if ((tabProcesses[aSeries][i].getTimeToReady() > 0) || (tabProcesses[aSeries][i].getTimeToDo() == 0)) // sprawdzamy czy proces jest w ogole gotowy do wykonania albo jest juz wykonany
+            continue; // przechowimy do kolejnego cyklu petli
+        else // proces jest gotowy do wykonania
+        {
+            if (tabProcesses[aSeries][i].getTimeToDo() <= vTime) // jesli czas oczekiwania jest mniejszy niz aktualnie wskazany
+            {
+                vTime = tabProcesses[aSeries][i].getTimeToDo(); // nadajemy nowa wartosc czasu
+                vIndex = i; // nadajemy nowy indeks procesu, ktory czeka najkrocej
+            }
+        }
+    }
+    return vIndex; // zwrocenie wartosci
+}
+
 
 
 /*

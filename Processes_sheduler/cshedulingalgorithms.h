@@ -193,6 +193,17 @@ public:
      */
     typeNumberProcess mGetLast(typeNumberProcess aSeries);
 
+    /*
+     * typeNumberProcess mGetTheShortest(typeNumberProcess aSeries) - metoda
+     * pomocnicza do algorytmu SJF, wyznaczajaca nimer indeksu jeszcze
+     * nieukonczonego procesu, ktoremu zostalo najmniej do wykonania.
+     * PRE:
+     * - podanie numeru serii (typ: typeNumberProcess);
+     * POST:
+     * - brak.
+     */
+    typeNumberProcess mGetTheShortest(typeNumberProcess aSeries);
+
 
 
     /*
