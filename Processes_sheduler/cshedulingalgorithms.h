@@ -139,7 +139,7 @@ public:
      * PRE:
      * - podanie numeru serii (typ: typeNumberProcess;
      * POST:
-     * - brak.
+     * - zwrocenie wartosci logicznej.
      */
     bool mReadyAny(typeNumberProcess aSeries);
 
@@ -203,6 +203,17 @@ public:
      * - brak.
      */
     typeNumberProcess mGetTheShortest(typeNumberProcess aSeries);
+
+    /*
+     * bool mDoneAll(typeNumberProcess aSeries) - metoda pomocnicza
+     * wykorzystywana w procesach wywlaszczajacych sprawdzajaca
+     * czy wszystkie procesy zostaly juz wykonane.
+     * PRE:
+     * - podanie numeru serii (typ: typeNumberProcess);
+     * POST:
+     * - zwrocenie wartosci logicznej.
+     */
+    bool mDoneAll(typeNumberProcess aSeries);
 
 
 

@@ -106,6 +106,20 @@ void cShedulingAlgorithms::mMakeSJF()
  */
 void cShedulingAlgorithms::mMakeRR()
 {
+    mSortingAllSeriesReadiness(); // sortujemy procesu uzyskujac kolejnosc gotowosci do wykonania
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
+    {
+        do // petla dla kazdej serii
+        {
+            // TU TRZEBA DOKONCZYC
+
+
+        } while (mDoneAll(i) == true); // petla kazdej serii konczy sie kiedy zostaja ukonczone wszystkie procesy
+        for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach w serii
+            tabProcesses[i][j].mCalculateTimeProcessing(); // wyznaczenie czasu calkowitego przetwarzania procesu
+    }
+
+
 
     /*        for(typeNumberProcess j = 0; j < constProcesses; j++) // kontrolne wypisanie odpowiednich czasow
             {
@@ -135,6 +149,21 @@ void cShedulingAlgorithms::mMakeRR()
  */
 void cShedulingAlgorithms::mMakeSRT()
 {
+    mSortingAllSeriesReadiness(); // sortujemy procesu uzyskujac kolejnosc gotowosci do wykonania
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
+    {
+        do // petla dla kazdej serii
+        {
+            // TU TRZEBA DOKONCZYC
+
+
+        } while (mDoneAll(i) == true); // petla kazdej serii konczy sie kiedy zostaja ukonczone wszystkie procesy
+        for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach w serii
+            tabProcesses[i][j].mCalculateTimeProcessing(); // wyznaczenie czasu calkowitego przetwarzania procesu
+    }
+
+
+
     /*
      * - pojawil sie pierwszy proces
      * - wykonujemy go...
@@ -149,7 +178,7 @@ void cShedulingAlgorithms::mMakeSRT()
 bool cShedulingAlgorithms::mReadyAny(typeNumberProcess aSeries)
 {
     bool vAny = false; // nadanie wartosci poczatkowej zmiennej okreslajacej wystepowanie gotowego procesu
-    for (typeNumberProcess i = 0; i < constProcesses; i++)
+    for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach w serii
     {
         if ((tabProcesses[aSeries][i].getTimeToReady() == 0) && (tabProcesses[aSeries][i].getTimeToDo() > 0)) // sprawdzamy czy mamy nieukonczony proces gotowy do wykonywania
         {
@@ -269,6 +298,25 @@ typeNumberProcess cShedulingAlgorithms::mGetTheShortest(typeNumberProcess aSerie
         }
     }
     return vIndex; // zwrocenie wartosci
+}
+
+/*
+ * bool mDoneAll(typeNumberProcess aSeries)
+ */
+bool cShedulingAlgorithms::mDoneAll(typeNumberProcess aSeries)
+{
+    bool vAll = true; // nadanie wartosci poczatkowej zmiennej okreslajacej wykonanie wszystkich procesow
+    for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach w serii
+    {
+        if (tabProcesses[aSeries][i].getTimeToDo() > 0) // sprawdzamy czy mamy proces, ktory jeszcze nie ejst ukoczony
+        {
+            vAll = false; // jesli tak to ustawiamy wartosc zmiennej na "false"
+            break; // wychodzimy z petli
+        }
+        else // w przypadku kiedy proces jest ukonczony
+            continue; // przechodzimy do kolejnego cyklu petli
+    }
+    return vAll; // zwrocenie wartosci
 }
 
 
