@@ -184,7 +184,7 @@ public:
 
     /*
      * typeNumberProcess mGetLast(typeNumberProcess aSeries) - metoda
-     * pomocnicza do algorytmu LCFS, wyznaczajaca numer indeksu, ktory
+     * pomocnicza do algorytmu LCFS, wyznaczajaca numer indeksu procesu, ktory
      * mamy wykonac.
      * PRE:
      * - podanie numeru serii (typ: typeNumberProcess);

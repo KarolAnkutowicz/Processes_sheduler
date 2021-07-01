@@ -66,7 +66,7 @@ void cShedulingAlgorithms::mMakeFCFS() // KONIECZNE POPRAWKI
 /*
  * void mMakeLCFS()
  */
-void cShedulingAlgorithms::mMakeLCFS() // KONIECZNE POPRAWKI
+void cShedulingAlgorithms::mMakeLCFS()
 {
     mSortingAllSeriesReadiness(); // sortujemy procesu uzyskujac kolejnosc gotowosci do wykonania
     for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
@@ -79,19 +79,6 @@ void cShedulingAlgorithms::mMakeLCFS() // KONIECZNE POPRAWKI
         }
         for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach w serii
             tabProcesses[i][j].mCalculateTimeProcessing(); // wyznaczenie czasu calkowitego przetwarzania procesu
-        /*for(typeNumberProcess j = 0; j < constProcesses; j++) // kontrolne wypisanie odpowiednich czasow
-        {
-            cout << "Proces w serii " << i << " o numerze " << j << " :" << endl
-                 //<< "    TimeReadiness: " << tabProcesses[i][j].getTimeReadiness() << endl
-                 //<< "    TimeReady: " << tabProcesses[i][j].getTimeReady() << endl
-                 //<< "    TimeToReady: " << tabProcesses[i][j].getTimeToReady() << endl
-                 << "    TimeWaiting: " << tabProcesses[i][j].getTimeWaiting() << endl;
-                 //<< "    TimeDoing: " << tabProcesses[i][j].getTimeDoing() << endl
-                 //<< "    TimeDone: " << tabProcesses[i][j].getTimeDone() << endl
-                 //<< "    TimeToDo: " << tabProcesses[i][j].getTimeToDo() << endl
-                 //<< "    TimeProcessing: " << tabProcesses[i][j].getTimeProcessing() << endl;
-        }
-        cout << endl;*/
     }
 }
 
@@ -100,6 +87,22 @@ void cShedulingAlgorithms::mMakeLCFS() // KONIECZNE POPRAWKI
  */
 void cShedulingAlgorithms::mMakeSJF()
 {
+
+
+    /*for(typeNumberProcess j = 0; j < constProcesses; j++) // kontrolne wypisanie odpowiednich czasow
+    {
+        cout << "Proces w serii " << i << " o numerze " << j << " :" << endl
+             //<< "    TimeReadiness: " << tabProcesses[i][j].getTimeReadiness() << endl
+             //<< "    TimeReady: " << tabProcesses[i][j].getTimeReady() << endl
+             //<< "    TimeToReady: " << tabProcesses[i][j].getTimeToReady() << endl
+             << "    TimeWaiting: " << tabProcesses[i][j].getTimeWaiting() << endl;
+             //<< "    TimeDoing: " << tabProcesses[i][j].getTimeDoing() << endl
+             //<< "    TimeDone: " << tabProcesses[i][j].getTimeDone() << endl
+             //<< "    TimeToDo: " << tabProcesses[i][j].getTimeToDo() << endl
+             //<< "    TimeProcessing: " << tabProcesses[i][j].getTimeProcessing() << endl;
+    }
+    cout << endl;*/
+
     /*
      * - pojawil sie pierwszy proces
      * - wykonujemy go
@@ -149,6 +152,8 @@ bool cShedulingAlgorithms::mReadyAny(typeNumberProcess aSeries)
             vAny = true; // jesli tak to ustawiamy wartosc zmiennej na "true"
             break; // wychodzimy z petli
         }
+        else // wszystkie pozostale przypadki
+            continue; // przechodzimy do kolejnego cyklu petli
     }
     return vAny; // zwrocenie wartosci
 }
@@ -221,21 +226,23 @@ void cShedulingAlgorithms::mMakeProcess(typeNumberProcess aSeries, typeNumberPro
  */
 typeNumberProcess cShedulingAlgorithms::mGetLast(typeNumberProcess aSeries)
 {
-    typeNumberProcess vIndex = 0; // nadanie wartosci poczatkowej
-    for (typeNumberProcess i = 0; i < (constProcesses - 1); i++) // przejscie po wszystkich procesach oprocz ostatniego
+    typeNumberProcess vIndex = 0; // nadanie wartosci poczatkowej indeksu
+    typeTime vTime = (constMaxTime * (constProcesses + 1)); // nadanie wartosci poczatkowej czasu
+    for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach we wskazanej serii
     {
-        for (typeNumberProcess j = i + 1; j < constProcesses; j++) // przejscie po wszystkich procesach od wskazanego momentu
+        if ((tabProcesses[aSeries][i].getTimeToReady() > 0) || (tabProcesses[aSeries][i].getTimeToDo() == 0)) // sprawdzamy czy proces jest w ogole gotowy do wykonania albo jest juz wykonany
+            continue; // przechowimy do kolejnego cyklu petli
+        else // proces jest gotowy do wykonania
         {
-            if ((tabProcesses[aSeries][j].getTimeToReady() > 0) || (tabProcesses[aSeries][j].getTimeToDo() == 0)) // sprawdzamy czy proces jeszcze nie jest gotowy
-                continue; // jesli nie jest to go pomijamy
-            else if (tabProcesses[aSeries][i].getTimeWaiting() >= tabProcesses[aSeries][j].getTimeWaiting()) // sprawdzamy czy czas oczekiwania dalszego w kolejnosci procesu jest krotszy
-                vIndex = j; // jesli tak to on staje sie ostatnim procesem
+            if (tabProcesses[aSeries][i].getTimeWaiting() <= vTime) // jesli czas oczekiwania jest mniejszy niz aktualnie wskazany
+            {
+                vTime = tabProcesses[aSeries][i].getTimeWaiting(); // nadajemy nowa wartosc czasu
+                vIndex = i; // nadajemy nowy indeks procesu, ktory czeka najkrocej
+            }
         }
     }
-    return vIndex; // zwrocenie wartosci indeksu procesu do wykonania
+    return vIndex; // zwrocenie wartosci
 }
-
-
 
 
 
