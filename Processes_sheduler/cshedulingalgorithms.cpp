@@ -87,29 +87,18 @@ void cShedulingAlgorithms::mMakeLCFS()
  */
 void cShedulingAlgorithms::mMakeSJF()
 {
-
-
-    /*for(typeNumberProcess j = 0; j < constProcesses; j++) // kontrolne wypisanie odpowiednich czasow
+    mSortingAllSeriesReadiness(); // sortujemy procesu uzyskujac kolejnosc gotowosci do wykonania
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
     {
-        cout << "Proces w serii " << i << " o numerze " << j << " :" << endl
-             //<< "    TimeReadiness: " << tabProcesses[i][j].getTimeReadiness() << endl
-             //<< "    TimeReady: " << tabProcesses[i][j].getTimeReady() << endl
-             //<< "    TimeToReady: " << tabProcesses[i][j].getTimeToReady() << endl
-             << "    TimeWaiting: " << tabProcesses[i][j].getTimeWaiting() << endl;
-             //<< "    TimeDoing: " << tabProcesses[i][j].getTimeDoing() << endl
-             //<< "    TimeDone: " << tabProcesses[i][j].getTimeDone() << endl
-             //<< "    TimeToDo: " << tabProcesses[i][j].getTimeToDo() << endl
-             //<< "    TimeProcessing: " << tabProcesses[i][j].getTimeProcessing() << endl;
+        for (typeNumberProcess j = 0; j < constProcesses; j++)// przejscie po wszystkich procesach
+        {
+            if (mReadyAny(i) == false) // sprawdzamy czy jakikolwiek proces jest gotowy do wykonania
+                mForwardReadinessSeries(i, tabProcesses[i][j].getTimeToReady()); // jesli nie to przesuwamy czas oczekiwania na gotowosc wszystkich procesow
+            mMakeProcess(i, mGetTheShortest(i)); // wykonujemy kolejny proces
+        }
+        for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach w serii
+            tabProcesses[i][j].mCalculateTimeProcessing(); // wyznaczenie czasu calkowitego przetwarzania procesu
     }
-    cout << endl;*/
-
-    /*
-     * - pojawil sie pierwszy proces
-     * - wykonujemy go
-     * - pojawiaja sie nowe procesy
-     * - proces, ktory zakonczylby sie najszybciej jest wykonywany
-     * - itd...
-     */
 }
 
 /*
@@ -117,6 +106,21 @@ void cShedulingAlgorithms::mMakeSJF()
  */
 void cShedulingAlgorithms::mMakeRR()
 {
+
+    /*        for(typeNumberProcess j = 0; j < constProcesses; j++) // kontrolne wypisanie odpowiednich czasow
+            {
+                cout << "Proces w serii " << i << " o numerze " << j << " :" << endl
+                     //<< "    TimeReadiness: " << tabProcesses[i][j].getTimeReadiness() << endl
+                     << "    TimeReady: " << tabProcesses[i][j].getTimeReady() << endl
+                     //<< "    TimeToReady: " << tabProcesses[i][j].getTimeToReady() << endl
+                     << "    TimeWaiting: " << tabProcesses[i][j].getTimeWaiting() << endl
+                     //<< "    TimeDoing: " << tabProcesses[i][j].getTimeDoing() << endl
+                     << "    TimeDone: " << tabProcesses[i][j].getTimeDone() << endl;
+                     //<< "    TimeToDo: " << tabProcesses[i][j].getTimeToDo() << endl
+                     //<< "    TimeProcessing: " << tabProcesses[i][j].getTimeProcessing() << endl;
+            }
+            cout << endl;*/
+
     /*
      * - pojawil sie pierwszy proces
      * - wykonujemy go przez kwant czasu
@@ -257,7 +261,7 @@ typeNumberProcess cShedulingAlgorithms::mGetTheShortest(typeNumberProcess aSerie
             continue; // przechowimy do kolejnego cyklu petli
         else // proces jest gotowy do wykonania
         {
-            if (tabProcesses[aSeries][i].getTimeToDo() <= vTime) // jesli czas oczekiwania jest mniejszy niz aktualnie wskazany
+            if (tabProcesses[aSeries][i].getTimeToDo() < vTime) // jesli czas oczekiwania jest mniejszy niz aktualnie wskazany
             {
                 vTime = tabProcesses[aSeries][i].getTimeToDo(); // nadajemy nowa wartosc czasu
                 vIndex = i; // nadajemy nowy indeks procesu, ktory czeka najkrocej
