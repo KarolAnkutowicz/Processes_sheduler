@@ -537,6 +537,15 @@ void cShedulingAlgorithms::mCalculateTotalTimeProcessing(typeNumberProcess aSeri
         tabTotalTimeProcessing[aSeries] += tabProcesses[aSeries][i].getTimeProcessing(); // dodanie do sumy czasu przetwarzanie kolejnego procesu
 }
 
+/*
+ * void mCalculateAllTotalTimeProcessing()
+ */
+void cShedulingAlgorithms::mCalculateAllTotalTimeProcessing()
+{
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
+        mCalculateTotalTimeProcessing(i); // obliczenie calkowitego czasu przetwarzania procesow w danej serii
+}
+
 
 
 /*
@@ -546,6 +555,15 @@ void cShedulingAlgorithms::mResetAllAverageTimeProcessing()
 {
     for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
         mResetAverageTimeProcessing(i); // resetowanie sredniego czasu przetwarzania w danej serii
+}
+
+/*
+ * void mCalculateAllAverageTimeProcessing()
+ */
+void cShedulingAlgorithms::mCalculateAllAverageTimeProcessing()
+{
+    for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
+        mCalculateAverageTimeProcessing(i); // obliczenie sredniego czasu przetwarzania procesow we wskazanej serii
 }
 
 

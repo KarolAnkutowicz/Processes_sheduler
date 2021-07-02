@@ -508,6 +508,16 @@ public:
     void mCalculateTotalTimeProcessing(typeNumberProcess aSeries);
 
     /*
+     * void mCalculateAllTotalTimeProcessing() - metoda obliczajaca
+     * calkowite czasy przetwarzania we wszystkich seriach.
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
+     */
+    void mCalculateAllTotalTimeProcessing();
+
+    /*
      * typeTime getTotalTimeProcessing(typeNumberProcess aSeries) -
      * metoda zwracajaca sumaryczny czas przetwarzania procesow
      * wskazanej serii.
@@ -561,6 +571,16 @@ public:
     {
         tabAverageTimeProcessing[aSeries] = getTotalTimeProcessing(aSeries) / constProcesses;
     }
+
+    /*
+     * void mCalculateAllAverageTimeProcessing() - metoda obliczajaca
+     * sredni czas przetwarzania procesow we wszystkich seriach.
+     * PRE:
+     * - brak;
+     * POST:
+     * - brak.
+     */
+    void mCalculateAllAverageTimeProcessing();
 
     /*
      * typeTime getAverageTimeProcessing(typeNumberProcess aSeries) -
