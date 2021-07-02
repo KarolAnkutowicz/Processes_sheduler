@@ -136,38 +136,19 @@ void cShedulingAlgorithms::mMakeSRT()
     {
         do // petla dla kazdej serii
         {
-            // TU TRZEBA DOKONCZYC
-
-
-        } while (mDoneAll(i) == true); // petla kazdej serii konczy sie kiedy zostaja ukonczone wszystkie procesy
+            for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach w serii
+            {
+                if (mReadyAny(i) == false) // sprawdzamy czy jakikolwiek proces jest gotowy do wykonania
+                    mForwardReadinessSeries(i, tabProcesses[i][j].getTimeToReady()); // jesli nie to przesuwamy czas oczekiwania na gotowosc wszystkich procesow
+                if (tabProcesses[i][j].getTimeToReady() > 0) // sprawdzamy czy na pewno proces jest gotowy do wykonania
+                    continue; // jesli nie to pomijamy go i przechodzimy do kolejnego procesu w serii
+                else // wykonujemy proces ktorego zostalo nam najmniej do wykonania
+                    mMakeProcess(i, mGetTheShortest(i), 1); // wowczas wykonujemygo  tylko prze okreslony kwant czasu
+            }
+        } while (mDoneAll(i) == false); // petla kazdej serii konczy sie kiedy zostaja ukonczone wszystkie procesy
         for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach w serii
             tabProcesses[i][j].mCalculateTimeProcessing(); // wyznaczenie czasu calkowitego przetwarzania procesu
-
-        /*        for(typeNumberProcess j = 0; j < constProcesses; j++) // kontrolne wypisanie odpowiednich czasow
-                {
-                    cout << "Proces w serii " << i << " o numerze " << j << " :" << endl
-                         //<< "    TimeReadiness: " << tabProcesses[i][j].getTimeReadiness() << endl
-                         << "    TimeReady: " << tabProcesses[i][j].getTimeReady() << endl
-                         //<< "    TimeToReady: " << tabProcesses[i][j].getTimeToReady() << endl
-                         << "    TimeWaiting: " << tabProcesses[i][j].getTimeWaiting() << endl
-                         //<< "    TimeDoing: " << tabProcesses[i][j].getTimeDoing() << endl
-                         << "    TimeDone: " << tabProcesses[i][j].getTimeDone() << endl;
-                         //<< "    TimeToDo: " << tabProcesses[i][j].getTimeToDo() << endl
-                         //<< "    TimeProcessing: " << tabProcesses[i][j].getTimeProcessing() << endl;
-                }
-                cout << endl;*/
-
-
     }
-
-
-
-    /*
-     * - pojawil sie pierwszy proces
-     * - wykonujemy go...
-     * - do momentu kiedy pojawi sie proces, ktory moglby sie zakonczyc szybciej
-     * - itd...
-     */
 }
 
 /*
