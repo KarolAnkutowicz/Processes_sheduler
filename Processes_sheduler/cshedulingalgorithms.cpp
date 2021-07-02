@@ -61,6 +61,11 @@ void cShedulingAlgorithms::mMakeFCFS() // KONIECZNE POPRAWKI
         for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach w serii
             tabProcesses[i][j].mCalculateTimeProcessing(); // wyznaczenie czasu calkowitego przetwarzania procesu
     }
+    mCalculateAllTotalTimeDoing(); // wywolanie metody obliczajacej sumaryczne czasy wykonywania procesow w kolejnych seriach
+    mCalculateAllAverageTimeDoing(); // wywolanie metody obliczajacej srednie czasy wykonywanie procesow w kolejnych seriach
+    mCalculateAllTotalTimeProcessing(); // wywolanie metody obliczajacej sumaryczne czasy przetwarzania procesow w kolejnych seriach
+    mCalculateAllAverageTimeProcessing(); // wywolanie metody obliczajacej srednie czasy przetwarzania procesow w kolejnych seriach
+    mWriteResultsToFile(fcfs);
 }
 
 /*
@@ -80,6 +85,11 @@ void cShedulingAlgorithms::mMakeLCFS()
         for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach w serii
             tabProcesses[i][j].mCalculateTimeProcessing(); // wyznaczenie czasu calkowitego przetwarzania procesu
     }
+    mCalculateAllTotalTimeDoing(); // wywolanie metody obliczajacej sumaryczne czasy wykonywania procesow w kolejnych seriach
+    mCalculateAllAverageTimeDoing(); // wywolanie metody obliczajacej srednie czasy wykonywanie procesow w kolejnych seriach
+    mCalculateAllTotalTimeProcessing(); // wywolanie metody obliczajacej sumaryczne czasy przetwarzania procesow w kolejnych seriach
+    mCalculateAllAverageTimeProcessing(); // wywolanie metody obliczajacej srednie czasy przetwarzania procesow w kolejnych seriach
+    mWriteResultsToFile(lcfs);
 }
 
 /*
@@ -99,6 +109,11 @@ void cShedulingAlgorithms::mMakeSJF()
         for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach w serii
             tabProcesses[i][j].mCalculateTimeProcessing(); // wyznaczenie czasu calkowitego przetwarzania procesu
     }
+    mCalculateAllTotalTimeDoing(); // wywolanie metody obliczajacej sumaryczne czasy wykonywania procesow w kolejnych seriach
+    mCalculateAllAverageTimeDoing(); // wywolanie metody obliczajacej srednie czasy wykonywanie procesow w kolejnych seriach
+    mCalculateAllTotalTimeProcessing(); // wywolanie metody obliczajacej sumaryczne czasy przetwarzania procesow w kolejnych seriach
+    mCalculateAllAverageTimeProcessing(); // wywolanie metody obliczajacej srednie czasy przetwarzania procesow w kolejnych seriach
+    mWriteResultsToFile(sjf);
 }
 
 /*
@@ -124,6 +139,11 @@ void cShedulingAlgorithms::mMakeRR()
             }
         } while (mDoneAll(i) == false); // petla kazdej serii konczy sie kiedy zostaja ukonczone wszystkie procesy
     }
+    mCalculateAllTotalTimeDoing(); // wywolanie metody obliczajacej sumaryczne czasy wykonywania procesow w kolejnych seriach
+    mCalculateAllAverageTimeDoing(); // wywolanie metody obliczajacej srednie czasy wykonywanie procesow w kolejnych seriach
+    mCalculateAllTotalTimeProcessing(); // wywolanie metody obliczajacej sumaryczne czasy przetwarzania procesow w kolejnych seriach
+    mCalculateAllAverageTimeProcessing(); // wywolanie metody obliczajacej srednie czasy przetwarzania procesow w kolejnych seriach
+    mWriteResultsToFile(rr);
 }
 
 /*
@@ -149,6 +169,11 @@ void cShedulingAlgorithms::mMakeSRT()
         for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach w serii
             tabProcesses[i][j].mCalculateTimeProcessing(); // wyznaczenie czasu calkowitego przetwarzania procesu
     }
+    mCalculateAllTotalTimeDoing(); // wywolanie metody obliczajacej sumaryczne czasy wykonywania procesow w kolejnych seriach
+    mCalculateAllAverageTimeDoing(); // wywolanie metody obliczajacej srednie czasy wykonywanie procesow w kolejnych seriach
+    mCalculateAllTotalTimeProcessing(); // wywolanie metody obliczajacej sumaryczne czasy przetwarzania procesow w kolejnych seriach
+    mCalculateAllAverageTimeProcessing(); // wywolanie metody obliczajacej srednie czasy przetwarzania procesow w kolejnych seriach
+    mWriteResultsToFile(srt);
 }
 
 /*
