@@ -280,6 +280,27 @@ public:
      */
     void mWriteProcessesToFile();
 
+    /*
+     * void mPrintAllTimesProcess(typeNumberProcess aSeries, typeNumberProcess aProcess) -
+     * metoda wypisujaca wszystkie czasy wskazanego procesu.
+     * PRE:
+     * - podanie serii procesow (typ: typeNumberProcess), podanie numeru procesu
+     * (typ: typeNumberProcess);
+     * POST:
+     * - brak.
+     */
+    void mPrintAllTimesProcess(typeNumberProcess aSeries, typeNumberProcess aProcess);
+
+    /*
+     * void mPrintAllTimesSeriesProcesses(typeNumberProcess aSeries) - metoda
+     * wypisujaca wszystkie czasy procesow wskazanej serii.
+     * PRE:
+     * - podanie serii procesow (typ: typeNumberProcess);
+     * POST:
+     * - brak.
+     */
+    void mPrintAllTimesSeriesProcesses(typeNumberProcess aSeries);
+
 
 
     /*

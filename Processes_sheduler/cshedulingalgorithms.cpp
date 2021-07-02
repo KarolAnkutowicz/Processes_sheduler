@@ -372,6 +372,32 @@ void cShedulingAlgorithms::mWriteProcessesToFile()
     StreamOut.close(); // zamkniecie strumienia
 }
 
+/*
+ * void mPrintAllTimesProcess(typeNumberProcess aSeries, typeNumberProcess aProcess)
+ */
+void cShedulingAlgorithms::mPrintAllTimesProcess(typeNumberProcess aSeries, typeNumberProcess aProcess)
+{
+    cout << "Proces w serii " << aSeries << " o numerze " << aProcess << " :" << endl // wypisanie informacji o serii i numerze procesu w serii
+         << "    TimeReadiness: " << tabProcesses[aSeries][aProcess].getTimeReadiness() << endl // wypisanie calkowitego czasu oczekiwania na gotowosc
+         << "    TimeReady: " << tabProcesses[aSeries][aProcess].getTimeReady() << endl // wypisanie aktualnego czasu oczekiwania na gotowosc
+         << "    TimeToReady: " << tabProcesses[aSeries][aProcess].getTimeToReady() << endl // wypisanie aktualnego czasu pozostalego do oczekiwania na gotowosc
+         << "    TimeWaiting: " << tabProcesses[aSeries][aProcess].getTimeWaiting() << endl // wypisanie calkowitego czasu oczekiwania na wykonanie gotowego do wykonania procesu
+         << "    TimeDoing: " << tabProcesses[aSeries][aProcess].getTimeDoing() << endl // wypisanie calkowitego czasu wykonania
+         << "    TimeDone: " << tabProcesses[aSeries][aProcess].getTimeDone() << endl // wypisanie aktualnego czasu wykonania
+         << "    TimeToDo: " << tabProcesses[aSeries][aProcess].getTimeToDo() << endl // wypisanie aktualnego czasu jaki zostal do wykonania
+         << "    TimeProcessing: " << tabProcesses[aSeries][aProcess].getTimeProcessing() << endl; // wypisanie calkowitego czasu przetwarzania
+}
+
+/*
+ * void mPrintAllTimesSeriesProcesses(typeNumberProcess aSeries)
+ */
+void cShedulingAlgorithms::mPrintAllTimesSeriesProcesses(typeNumberProcess aSeries)
+{
+    for(typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach w serii
+        mPrintAllTimesProcess(aSeries, i); // wywolanie metody wypisujacej wszystkie czasy wskazanego  procesu
+    cout << endl; // przejscie do nowej linii (dla porzadku)
+}
+
 
 
 /*
