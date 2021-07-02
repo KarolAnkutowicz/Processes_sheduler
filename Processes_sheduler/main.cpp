@@ -17,7 +17,7 @@ int main()
     //A.mDrawProcesses();
     //A.mWriteProcessesToFile();
 
-    cShedulingAlgorithms A(sjf);
+    cShedulingAlgorithms A(rr);
 
 
     return 0;
