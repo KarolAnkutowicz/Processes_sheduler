@@ -529,7 +529,7 @@ public:
      */
     inline typeTime getTotalTimeProcessing(typeNumberProcess aSeries)
     {
-        return tabTotalTimeProcessing[aSeries] = 0;
+        return tabTotalTimeProcessing[aSeries];
     }
 
 
