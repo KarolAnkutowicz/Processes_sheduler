@@ -1,0 +1,5 @@
+Average time doing    1 series: 15     Average time processing    1 series: 30
+Average time doing    2 series: 2     Average time processing    2 series: 2
+Average time doing    3 series: 8     Average time processing    3 series: 16
+Average time doing    4 series: 12     Average time processing    4 series: 24
+Average time doing    5 series: 10     Average time processing    5 series: 18
