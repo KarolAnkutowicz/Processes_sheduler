@@ -34,11 +34,11 @@ cShedulingAlgorithms::cShedulingAlgorithms(enumAlgorithms aAlgorithm)
     mWriteProcessesToFile(); // wypisanie procesow do pliku
     switch (aAlgorithm) // wywolanie odpowiedniej metody, zgodnie z podanym argumentem
     {
-        case fcfs: mMakeFCFS(); break;
-        case lcfs: mMakeLCFS(); break;
-        case sjf: mMakeSJF(); break;
-        case rr: mMakeRR(); break;
-        case srt: mMakeSRT(); break;
+        case fcfs: mMakeFCFS(); break; // wywolanie realizacji algorytmu FCFS
+        case lcfs: mMakeLCFS(); break; // wywolanie realizacji algorytmu LCFS
+        case sjf: mMakeSJF(); break; // wywolanie realizacji algorytmu SJF
+        case rr: mMakeRR(); break; // wywolanie realizacji algorytmu Round-Robin
+        case srt: mMakeSRT(); break; // wywolanie realizacji algorytmu SRT
     }
 }
 
@@ -47,8 +47,12 @@ cShedulingAlgorithms::cShedulingAlgorithms(enumAlgorithms aAlgorithm)
 /*
  * void mMakeFCFS()
  */
-void cShedulingAlgorithms::mMakeFCFS() // KONIECZNE POPRAWKI
+void cShedulingAlgorithms::mMakeFCFS()
 {
+    mResetAllTotalTimeDoing(); // wyzerowanie wszystkich calkowitych czasow wykonania
+    mResetAllAverageTimeDoing(); // wyzerowanie wszystkich srednich czasow wykonania
+    mResetAllTotalTimeProcessing(); // wyzerowanie wszystkich calkowitych czasow przetwarzania
+    mResetAllAverageTimeProcessing(); // wyzerowanie wszystkich srednich czasow przetwarzania
     mSortingAllSeriesReadiness(); // sortujemy procesu uzyskujac kolejnosc gotowosci do wykonania
     for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
     {
@@ -65,7 +69,7 @@ void cShedulingAlgorithms::mMakeFCFS() // KONIECZNE POPRAWKI
     mCalculateAllAverageTimeDoing(); // wywolanie metody obliczajacej srednie czasy wykonywanie procesow w kolejnych seriach
     mCalculateAllTotalTimeProcessing(); // wywolanie metody obliczajacej sumaryczne czasy przetwarzania procesow w kolejnych seriach
     mCalculateAllAverageTimeProcessing(); // wywolanie metody obliczajacej srednie czasy przetwarzania procesow w kolejnych seriach
-    mWriteResultsToFile(fcfs);
+    mWriteResultsToFile(fcfs); // wypisanie resultatow do pliku
 }
 
 /*
@@ -73,6 +77,10 @@ void cShedulingAlgorithms::mMakeFCFS() // KONIECZNE POPRAWKI
  */
 void cShedulingAlgorithms::mMakeLCFS()
 {
+    mResetAllTotalTimeDoing(); // wyzerowanie wszystkich calkowitych czasow wykonania
+    mResetAllAverageTimeDoing(); // wyzerowanie wszystkich srednich czasow wykonania
+    mResetAllTotalTimeProcessing(); // wyzerowanie wszystkich calkowitych czasow przetwarzania
+    mResetAllAverageTimeProcessing(); // wyzerowanie wszystkich srednich czasow przetwarzania
     mSortingAllSeriesReadiness(); // sortujemy procesu uzyskujac kolejnosc gotowosci do wykonania
     for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
     {
@@ -89,7 +97,7 @@ void cShedulingAlgorithms::mMakeLCFS()
     mCalculateAllAverageTimeDoing(); // wywolanie metody obliczajacej srednie czasy wykonywanie procesow w kolejnych seriach
     mCalculateAllTotalTimeProcessing(); // wywolanie metody obliczajacej sumaryczne czasy przetwarzania procesow w kolejnych seriach
     mCalculateAllAverageTimeProcessing(); // wywolanie metody obliczajacej srednie czasy przetwarzania procesow w kolejnych seriach
-    mWriteResultsToFile(lcfs);
+    mWriteResultsToFile(lcfs); // wypisanie resultatow do pliku
 }
 
 /*
@@ -97,6 +105,10 @@ void cShedulingAlgorithms::mMakeLCFS()
  */
 void cShedulingAlgorithms::mMakeSJF()
 {
+    mResetAllTotalTimeDoing(); // wyzerowanie wszystkich calkowitych czasow wykonania
+    mResetAllAverageTimeDoing(); // wyzerowanie wszystkich srednich czasow wykonania
+    mResetAllTotalTimeProcessing(); // wyzerowanie wszystkich calkowitych czasow przetwarzania
+    mResetAllAverageTimeProcessing(); // wyzerowanie wszystkich srednich czasow przetwarzania
     mSortingAllSeriesReadiness(); // sortujemy procesu uzyskujac kolejnosc gotowosci do wykonania
     for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
     {
@@ -113,7 +125,7 @@ void cShedulingAlgorithms::mMakeSJF()
     mCalculateAllAverageTimeDoing(); // wywolanie metody obliczajacej srednie czasy wykonywanie procesow w kolejnych seriach
     mCalculateAllTotalTimeProcessing(); // wywolanie metody obliczajacej sumaryczne czasy przetwarzania procesow w kolejnych seriach
     mCalculateAllAverageTimeProcessing(); // wywolanie metody obliczajacej srednie czasy przetwarzania procesow w kolejnych seriach
-    mWriteResultsToFile(sjf);
+    mWriteResultsToFile(sjf); // wypisanie resultatow do pliku
 }
 
 /*
@@ -121,6 +133,10 @@ void cShedulingAlgorithms::mMakeSJF()
  */
 void cShedulingAlgorithms::mMakeRR()
 {
+    mResetAllTotalTimeDoing(); // wyzerowanie wszystkich calkowitych czasow wykonania
+    mResetAllAverageTimeDoing(); // wyzerowanie wszystkich srednich czasow wykonania
+    mResetAllTotalTimeProcessing(); // wyzerowanie wszystkich calkowitych czasow przetwarzania
+    mResetAllAverageTimeProcessing(); // wyzerowanie wszystkich srednich czasow przetwarzania
     mSortingAllSeriesReadiness(); // sortujemy procesu uzyskujac kolejnosc gotowosci do wykonania
     for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
     {
@@ -138,12 +154,14 @@ void cShedulingAlgorithms::mMakeRR()
                     mMakeProcess(i, j, constQuantumOfTime); // wowczas wykonujemygo  tylko prze okreslony kwant czasu
             }
         } while (mDoneAll(i) == false); // petla kazdej serii konczy sie kiedy zostaja ukonczone wszystkie procesy
+        for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach w serii
+            tabProcesses[i][j].mCalculateTimeProcessing(); // wyznaczenie czasu calkowitego przetwarzania procesu
     }
     mCalculateAllTotalTimeDoing(); // wywolanie metody obliczajacej sumaryczne czasy wykonywania procesow w kolejnych seriach
     mCalculateAllAverageTimeDoing(); // wywolanie metody obliczajacej srednie czasy wykonywanie procesow w kolejnych seriach
     mCalculateAllTotalTimeProcessing(); // wywolanie metody obliczajacej sumaryczne czasy przetwarzania procesow w kolejnych seriach
     mCalculateAllAverageTimeProcessing(); // wywolanie metody obliczajacej srednie czasy przetwarzania procesow w kolejnych seriach
-    mWriteResultsToFile(rr);
+    mWriteResultsToFile(rr); // wypisanie resultatow do pliku
 }
 
 /*
@@ -151,6 +169,10 @@ void cShedulingAlgorithms::mMakeRR()
  */
 void cShedulingAlgorithms::mMakeSRT()
 {
+    mResetAllTotalTimeDoing(); // wyzerowanie wszystkich calkowitych czasow wykonania
+    mResetAllAverageTimeDoing(); // wyzerowanie wszystkich srednich czasow wykonania
+    mResetAllTotalTimeProcessing(); // wyzerowanie wszystkich calkowitych czasow przetwarzania
+    mResetAllAverageTimeProcessing(); // wyzerowanie wszystkich srednich czasow przetwarzania
     mSortingAllSeriesReadiness(); // sortujemy procesu uzyskujac kolejnosc gotowosci do wykonania
     for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
     {
@@ -173,7 +195,7 @@ void cShedulingAlgorithms::mMakeSRT()
     mCalculateAllAverageTimeDoing(); // wywolanie metody obliczajacej srednie czasy wykonywanie procesow w kolejnych seriach
     mCalculateAllTotalTimeProcessing(); // wywolanie metody obliczajacej sumaryczne czasy przetwarzania procesow w kolejnych seriach
     mCalculateAllAverageTimeProcessing(); // wywolanie metody obliczajacej srednie czasy przetwarzania procesow w kolejnych seriach
-    mWriteResultsToFile(srt);
+    mWriteResultsToFile(srt); // wypisanie resultatow do pliku
 }
 
 /*
@@ -463,16 +485,12 @@ void cShedulingAlgorithms::mSortingSeriesReadinessAndDoing(typeNumberProcess aSe
     cProcess Proc; // utworzenie zmiennej pomocniczej
     for (typeNumberProcess i = 0; i < (constProcesses - 1); i++) // przejscie po wszystkich elementach do przedostatniego
     {
-        //cout << "porownuje element i = " << i << endl;
         for (typeNumberProcess j = i + 1; j < constProcesses; j++) // przejscie po dalszych elementach
         {
-            //cout << "  porownuje element j = " << j << endl;
             if (tabProcesses[aSeries][i].getTimeReadiness() == tabProcesses[aSeries][j].getTimeReadiness()) // sprawdzamy czy czasy oczekiwania na gotowosc sa takie same
             {
-                //cout << "    mam identyczne czasy oczekiwania na gotowosc" << endl;
                 if (tabProcesses[aSeries][i].getTimeDoing() > tabProcesses[aSeries][j].getTimeDoing()) // jesli tak to takie procesy sortujemy rosnaco wzgledem czasu wykonywania
                 {
-                    //cout << "      sortuje jesli jest potrzeba" << endl;
                     Proc = tabProcesses[aSeries][i]; // jesli pierwszy element jest wiekszy to sortujemy z zastosowaniem sortowania babelkowego
                     tabProcesses[aSeries][i] = tabProcesses[aSeries][j];
                     tabProcesses[aSeries][j] = Proc;

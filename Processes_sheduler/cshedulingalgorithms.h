@@ -467,7 +467,7 @@ public:
      */
     inline typeTime getAverageTimeDoing(typeNumberProcess aSeries)
     {
-        return tabAverageTimeDoing[aSeries] = 0;
+        return tabAverageTimeDoing[aSeries];
     }
 
 
