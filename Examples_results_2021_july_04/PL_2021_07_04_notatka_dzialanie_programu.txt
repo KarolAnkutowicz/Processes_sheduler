@@ -1,0 +1,8 @@
+2021.04.07
+
+Nie działa prawidłowo wyświetlanie średnich czasów przetwarzania dla wywołania
+konstruktora bezparametrycznego realizującego wywołanie działania wszystkich
+algorytmów.
+
+Prawidłowe wyniki uzyskano wywołując pięciokrotnie konstruktor parametryczny
+za każdym razem zmieniając parametr (algorytm).
