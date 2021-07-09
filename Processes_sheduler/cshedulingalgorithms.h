@@ -23,6 +23,8 @@ using namespace std;
  */
 class cShedulingAlgorithms
 {
+/********** PRIVATE: BEGINNING **********/
+
     /*
      * cProcess tabProcesses[constSeries][constProcesses] - tablica
      * procesow, ktore sa przetwarzane przez kolejne algorytmy. Zebrane
@@ -54,6 +56,9 @@ class cShedulingAlgorithms
      */
     double tabAverageTimeProcessing[constSeries];
 
+/********** PRIVATE: END **********/
+
+/********** PUBLIC: BEGINNING **********/
 public:
     /*
      * cShedulingAlgorithms() - konstruktor wywolywany bez
@@ -607,6 +612,8 @@ public:
      * - brak.
      */
     void mWriteResultsToFile(enumAlgorithms aAlgorithm);
+
+/********** PUBLIC: END **********/
 };
 
 #endif // CSHEDULINGALGORITHMS_H

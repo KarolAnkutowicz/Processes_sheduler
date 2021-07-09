@@ -18,6 +18,8 @@ using namespace std;
  */
 class cProcess
 {
+/********** PRIVATE: BEGINNING **********/
+
     /*
      * typeTime vTimeReadiness - czas uplywajacy od momentu
      * rozpoczecie przetwarzania procesow do momentu gotowosci
@@ -65,6 +67,9 @@ class cProcess
      */
     typeTime vTimeProcessing;
 
+/********** PRIVATE: END **********/
+
+/********** PUBLIC: BEGINNING **********/
 public:
     /*
      * cProcess() - konstruktor wywolywany bez argumentow.
@@ -110,6 +115,7 @@ public:
 
     /*
      * ostream & operator << (ostream & StreamOut, cProcess & P) -
+     * przeladowanie operatora wyjscia (wypisanie obiektu).
      * PRE:
      * - referencja obiektu klasy ostream, obiekt klasy cProcess;
      * POST:
@@ -119,6 +125,7 @@ public:
 
     /*
      * istream & operator >> (istream & StreamIn, cProcess & P) -
+     * przeladowanie operatora wejscia (wczytanie obiektu).
      * PRE:
      * - referencja obiektu klasy istream, obiekt klasy cProcess;
      * POST:
@@ -347,6 +354,8 @@ public:
      * - brak.
      */
     void mResetProcess();
+
+/********** PUBLIC: END **********/
 };
 
 #endif // CPROCESS_H

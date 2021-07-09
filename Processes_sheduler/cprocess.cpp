@@ -8,6 +8,8 @@
 
 using namespace std;
 
+/********** PUBLIC: BEGINNING **********/
+
 /*
  * cProcess()
  */
@@ -162,6 +164,7 @@ void cProcess::mResetProcess()
             = vTimeDone = vTimeToDo = vTimeProcessing = 0; // ustanawiamy wszystkie wartosci na'0'
 }
 
+/********** PUBLIC: END **********/
 
 /* cprocess.cpp */
 /********** END_OF_FILE **********/

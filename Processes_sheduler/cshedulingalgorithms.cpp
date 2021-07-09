@@ -9,6 +9,8 @@
 
 using namespace std;
 
+/********** PUBLIC: BEGINNING **********/
+
 /*
  * cShedulingAlgorithms()
  */
@@ -636,6 +638,7 @@ void cShedulingAlgorithms::mWriteResultsToFile(enumAlgorithms aAlgorithm)
     StreamOut.close();
 }
 
+/********** PUBLIC: END **********/
 
 /* cshedulingalgorithms.cpp */
 /********** END_OF_FILE **********/
