@@ -325,7 +325,7 @@ typeNumberProcess cShedulingAlgorithms::mGetTheShortest(typeNumberProcess aSerie
             }
         }
     }
-    return vIndex; // zwrocenie wartosci
+    return vIndex; // zwrocenie indeksu
 }
 
 /*
@@ -336,7 +336,7 @@ bool cShedulingAlgorithms::mDoneAll(typeNumberProcess aSeries)
     bool vAll = true; // nadanie wartosci poczatkowej zmiennej okreslajacej wykonanie wszystkich procesow
     for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach w serii
     {
-        if (tabProcesses[aSeries][i].getTimeToDo() > 0) // sprawdzamy czy mamy proces, ktory jeszcze nie ejst ukoczony
+        if (tabProcesses[aSeries][i].getTimeToDo() > 0) // sprawdzamy czy mamy proces, ktory jeszcze nie jest ukoczony
         {
             vAll = false; // jesli tak to ustawiamy wartosc zmiennej na "false"
             break; // wychodzimy z petli
@@ -394,7 +394,7 @@ void cShedulingAlgorithms::mReadProcessesFromFile()
 {
     mResetAllProcesses(); // wyczyszczenie aktualnej tablicy procesow
     ifstream StreamIn; // utworzenie wejsciowego strumienia plikowego
-    StreamIn.open("procesy.txt"); // otwarcie strumienia
+    StreamIn.open("processes.txt"); // otwarcie strumienia
     for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystkich seriach
     {
         for (typeNumberProcess j = 0; j < constProcesses; j++) // przejscie po wszystkich procesach
