@@ -9,8 +9,6 @@
 #include <cstdlib>
 #include <iostream>
 
-using namespace std;
-
 int main()
 {
     cShedulingAlgorithms A(fcfs);

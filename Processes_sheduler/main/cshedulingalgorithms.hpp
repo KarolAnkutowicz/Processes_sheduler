@@ -14,8 +14,6 @@
 #include <fstream>
 #include <iomanip>
 
-using namespace std;
-
 /*
  * cShedulingAlgorithms - klasa modelujaca algorytmy szeregowania
  * procesow. Zawiera pola i metody realizujace docelowo 5 roznych

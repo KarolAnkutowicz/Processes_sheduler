@@ -7,8 +7,6 @@
 #ifndef CONSTANTSANDTYPES_HPP
 #define CONSTANTSANDTYPES_HPP
 
-using namespace std;
-
 /*
  * enum enumAlgorithms - zdefiniowany typ wyliczeniowy
  * do znormalizowania argumentow potrzebnych do wywolywania

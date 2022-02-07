@@ -6,8 +6,6 @@
 
 #include "cprocess.hpp"
 
-using namespace std;
-
 /********** PUBLIC: BEGINNING **********/
 
 /*
@@ -59,7 +57,7 @@ cProcess::cProcess(cProcess& P)
 /*
  * ostream & operator << (ostream & StreamOut, cProcess & P)
  */
-ostream& operator << (ostream& StreamOut, cProcess& P)
+std::ostream& operator << (std::ostream& StreamOut, cProcess& P)
 {
     StreamOut << P.getTimeReadiness() << " " << P.getTimeDoing() << " "; // wypisanie czasow procesu
     return StreamOut; // zwrocenie strumienia
@@ -68,10 +66,10 @@ ostream& operator << (ostream& StreamOut, cProcess& P)
 /*
  * istream & operator >> (istream & StreamIn, cProcess & P)
  */
-istream& operator >> (istream& StreamIn, cProcess& P)
+std::istream& operator >> (std::istream& StreamIn, cProcess& P)
 {
     typeTime aTimeReadiness, aTimeDoing; // utworzenie zmiennych
-    StreamIn >> skipws >> aTimeReadiness >> aTimeDoing; // wczytanie czasow procesu
+    StreamIn >> std::skipws >> aTimeReadiness >> aTimeDoing; // wczytanie czasow procesu
     P.setTimeReadiness(aTimeReadiness); // ustanowienie czasu oczekiwania
     P.setTimeDoing(aTimeDoing); // ustanowienie czasu wykonania
     P.vTimeToReady = P.vTimeReadiness;

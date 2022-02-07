@@ -7,8 +7,6 @@
 #include "cshedulingalgorithms.hpp"
 #include <iomanip>
 
-using namespace std;
-
 /********** PUBLIC: BEGINNING **********/
 
 /*
@@ -392,6 +390,7 @@ void cShedulingAlgorithms::mResetAllProcesses()
  */
 void cShedulingAlgorithms::mReadProcessesFromFile()
 {
+    using namespace std; // zapowiedz wykorzystania elementow standardowej przestrzeni nazw
     mResetAllProcesses(); // wyczyszczenie aktualnej tablicy procesow
     ifstream StreamIn; // utworzenie wejsciowego strumienia plikowego
     StreamIn.open("processes.txt"); // otwarcie strumienia
@@ -410,6 +409,7 @@ void cShedulingAlgorithms::mReadProcessesFromFile()
  */
 void cShedulingAlgorithms::mWriteProcessesToFile()
 {
+    using namespace std; // zapowiedz wykorzystania elementow standardowej przestrzeni nazw
     ofstream StreamOut; // otwarcie wyjsciowego strumienia plikowego
     StreamOut.open("processes.txt"); // otwarcie strumienia
     for (typeNumberProcess i = 0; i < constSeries; i++) // przejscie po wszystich seriach
@@ -426,6 +426,7 @@ void cShedulingAlgorithms::mWriteProcessesToFile()
  */
 void cShedulingAlgorithms::mPrintAllTimesProcess(typeNumberProcess aSeries, typeNumberProcess aProcess)
 {
+    using namespace std; // zapowiedz wykorzystania elementow standardowej przestrzeni nazw
     cout << "Proces w serii " << aSeries << " o numerze " << aProcess << " :" << endl // wypisanie informacji o serii i numerze procesu w serii
         << "    TimeReadiness: " << tabProcesses[aSeries][aProcess].getTimeReadiness() << endl // wypisanie calkowitego czasu oczekiwania na gotowosc
         << "    TimeReady: " << tabProcesses[aSeries][aProcess].getTimeReady() << endl // wypisanie aktualnego czasu oczekiwania na gotowosc
@@ -442,6 +443,7 @@ void cShedulingAlgorithms::mPrintAllTimesProcess(typeNumberProcess aSeries, type
  */
 void cShedulingAlgorithms::mPrintAllTimesSeriesProcesses(typeNumberProcess aSeries)
 {
+    using namespace std; // zapowiedz wykorzystania elementow standardowej przestrzeni nazw
     for (typeNumberProcess i = 0; i < constProcesses; i++) // przejscie po wszystkich procesach w serii
         mPrintAllTimesProcess(aSeries, i); // wywolanie metody wypisujacej wszystkie czasy wskazanego  procesu
     cout << endl; // przejscie do nowej linii (dla porzadku)
@@ -618,6 +620,7 @@ void cShedulingAlgorithms::mCalculateAllAverageTimeProcessing()
  */
 void cShedulingAlgorithms::mWriteResultsToFile(enumAlgorithms aAlgorithm)
 {
+    using namespace std; // zapowiedz wykorzystania elementow standardowej przestrzeni nazw
     // fcfs, lcfs, sjf, rr, srt
     ofstream StreamOut; // zdefiniowanie strumienia
     switch (aAlgorithm) // wybranie odpowiedniego alogorytmu

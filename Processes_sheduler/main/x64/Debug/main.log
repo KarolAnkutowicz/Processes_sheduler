@@ -1,9 +1,9 @@
 ﻿  cprocess.cpp
   cshedulingalgorithms.cpp
-C:\Github\Processes_sheduler\Processes_sheduler\main\cshedulingalgorithms.hpp(475,43): warning C4244: "return": konwersja z "double" do "typeTime", możliwa utrata danych
-C:\Github\Processes_sheduler\Processes_sheduler\main\cshedulingalgorithms.hpp(601,48): warning C4244: "return": konwersja z "double" do "typeTime", możliwa utrata danych
+C:\Github\Processes_sheduler\Processes_sheduler\main\cshedulingalgorithms.hpp(473,43): warning C4244: "return": konwersja z "double" do "typeTime", możliwa utrata danych
+C:\Github\Processes_sheduler\Processes_sheduler\main\cshedulingalgorithms.hpp(599,48): warning C4244: "return": konwersja z "double" do "typeTime", możliwa utrata danych
   main.cpp
-C:\Github\Processes_sheduler\Processes_sheduler\main\cshedulingalgorithms.hpp(475,43): warning C4244: "return": konwersja z "double" do "typeTime", możliwa utrata danych
-C:\Github\Processes_sheduler\Processes_sheduler\main\cshedulingalgorithms.hpp(601,48): warning C4244: "return": konwersja z "double" do "typeTime", możliwa utrata danych
+C:\Github\Processes_sheduler\Processes_sheduler\main\cshedulingalgorithms.hpp(473,43): warning C4244: "return": konwersja z "double" do "typeTime", możliwa utrata danych
+C:\Github\Processes_sheduler\Processes_sheduler\main\cshedulingalgorithms.hpp(599,48): warning C4244: "return": konwersja z "double" do "typeTime", możliwa utrata danych
   Generowanie kodu...
   main.vcxproj -> C:\Github\Processes_sheduler\Processes_sheduler\x64\Debug\main.exe

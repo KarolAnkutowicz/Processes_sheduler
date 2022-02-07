@@ -11,8 +11,6 @@
 #include <iomanip>
 #include <iostream>
 
-using namespace std;
-
 /*
  * cProcess - klasa modelujaca pojedynczy proces
  */
@@ -121,7 +119,7 @@ public:
      * POST:
      * - referencja do obiektu klasy ostream.
      */
-    friend ostream& operator << (ostream& StreamOut, cProcess& P);
+    friend std::ostream& operator << (std::ostream& StreamOut, cProcess& P);
 
     /*
      * istream & operator >> (istream & StreamIn, cProcess & P) -
@@ -131,7 +129,7 @@ public:
      * POST:
      * - referencja do obiektu klasy istream.
      */
-    friend istream& operator >> (istream& StreamIn, cProcess& P);
+    friend std::istream& operator >> (std::istream& StreamIn, cProcess& P);
 
 
 
