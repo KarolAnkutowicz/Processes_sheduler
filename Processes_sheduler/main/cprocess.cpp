@@ -6,7 +6,7 @@
 
 #include "cprocess.hpp"
 
-/********** PUBLIC: BEGINNING **********/
+ /********** PUBLIC: BEGINNING **********/
 
 /*
  * cProcess()
@@ -35,21 +35,6 @@ cProcess::cProcess(typeTime aTimeReadiness, typeTime aTimeDoing)
     vTimeReadiness = vTimeToReady = aTimeReadiness; // ustanowienie czasu oczekiwania
     vTimeDoing = vTimeToDo = aTimeDoing; // ustanowienie czasu wykonywania procesu
     vTimeReady = vTimeWaiting = vTimeDone = vTimeProcessing = 0; // ustanowienie pozostalych czasow na'0'
-}
-
-/*
- * cProcess(cProcess &P)
- */
-cProcess::cProcess(cProcess& P)
-{
-    vTimeReadiness = P.vTimeReadiness; // przypisanie odpowiednich czasow nowemu obiektowi
-    vTimeReady = P.vTimeReady;
-    vTimeToReady = vTimeToReady;
-    vTimeWaiting = P.vTimeWaiting;
-    vTimeDoing = P.vTimeDoing;
-    vTimeDone = P.vTimeDone;
-    vTimeToDo = P.vTimeToDo;
-    vTimeProcessing = P.vTimeProcessing;
 }
 
 

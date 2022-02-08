@@ -5,7 +5,6 @@
  */
 
 #include "cshedulingalgorithms.hpp"
-
 #include <cstdlib>
 #include <iostream>
 

@@ -4,8 +4,7 @@
  * file: cshedulingalgorithms.hpp
  */
 
-#ifndef CSHEDULINGALGORITHMS_HPP
-#define CSHEDULINGALGORITHMS_HPP
+#pragma once
 
 #include "constantsandtypes.hpp"
 #include "cprocess.hpp"
@@ -21,42 +20,8 @@
  */
 class cShedulingAlgorithms
 {
-    /********** PRIVATE: BEGINNING **********/
+/********** PUBLIC: BEGINNING **********/
 
-        /*
-         * cProcess tabProcesses[constSeries][constProcesses] - tablica
-         * procesow, ktore sa przetwarzane przez kolejne algorytmy. Zebrane
-         * w okreslonej liczbie ciagow.
-         */
-    cProcess tabProcesses[constSeries][constProcesses];
-
-    /*
-     * typeTime tabTotalTimeDoing[constSeries] - tablica sumarycznych
-     * czasow dzialanie procesow.
-     */
-    typeTime tabTotalTimeDoing[constSeries];
-
-    /*
-     * double tabAverageTimeDoing[constSeries] - tablica srednich czasow
-     * dzialanie procesow.
-     */
-    double tabAverageTimeDoing[constSeries];
-
-    /*
-     * typeTime tabTotalTimeProcessing[constSeries] - tablica sumarycznych
-     * czasow przetwarzania procesow.
-     */
-    typeTime tabTotalTimeProcessing[constSeries];
-
-    /*
-     * double tabAverageTimeProcessing[constSeries] - tablica srednich
-     * czasow przetwarzania procesow.
-     */
-    double tabAverageTimeProcessing[constSeries];
-
-    /********** PRIVATE: END **********/
-
-    /********** PUBLIC: BEGINNING **********/
 public:
     /*
      * cShedulingAlgorithms() - konstruktor wywolywany bez
@@ -459,16 +424,16 @@ public:
     void mCalculateAllAverageTimeDoing();
 
     /*
-     * typeTime getAverageTimeDoing(typeNumberProcess aSeries) -
+     * double getAverageTimeDoing(typeNumberProcess aSeries) -
      * zwrocenie wartosci sredniego czasu wykonywania procesu
      * we wskazanej serii.
      * PRE:
      * - podanie serii procesow (typ: typeNumberProcess);
      * POST:
      * - zwrocenie srednego czasu wykonywania procesow wskazanej serii
-     * (typ: typeTime).
+     * (typ: double).
      */
-    inline typeTime getAverageTimeDoing(typeNumberProcess aSeries)
+    inline double getAverageTimeDoing(typeNumberProcess aSeries)
     {
         return tabAverageTimeDoing[aSeries];
     }
@@ -586,15 +551,15 @@ public:
     void mCalculateAllAverageTimeProcessing();
 
     /*
-     * typeTime getAverageTimeProcessing(typeNumberProcess aSeries) -
+     * double getAverageTimeProcessing(typeNumberProcess aSeries) -
      * metoda zwracajaca sredni czas przetwarzania wskazanej serii.
      * PRE:
      * - podanie serii procesow (typ: typeNumberProcess);
      * POST:
      * - zwrocenie wartosci sredniej czasu przetwarzania wskazanej
-     * serii (typ: typeTime).
+     * serii (typ: double).
      */
-    inline typeTime getAverageTimeProcessing(typeNumberProcess aSeries)
+    inline double getAverageTimeProcessing(typeNumberProcess aSeries)
     {
         return tabAverageTimeProcessing[aSeries];
     }
@@ -611,10 +576,45 @@ public:
      */
     void mWriteResultsToFile(enumAlgorithms aAlgorithm);
 
-    /********** PUBLIC: END **********/
-};
+/********** PUBLIC: END **********/
 
-#endif // CSHEDULINGALGORITHMS_HPP
+/********** PRIVATE: BEGINNING **********/
+
+private:
+
+    /*
+     * cProcess tabProcesses[constSeries][constProcesses] - tablica
+     * procesow, ktore sa przetwarzane przez kolejne algorytmy. Zebrane
+     * w okreslonej liczbie ciagow.
+     */
+    cProcess tabProcesses[constSeries][constProcesses];
+
+    /*
+     * typeTime tabTotalTimeDoing[constSeries] - tablica sumarycznych
+     * czasow dzialanie procesow.
+     */
+    typeTime tabTotalTimeDoing[constSeries];
+
+    /*
+     * double tabAverageTimeDoing[constSeries] - tablica srednich czasow
+     * dzialanie procesow.
+     */
+    double tabAverageTimeDoing[constSeries];
+
+    /*
+     * typeTime tabTotalTimeProcessing[constSeries] - tablica sumarycznych
+     * czasow przetwarzania procesow.
+     */
+    typeTime tabTotalTimeProcessing[constSeries];
+
+    /*
+     * double tabAverageTimeProcessing[constSeries] - tablica srednich
+     * czasow przetwarzania procesow.
+     */
+    double tabAverageTimeProcessing[constSeries];
+
+/********** PRIVATE: END **********/
+};
 
 /* cshedulingalgorithms.hpp */
 /********** END_OF_FILE **********/

@@ -4,8 +4,7 @@
  * file: cprocess.hpp
  */
 
-#ifndef CPROCESS_HPP
-#define CPROCESS_HPP
+#pragma once
 
 #include "constantsandtypes.hpp"
 #include <iomanip>
@@ -16,59 +15,10 @@
  */
 class cProcess
 {
-    /********** PRIVATE: BEGINNING **********/
+/********** PUBLIC: BEGINNING **********/
 
-        /*
-         * typeTime vTimeReadiness - czas uplywajacy od momentu
-         * rozpoczecie przetwarzania procesow do momentu gotowosci
-         * procesu do wykonywania.
-         */
-    typeTime vTimeReadiness;
-
-    /*
-     * typeTime vTimeReady - czas do momentu gotowosci jaki
-     * juz uplynal.
-     */
-    typeTime vTimeReady;
-
-    /*
-     * typeTime vTimeToReady - czas do momentu gotowosci jaki
-     * jeszcze pozostal.
-     */
-    typeTime vTimeToReady;
-
-    /*
-     * typeTime vTimeWaiting - czas oczekiwania na wykonanie
-     * procesu.
-     */
-    typeTime vTimeWaiting;
-
-    /*
-     * typeTime vTimeDoing - czas wykonywania procesu.
-     */
-    typeTime vTimeDoing;
-
-    /*
-     * typeTime vTimeDone - czas procesu jaki zostal juz wykonany.
-     */
-    typeTime vTimeDone;
-
-    /*
-     * typeTime vTimeToDo - czas jaki pozostal do calkowitego
-     * wykonania procesu.
-     */
-    typeTime vTimeToDo;
-
-    /*
-     * typeTime vTimeProcessing - calkowity czas przetwarzania
-     * procesu (oczekiwanie + wykonywanie).
-     */
-    typeTime vTimeProcessing;
-
-    /********** PRIVATE: END **********/
-
-    /********** PUBLIC: BEGINNING **********/
 public:
+
     /*
      * cProcess() - konstruktor wywolywany bez argumentow.
      * PRE:
@@ -353,10 +303,61 @@ public:
      */
     void mResetProcess();
 
-    /********** PUBLIC: END **********/
-};
+ /********** PUBLIC: END **********/
 
-#endif // CPROCESS_HPP
+ /********** PRIVATE: BEGINNING **********/
+ 
+private:
+
+    /*
+     * typeTime vTimeReadiness - czas uplywajacy od momentu
+     * rozpoczecie przetwarzania procesow do momentu gotowosci
+     * procesu do wykonywania.
+     */
+    typeTime vTimeReadiness;
+
+    /*
+     * typeTime vTimeReady - czas do momentu gotowosci jaki
+     * juz uplynal.
+     */
+    typeTime vTimeReady;
+
+    /*
+     * typeTime vTimeToReady - czas do momentu gotowosci jaki
+     * jeszcze pozostal.
+     */
+    typeTime vTimeToReady;
+
+    /*
+     * typeTime vTimeWaiting - czas oczekiwania na wykonanie
+     * procesu.
+     */
+    typeTime vTimeWaiting;
+
+    /*
+     * typeTime vTimeDoing - czas wykonywania procesu.
+     */
+    typeTime vTimeDoing;
+
+    /*
+     * typeTime vTimeDone - czas procesu jaki zostal juz wykonany.
+     */
+    typeTime vTimeDone;
+
+    /*
+     * typeTime vTimeToDo - czas jaki pozostal do calkowitego
+     * wykonania procesu.
+     */
+    typeTime vTimeToDo;
+
+    /*
+     * typeTime vTimeProcessing - calkowity czas przetwarzania
+     * procesu (oczekiwanie + wykonywanie).
+     */
+    typeTime vTimeProcessing;
+
+/********** PRIVATE: END **********/
+};
 
 /* cprocess.hpp */
 /********** END_OF_FILE **********/

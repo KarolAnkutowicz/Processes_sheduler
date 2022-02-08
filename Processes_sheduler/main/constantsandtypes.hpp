@@ -4,8 +4,7 @@
  * file: constantsandtypes.hpp
  */
 
-#ifndef CONSTANTSANDTYPES_HPP
-#define CONSTANTSANDTYPES_HPP
+#pragma once
 
 /*
  * enum enumAlgorithms - zdefiniowany typ wyliczeniowy
@@ -50,8 +49,6 @@ const typeNumberProcess constProcesses = 5;
  * typeNumberProcess constSeries - zdefiniowana liczba ciagow procesow.
  */
 const typeNumberProcess constSeries = 5;
-
-#endif // CONSTANTSANDTYPES_HPP
 
 /* constantsandtypes.hpp */
 /********** END_OF_FILE **********/
